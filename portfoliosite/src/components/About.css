@@ -1,0 +1,62 @@
+.AboutPage {
+   text-align: center; 
+}
+
+.header {
+    margin: 0 auto 0
+     auto;
+    padding-top: 5%;
+    padding-bottom: 10%;
+}
+
+.About {
+    background-color: #ffffff;
+    border-radius: 25px; 
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+    width: 75%;
+    height: auto;
+    margin: 0 0 0 11%;
+    position: relative;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.About-Text {
+    font-size: 20px;
+}
+
+.LinkedIn {
+    width : 100%;
+    height : 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    margin-top: -5%;
+}
+
+.LogoAndLink {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    height: fit-content;
+}
+
+.LinkedInImageContainer {
+    height : 5%;
+    width : 5%;
+}
+
+.LinkedInImageContainer img {
+    width : 100%;
+    height : 100%;
+    object-fit: contain;
+}
+
+.LinkedInLink {
+    font-size: 25px;
+}

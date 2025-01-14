@@ -1,0 +1,85 @@
+.Contact {
+    border-radius: 25px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    box-shadow: black;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    justify-self: center;
+    margin: 50px 0 0 0;
+}
+
+.Contact div {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.Contact form {
+    display: flex;
+    flex-direction: column;
+    width: 300px; /* Adjust as needed */
+    margin: auto; /* Centers the form */
+}
+
+.Contact label {
+    margin-top: 10px;
+    font-weight: bold; /* Optional: makes the label text more visible */
+}
+
+.Contact input[type="text"] {
+    margin-top: 5px;
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.Contact textarea {
+    margin-top: 5px;
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.Contact input[type="submit"] {
+    margin-top: 15px;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: blue;
+    color: white;
+    border-color: blue;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.Contact input[type="submit"]:hover {
+    margin-top: 15px;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: rgb(0, 5, 54);
+    color: grey;
+    border-color: rgb(0, 5, 54);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+textarea {
+    resize: both; /* Allow both vertical and horizontal resizing */
+    width: 100%; /* Optional: Make it take full width */
+    max-width: 100%; /* Prevent resizing beyond container width */
+    min-height: 100px; /* Set a minimum height */
+}

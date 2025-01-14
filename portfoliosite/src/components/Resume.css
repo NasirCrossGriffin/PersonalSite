@@ -1,0 +1,17 @@
+.Resume {
+    border-radius: 25px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    justify-self: center;
+    margin-top: 2.5%;
+}
+
+.ResumeCont {
+    padding: 25px 25px 25px 25px;
+    font-size: 20px;
+}
