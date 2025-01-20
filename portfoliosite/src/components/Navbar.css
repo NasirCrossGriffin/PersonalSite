@@ -13,7 +13,7 @@
 
 .NavBar .Link {
     color: white;
-    font-size: 50px;
+    font-size: 3vw;
     font-weight: bold;
     margin: 0px 5% 0px 5%;
     padding-top: 15px;
@@ -22,10 +22,5 @@
 
 .NavBar .Link:hover {
     color: rgb(0, 5, 54);
-    font-size: 50px;
-    font-weight: bold;
-    margin: 0px 5% 0px 5%;
-    padding-top: 15px;
-    padding-bottom: 15px;
 }
 

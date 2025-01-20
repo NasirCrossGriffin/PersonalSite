@@ -1,6 +1,5 @@
 import './LandingPage.css';
 import React, { useState, useCallback } from 'react';
-import portrait from '../static/IMG_8092.jpg';
 
 function LandingPage() {
     return(
@@ -10,7 +9,7 @@ function LandingPage() {
                     <h1 className="header1">Welcome To Nasir's Site!</h1>
                     <h2 className="header2">Please use the navbar to navigate to different pages.</h2>
                 </div>
-                <img src={portrait} alt="Portrait" className="Portrait"/>
+                <img src='/static/IMG_8092.png' alt="Portrait" className="Portrait"/>
             </div>
         </div>
     );

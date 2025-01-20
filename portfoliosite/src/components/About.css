@@ -7,6 +7,7 @@
      auto;
     padding-top: 5%;
     padding-bottom: 10%;
+    font-size : 5vw
 }
 
 .About {
@@ -46,9 +47,20 @@
     height: fit-content;
 }
 
-.LinkedInImageContainer {
-    height : 5%;
-    width : 5%;
+@media (min-width : 390px) {
+    .LinkedInImageContainer {
+        height : 10%;
+        width : 10%;
+        margin-right: 1vw;
+    }
+}
+
+@media (min-width : 768px) {
+    .LinkedInImageContainer {
+        height : 5%;
+        width : 5%;
+        margin-right: 1vw;
+    }
 }
 
 .LinkedInImageContainer img {
@@ -57,6 +69,14 @@
     object-fit: contain;
 }
 
-.LinkedInLink {
-    font-size: 25px;
+@media (min-width : 390px) {
+    .LinkedInLink {
+        font-size: 20px;
+    }
+}
+    
+@media (min-width : 768px) {
+    .LinkedInLink {
+        font-size: 25px;
+    }
 }

@@ -6,18 +6,43 @@
     padding-top: 5%;
 }
 
-.LandingPage {
-    display: flex; 
-    justify-content: center;
-    width: 100%;
-    height: 100%;
+@media (min-width : 390px) {
+    .LandingPage {
+        display: flex; 
+        flex-direction : column;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+    }
 }
 
-.Portrait {
-    height : 500px;
-    width : auto;
-    position : relative;
-    margin : 0px 5% 0px 5%
+@media (min-width : 768px) {
+    .LandingPage {
+        display: flex; 
+        justify-content: center;
+        flex-direction : row;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media (min-width : 390px) {
+    .Portrait {
+        height : 250px;
+        width : auto;
+        position : relative;
+        margin : 0px 5% 0px 5%
+    }
+}
+
+@media (min-width : 768px) {
+    .Portrait {
+        height : 500px;
+        width : auto;
+        position : relative;
+        margin : 0px 5% 0px 5%
+    }
 }
 
 .Welcome {

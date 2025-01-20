@@ -16,6 +16,13 @@ function Projects() {
             image : "/static/oppst-logo.jpg", 
             description : "A site made to host the Online Philadelphia Pointing Span Test developed using Django and HTMX.", 
             link : "https://docs.google.com/presentation/d/1C48mTB3q1vYIXQIC--kedldmwOEuUba7Y0u6F14XXhg/edit#slide=id.p1"
+        },
+
+        {
+            name : "MyRPG (Under Development)", 
+            image : "/static/MyRPG.png", 
+            description : "A self-improvement app allowing users to log progress and track personal development metrics.", 
+            link : "https://github.com/NasirCrossGriffin/MyRPG"
         }
     ]
 

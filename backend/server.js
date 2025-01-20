@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors'); // Import cors
 require('dotenv').config();
-
+const path = require('path');
 const app = express()
 
 app.use(cors());
@@ -20,6 +20,12 @@ db.once('open', () => console.log('Connected to Database'))
 const contactRouter = require('./routes/contactroutes');
 
 app.use('/contact', contactRouter);
+
+app.use(express.static(path.join(__dirname, "build")));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, "build", "index.html"));
+});
 
 const PORT = process.env.PORT || 3001; // Use $PORT in production, 3001 for local dev
 app.listen(PORT, () => {
