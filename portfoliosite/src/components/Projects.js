@@ -10,7 +10,7 @@ function Projects() {
             description : "An e-comnmerce store for purchasing retro video games developed in the MERN stack.", 
             languages : ["/static/logos/Javascript.webp"],
             frontend : ["/static/logos/React.png"],
-            backend : ["/static/logos/Nodejs.png"],
+            backend : ["/static/logos/Nodejs_img.png"],
             database : ["/static/logos/Mongodb.png"],
             link : "http://www.retro-resell.com/storefront/Home"
         },
@@ -33,7 +33,7 @@ function Projects() {
             languages : ["/static/logos/Java.png", "/static/logos/Typescript.png"],
             frontend : ["/static/logos/Angular.png"],
             backend : ["/static/logos/Spring-Boot.png"],
-            database : ["/static/logos/MySQL.png"],
+            database : ["/static/logos/MySQL_img.png"],
             link : "https://github.com/NasirCrossGriffin/MyRPG"
         }
     ]
