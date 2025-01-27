@@ -68,39 +68,45 @@ function Contact() {
                         <p>Thank you for contacting me, please check your email to confirm that your contact was sent!</p>
                     </div>
                 ) : (
-                    <div>
-                        <form method="POST" onSubmit={(e) => submitHandler(e)}>
-                            <label htmlFor="company">Company</label>
-                            <input
-                                type="text"
-                                name="company"
-                                id="company"
-                                onChange={(e) => updateCompany(e)}
-                            />
-                            <label htmlFor="email">Email</label>
-                            <input
-                                type="text"
-                                name="email"
-                                id="email"
-                                onChange={(e) => updateEmail(e)}
-                            />
-                            <label htmlFor="phone-number">Phone Number</label>
-                            <input
-                                type="text"
-                                name="phone number"
-                                id="phone-number"
-                                onChange={(e) => updatePhonenumber(e)}
-                            />
-                            <label htmlFor="message">Message</label>
-                            <textarea
-                                name="message"
-                                id="message"
-                                rows="5" // Default number of rows
-                                cols="30" // Default number of columns
-                                onChange={(e) => updateMessage(e)}
-                            />
-                            <input type="submit" />
-                        </form>
+                    <div className="ContactContainer">
+                        <div className="BannerAndForm">
+                            <h1 className="ContactBanner">CONTACT</h1>
+                            <div className="FormContainer">
+                                <form method="POST" onSubmit={(e) => submitHandler(e)}>
+                                    <label htmlFor="company">Company</label>
+                                    <input
+                                        type="text"
+                                        name="company"
+                                        id="company"
+                                        onChange={(e) => updateCompany(e)}
+                                    />
+                                    <label htmlFor="email">Email</label>
+                                    <input
+                                        type="text"
+                                        name="email"
+                                        id="email"
+                                        onChange={(e) => updateEmail(e)}
+                                    />
+                                    <label htmlFor="phone-number">Phone Number</label>
+                                    <input
+                                        type="text"
+                                        name="phone number"
+                                        id="phone-number"
+                                        onChange={(e) => updatePhonenumber(e)}
+                                    />
+                                    <label htmlFor="message">Message</label>
+                                    <textarea
+                                        name="message"
+                                        id="message"
+                                        rows="5" // Default number of rows
+                                        cols="30" // Default number of columns
+                                        onChange={(e) => updateMessage(e)}
+                                    />
+                                    <input type="submit" />
+                                </form>
+                            </div>
+                        </div>
+                        <h1 className="ContactInstructions">FILL OUT THE FORM<br />TO SEND ME AN EMAIL</h1>
                     </div>
                 )}
             </div>

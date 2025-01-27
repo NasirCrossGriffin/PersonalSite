@@ -1,15 +1,75 @@
 import './LandingPage.css';
-import React, { useState, useCallback } from 'react';
+import React, { useState, useRef, useCallback,useEffect } from 'react';
+import { CSSTransition } from 'react-transition-group';
 
 function LandingPage() {
+    const welcomeRef = useRef(null);
+    const navigateRef = useRef(null);
+    const [showWelcome, setShowWelcome] = useState(false);
+    const [showNavigate, setShowNavigate] = useState(false);
+
+    useEffect(() => {
+        setShowWelcome(true);
+      }, []);
+
+
+    useEffect(() => {
+        if (showWelcome === true) {
+            setShowNavigate(false)
+            const timeoutId = setTimeout(() => {
+            setShowWelcome(false)
+            }, 5000);
+        
+            return () => clearTimeout(timeoutId); // Clear the timeout on unmount
+        }
+      }, [showWelcome]);
+
+      useEffect(() => {
+        if (showNavigate === true) {
+            setShowWelcome(false)
+            const timeoutId = setTimeout(() => {
+            setShowNavigate(false)
+            }, 5000);
+        
+            return () => clearTimeout(timeoutId); // Clear the timeout on unmount
+        }
+      }, [showNavigate]);
+
     return(
         <div className="container">
             <div className="LandingPage">
-                <div className="Welcome">
-                    <h1 className="header1">Welcome To Nasir's Site!</h1>
-                    <h2 className="header2">Please use the navbar to navigate to different pages.</h2>
+                <div className='LandingPageText'>
+                    <div className="Introduction">
+                        <h1 className='IntroductionText'>NASIR GRIFFIN<br/>FULL-STACK WEB DEVELOPER</h1>
+                    </div>
+                    <div className="Welcome">
+                        <CSSTransition 
+                            nodeRef={welcomeRef} 
+                            in={showWelcome} 
+                            timeout={1000} 
+                            classNames="welcome-node"
+                            unmountOnExit
+                            onExited={() => setShowNavigate(true)}
+                        >    
+                            <h1 className="header1" ref={welcomeRef} variant="primary" dismissible>WELCOME</h1>
+                        </CSSTransition>
+
+                        <CSSTransition 
+                            nodeRef={navigateRef} 
+                            in={showNavigate} 
+                            timeout={1000} 
+                            classNames="Navigate-node"
+                            unmountOnExit
+                            onExited={() => setShowWelcome(true)}
+                        >
+                            <h2 className="header2" ref={navigateRef} variant="primary" dismissible>PLEASE USE THE NAVBAR TO NAVIGATE.</h2>
+                        </CSSTransition>
+                    </div>
                 </div>
-                <img src='/static/IMG_8092.png' alt="Portrait" className="Portrait"/>
+                <div className='PortraitContainer'>
+                    <img src='/static/pngimg.com - griffin_PNG48.png' alt="Portrait" className="Portrait"/>
+                </div>
+                
             </div>
         </div>
     );

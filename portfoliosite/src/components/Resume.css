@@ -17,12 +17,26 @@
     display: flex;
     justify-self: center;
     margin-top: 2.5%;
+    box-sizing: border-box;
 }
 
 @media (min-width : 390px) {
     .ResumeCont {
+        max-width: 100%;
+        width : 100%;
+        height : 100%;
         padding: 25px 25px 25px 25px;
         font-size: 15px;
+        word-wrap: break-word; /* Ensure long words wrap */
+        overflow-wrap: break-word; /* Handle long words in modern browsers */
+        white-space: normal; /* Ensure text wraps normally */
+    }
+
+    .ResumeCont p {
+        object-fit: contain;
+        font-size: 8px;
+        width: 100%;
+        height: 100%;
     }
 }
 
@@ -31,18 +45,13 @@
         padding: 25px 25px 25px 25px;
         font-size: 20px;
     }
-}
 
-@media (min-width : 390px) {
-    .ResumeCont {
-        padding: 25px 25px 25px 25px;
-        font-size: 15px;
-    }
-}
-
-@media (min-width : 768px) {
-    .ResumeCont {
-        padding: 25px 25px 25px 25px;
+    .ResumeCont p {
+        object-fit: contain;
         font-size: 20px;
+        
     }
 }
+
+
+

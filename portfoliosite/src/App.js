@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import Projects from './components/Projects';
 import Resume from './components/Resume';
 import { BrowserRouter, Navigate, Routes, Route, redirect} from "react-router-dom";
+import "./App.css"
 
 function App() {
 

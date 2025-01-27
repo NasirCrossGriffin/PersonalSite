@@ -1,26 +1,137 @@
+@font-face {
+    font-family: GlitchFont;
+    src: url('../assets/fonts/CfGlitchCityRegular-L1vZ.ttf');
+  }
+
 .AboutPage {
-   text-align: center; 
+    width: 100%;
+    height: 100%;
 }
 
 .header {
-    margin: 0 auto 0
-     auto;
+    margin: 0 auto 0 auto;
     padding-top: 5%;
     padding-bottom: 10%;
-    font-size : 5vw
+    text-align: center;
+    font-size : 5vw;
+    font-family: GlitchFont;
+    color: white;
 }
 
 .About {
-    background-color: #ffffff;
-    border-radius: 25px; 
-    border-color: black;
-    border-width: 2px;
-    border-style: solid;
-    width: 75%;
-    height: auto;
-    margin: 0 0 0 11%;
-    position: relative;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width : 390px) {
+    .About {
+        align-items: center;
+    }
+}
+
+@media (min-width : 768px) {
+    .About {
+        align-items: flex-start;
+    }
+}
+
+.SectionContainer {
+    width: 50%;
+    height : 700px;
+}
+
+.NameAndLogo {
+    width : 100%;
+    height : 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.SectionLogoContainer {
+    width : 20%;
+    height : 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 25px;
+}
+
+.SectionLogoContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.SectionName {
+    color: white;
+    font-size: 35px;
+    font-family: GlitchFont;
+}
+
+@media (min-width : 390px) {
+    .SectionName {
+        font-size: 15px;
+    }
+}
+
+@media (min-width : 768px) {
+    .SectionName {
+        font-size: 35px;
+    }
+}
+
+
+.SectionSeparator {
+    width: 100%;
+    height: 5px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding-right: 25px;
+    padding-left: 25px;
+    background-color: white;
+    box-shadow: 5px 5px 2px 1px rgba(0, 0, 0, 0.164);
+}
+
+.TextAndImageContainer {
+    width: 100%;
+    height : 70%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    justify-content: center;
+    padding: 25px 25px 25px 25px;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.164);
+}
+
+@media (min-width : 390px) {
+    .TextAndImageContainer {
+        font-size: 12px;
+    }
+}
+
+@media (min-width : 768px) {
+    .TextAndImageContainer {
+        font-size: 20px;
+    }
+}
+
+.SectionImageContainer {
+    width: 50%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.SectionImageContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .About-Text {
@@ -38,27 +149,42 @@
     margin-top: -5%;
 }
 
-.LogoAndLink {
+.LinkedInLogoAndLink {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     width: fit-content;
     height: fit-content;
+    background-color: white;
+    padding: 25px 25px 25px 25px;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.164);
+}
+
+@media (min-width : 390px) {
+    .LinkedInLogoAndLink {
+        width: 30%;
+    }
+}
+
+@media (min-width : 768px) {
+    .LinkedInLogoAndLink {
+        width: 20%;
+    }
 }
 
 @media (min-width : 390px) {
     .LinkedInImageContainer {
-        height : 10%;
-        width : 10%;
+        height : 100%;
+        width : 50%;
         margin-right: 1vw;
     }
 }
 
 @media (min-width : 768px) {
     .LinkedInImageContainer {
-        height : 5%;
-        width : 5%;
+        height : 100%;
+        width : 50%;
         margin-right: 1vw;
     }
 }
@@ -71,7 +197,8 @@
 
 @media (min-width : 390px) {
     .LinkedInLink {
-        font-size: 20px;
+        font-size: 15px;
+        font-family: GlitchFont;
     }
 }
     
