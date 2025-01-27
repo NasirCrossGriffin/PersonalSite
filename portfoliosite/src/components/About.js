@@ -21,7 +21,7 @@ function LandingPage() {
             name: "EXPERIENCE", 
             headerimage: "/static/238388.png", 
             image: "/static/logo-artboard_2_4x_4x.webp", 
-            text:"As a junior developer and new graduate, I am looking for opportunities to gain experience in the industry and am actively seeking employment opportunities. I do however still have experience developing full stack web applications and deploying them through the personal projects I have debeloped, as well as through the various projects I completed at Rowan University. I have experience working on a team wth the SCRUM framework through my work with ASRC Federal on a Dynamic Tracing Tools Testing Environment." 
+            text:"As a junior developer and new graduate, I am looking for opportunities to gain experience in the industry and am actively seeking employment opportunities. I do however still have experience developing full stack web applications and deploying them through the personal projects I have debeloped, as well as through the various projects I completed at Rowan University. I have experience working on a team with the SCRUM framework through my work with ASRC Federal on a Dynamic Tracing Tools Testing Environment." 
         },
     ]
 
