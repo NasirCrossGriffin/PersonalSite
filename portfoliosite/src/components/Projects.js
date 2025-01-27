@@ -9,7 +9,8 @@ function Projects() {
             image : "/static/Retroresell.jpg", 
             description : "An e-comnmerce store for purchasing retro video games developed in the MERN stack.", 
             languages : ["/static/logos/Javascript.webp"],
-            frontend : ["/static/logos/NJS.png"],
+            frontend : ["/static/logos/React.png"],
+            backend : ["/static/logos/NJS.png"],
             database : ["/static/logos/Mongodb.png"],
             link : "http://www.retro-resell.com/storefront/Home"
         },
