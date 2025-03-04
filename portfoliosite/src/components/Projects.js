@@ -27,14 +27,14 @@ function Projects() {
         },
 
         {
-            name : "MYRPG UNDER DEVELOPMENT", 
+            name : "MYRPG", 
             image : "/static/MyRPG.png", 
-            description : "A self-improvement app allowing users to log progress and track personal development metrics.", 
+            description : "a social media and self-improvement app where users can make an account and share their different experiences. By sharing more experiences, users can increase their stats for the class they chose for their account, and increase their level.", 
             languages : ["/static/logos/Java.png", "/static/logos/Typescript.png"],
             frontend : ["/static/logos/Angular.png"],
             backend : ["/static/logos/Spring-Boot.png"],
             database : ["/static/logos/MSQ.png"],
-            link : "https://github.com/NasirCrossGriffin/MyRPG"
+            link : "https://myrpg-dd3b021ef1ed.herokuapp.com/"
         }
     ]
 
