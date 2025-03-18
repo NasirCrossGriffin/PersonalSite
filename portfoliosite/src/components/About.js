@@ -1,7 +1,9 @@
 import './About.css';
-import React, { useState, useCallback } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 
 function LandingPage() {
+    
+    const [observer, setObserver] = useState(null);
     const Sections = [
         {
             name: "EDUCATION", 
@@ -24,24 +26,89 @@ function LandingPage() {
             text:"As a junior developer and new graduate, I am looking for opportunities to gain experience in the industry and am actively seeking employment opportunities. I do however still have experience developing full stack web applications and deploying them through the personal projects I have debeloped, as well as through the various projects I completed at Rowan University. I have experience working on a team with the SCRUM framework through my work with ASRC Federal on a Dynamic Tracing Tools Testing Environment." 
         },
     ]
+    const sectionRefs = useRef(Sections.map(() => React.createRef()));
+    const visibilityList = (sectionRefs.current.map((ref) => ({ ref: ref, visibility: false })));
+    const [visibilityState, setVisibilityState] = useState(visibilityList);
+
+
+    useEffect(() => {
+
+
+        console.log("Section refs after mount:", sectionRefs.current.map(ref => ref.current));
+        console.log(sectionRefs)
+        if (observer === null) {
+            setObserver(new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    console.log(entry.target)
+                    if (entry.isIntersecting) {
+                        var index = 0;
+                        sectionRefs.current.forEach((ref) => {
+                            if (entry.target === ref.current) {
+                                console.log("section " + index + " is currently intersecting")
+                                visibilityList[index].visibility = true;
+                                const updatedVisibilityList = []
+                                visibilityList.forEach((item) => updatedVisibilityList.push(item))
+                                setVisibilityState(updatedVisibilityList)  
+                            } 
+                            index++;
+                        }) 
+                    } else {
+                        var index = 0;
+                        sectionRefs.current.forEach((ref) => {
+                            if (entry.target === ref.current) {
+                                console.log("section " + index + " is currently not intersecting")
+                                visibilityList[index].visibility = false;
+                                const updatedVisibilityList = []
+                                visibilityList.forEach((item) => updatedVisibilityList.push(item))
+                                setVisibilityState(updatedVisibilityList)    
+                            } 
+                            index++;
+                        }) 
+                    }
+
+                    console.log(visibilityList) 
+                })
+            }, { threshold : 0.60}));
+        }
+    }, [])
+
+    useEffect(() => {
+        console.log(visibilityState); // This will log the updated state
+    }, [visibilityState]); // Runs whenever visibilityList updates
+
+    useEffect(() => {
+        if (observer !== null) {
+
+            console.log(observer)
+
+            sectionRefs.current.forEach((ref) => {
+                console.log(ref.current)
+                observer.observe(ref.current)
+            });
+        }
+    }, observer)
 
     return(
         <div className="AboutPage">
-            <h1 className="header">NASIR GRIFFIN</h1>
+            <div className="InitialSection Fade-In" >
+                <h1 className="header">NASIR GRIFFIN</h1>
+                <h2>SCROLL DOWN</h2>
+                
 
-            <div className="LinkedIn">
-                <div className="LinkedInLogoAndLink">
-                    <div className="LinkedInImageContainer">
-                        <img src="/static/LinkedIn_icon.svg.webp" alt="no image"/>
+                <div className="LinkedIn">
+                    <div className="LinkedInLogoAndLink">
+                        <div className="LinkedInImageContainer">
+                            <img src="/static/LinkedIn_icon.svg.webp" alt="no image"/>
+                        </div>
+                        <a className="LinkedInLink" href="https://www.linkedin.com/in/nasir-cross-griffin-a87b98303/">LINKEDIN</a>
                     </div>
-                    <a className="LinkedInLink" href="https://www.linkedin.com/in/nasir-cross-griffin-a87b98303/">LINKEDIN</a>
                 </div>
             </div>
 
             <div className="About">
                 {
                     Sections.map((section, index) => (
-                        <div className="SectionContainer">
+                        <div className="SectionContainer" ref={sectionRefs.current[index]} id={index} >
                             <div className="NameAndLogo">
                                 <div className="SectionLogoContainer">
                                     <img src={section.headerimage} />
@@ -49,11 +116,13 @@ function LandingPage() {
                                 <h1 className="SectionName">{section.name}</h1>
                             </div>
                             <div className="SectionSeparator"></div>
-                            <div className="TextAndImageContainer">
-                                <div className="SectionImageContainer">
-                                    <img src={section.image} />
+                            <div className='ContentContainer' >
+                                <div className={`TextAndImageContainer  ${visibilityState[index].visibility ? "Slide-Right" : "Slide-Left"}`}>
+                                    <div className="SectionImageContainer">
+                                        <img src={section.image} />
+                                    </div>
+                                    <p>{section.text}</p>
                                 </div>
-                                <p>{section.text}</p>
                             </div>
                         </div>
                     ))

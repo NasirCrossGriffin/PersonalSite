@@ -61,7 +61,7 @@ function Contact() {
     }
 
     return (
-        <div className="ContactPage">
+        <div className="ContactPage Fade-In">
             <div className="Contact">
                 {thank === true ? (
                     <div>

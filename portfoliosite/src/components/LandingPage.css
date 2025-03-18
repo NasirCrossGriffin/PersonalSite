@@ -14,6 +14,18 @@
     overflow: -moz-hidden-unscrollable;
 }
 
+@media (max-width : 1439px) {
+    .container {
+        margin-top: 60px;
+    }
+}
+
+@media (min-width : 1440px) {
+    .container {
+        margin-top: 110px;
+    }
+}
+
 @media (min-width : 390px) {
     .LandingPage {
         display: flex; 
@@ -133,4 +145,30 @@
 .Navigate-node-exit-active {
     opacity: 0; /* Transition to 0 opacity */
     transition: opacity 200ms ease-out; /* Smooth fade-out */
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+.Fade-In {
+    animation: fade-in 1.2s both;
+}
+
+@keyframes slide-up {
+    0% {
+        transform: translateY(1000px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.Slide-Up {
+    animation: slide-up 0.7s both;
 }

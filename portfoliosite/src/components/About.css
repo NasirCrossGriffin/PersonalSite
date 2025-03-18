@@ -3,17 +3,38 @@
     src: url('../assets/fonts/CfGlitchCityRegular-L1vZ.ttf');
   }
 
+.InitialSection {
+    width : 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .AboutPage {
     width: 100%;
     height: 100%;
 }
 
+
+
 .header {
+    margin: 0 auto 0 auto;
+    padding-top: 5%;
+    padding-bottom: 5px;
+    text-align: center;
+    font-size : 5vw;
+    font-family: GlitchFont;
+    color: white;
+}
+
+.AboutPage .InitialSection h2 {
     margin: 0 auto 0 auto;
     padding-top: 5%;
     padding-bottom: 10%;
     text-align: center;
-    font-size : 5vw;
+    font-size : 2vw;
     font-family: GlitchFont;
     color: white;
 }
@@ -39,7 +60,9 @@
 
 .SectionContainer {
     width: 50%;
-    height : 700px;
+    min-height : 700px;
+    height: fit-content;
+    margin-bottom: 50px;
 }
 
 .NameAndLogo {
@@ -98,13 +121,10 @@
 
 .TextAndImageContainer {
     width: 100%;
-    height : 70%;
     display: flex;
     flex-direction: column;
-    background-color: white;
     justify-content: center;
-    padding: 25px 25px 25px 25px;
-    box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.164);
+    
 }
 
 @media (min-width : 390px) {
@@ -206,4 +226,52 @@
     .LinkedInLink {
         font-size: 25px;
     }
+}
+
+.ContentContainer {
+    width: 100%;
+    height : 70%;
+    height: fit-content;
+    background-color: white;
+    padding: 25px 25px 25px 25px;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.164);
+}
+
+@keyframes slide-right {
+    0% {
+        transform: translate(-1000px);
+    }
+    100% {
+        transform: translate(0);
+    }
+}
+
+@keyframes slide-left {
+    0% {
+        transform: translate(0);
+    }
+    100% {
+        transform: translate(-1000px);
+    }
+}
+
+.Slide-Right {
+    animation: slide-right 0.7s both;
+}
+
+.Slide-Left {
+    animation: slide-left 0.7s both;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+.Fade-In {
+    animation: fade-in 1.2s both;
 }

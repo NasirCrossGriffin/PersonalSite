@@ -315,3 +315,58 @@
 .ProjectLink:hover {
     transform: scale(1.2);
 }
+
+.InitialSection {
+    width : 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes slide-up {
+    0% {
+        transform: translateY(1000px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity : 100%
+    }
+    100% {
+        opacity : 0%
+    }
+}
+
+.Slide-Up {
+    animation: slide-up 0.7s both;
+}
+
+.Fade-Out {
+    animation: fade-out 0.7s both;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+.Fade-In {
+    animation: fade-in 1.2s both;
+}
+
+.Projects .InitialSection h2 {
+    text-align: center;
+    font-size : 2vw;
+    font-family: GlitchFont;
+    color: white;
+}

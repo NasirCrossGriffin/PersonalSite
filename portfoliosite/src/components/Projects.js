@@ -1,5 +1,5 @@
 import './Projects.css';
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useRef, useEffect } from 'react';
 
 function Projects() {
 
@@ -37,24 +37,89 @@ function Projects() {
             link : "https://myrpg-dd3b021ef1ed.herokuapp.com/"
         }
     ]
+        const projectRefs = useRef(projects.map(() => React.createRef()));
+        const visibilityList = (projectRefs.current.map((ref) => ({ ref: ref, visibility: false })));
+        const [visibilityState, setVisibilityState] = useState(visibilityList);
+        const [observer, setObserver] = useState(null);
+        
+
+        useEffect(() => {
+        
+        
+                console.log("Section refs after mount:", projectRefs.current.map(ref => ref.current));
+                console.log(projectRefs)
+                if (observer === null) {
+                    setObserver(new IntersectionObserver((entries) => {
+                        entries.forEach((entry) => {
+                            console.log(entry.target)
+                            if (entry.isIntersecting) {
+                                var index = 0;
+                                projectRefs.current.forEach((ref) => {
+                                    if (entry.target === ref.current) {
+                                        console.log("project " + index + " is currently intersecting")
+                                        visibilityList[index].visibility = true;
+                                        const updatedVisibilityList = []
+                                        visibilityList.forEach((item) => updatedVisibilityList.push(item))
+                                        setVisibilityState(updatedVisibilityList)  
+                                    } 
+                                    index++;
+                                }) 
+                            } else {
+                                var index = 0;
+                                projectRefs.current.forEach((ref) => {
+                                    if (entry.target === ref.current) {
+                                        console.log("section " + index + " is currently not intersecting")
+                                        visibilityList[index].visibility = false;
+                                        const updatedVisibilityList = []
+                                        visibilityList.forEach((item) => updatedVisibilityList.push(item))
+                                        setVisibilityState(updatedVisibilityList)    
+                                    } 
+                                    index++;
+                                }) 
+                            }
+        
+                            console.log(visibilityList) 
+                        })
+                    }, { threshold : 0.60}));
+                }
+            }, [])
+        
+            useEffect(() => {
+                console.log(visibilityState); // This will log the updated state
+            }, [visibilityState]); // Runs whenever visibilityList updates
+        
+            useEffect(() => {
+                if (observer !== null) {
+        
+                    console.log(observer)
+        
+                    projectRefs.current.forEach((ref) => {
+                        console.log(ref.current)
+                        observer.observe(ref.current)
+                    });
+                }
+            }, observer)
 
     return (
-        <div className="Projects">
-            <h1 className="ProjectsBanner">PROJECTS</h1>
-            <div className="Github">
-                <div className="GithubLogoAndLink">
-                    <div className="GithubImageContainer">
-                        <img src="/static/GitHub-Logo.png" alt="no image"/>
+        <div className="Projects Fade-In">
+            <div className='InitialSection'>
+                <h1 className="ProjectsBanner">PROJECTS</h1>
+                <h2>SCROLL DOWN</h2>
+                <div className="Github">
+                    <div className="GithubLogoAndLink">
+                        <div className="GithubImageContainer">
+                            <img src="/static/GitHub-Logo.png" alt="no image"/>
+                        </div>
+                        <a className="GithubLink" href="https://github.com/NasirCrossGriffin">GITHUB</a>
                     </div>
-                    <a className="GithubLink" href="https://github.com/NasirCrossGriffin">GITHUB</a>
                 </div>
             </div>
 
             <div className="ListOfProjects">
                 {  
                     projects.map((project, index) => (
-                        <div key={index} className="ProjectContainer">
-                            <div className="Project">
+                        <div key={index} className="ProjectContainer" ref={projectRefs.current[index]}>
+                            <div className={`Project ${visibilityState[index].visibility ? "Slide-Up" : "Fade-Out"}`}>
                                 <p className="ProjectName">{project.name}</p>
                                 <div className="ImgAndDesc">
                                     <div className="ProjectImageContainer">
