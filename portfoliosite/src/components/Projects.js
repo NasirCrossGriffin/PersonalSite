@@ -5,6 +5,17 @@ function Projects() {
 
     const projects = [
         {
+            name : "GET YOUR START", 
+            image : "/static/GetYourStart.jfif", 
+            description : "Get your start is an application to help those who are struggling to break into the workforce during this difficult period where entry level jobs are disappearing. This application aggregates output from multiple job APIs and filters them to return true entry level jobs. Users can save jobs they're interested in to their personal list of saved jobs.", 
+            languages : ["/static/logos/Java.png", "/static/logos/Typescript.png"],
+            frontend : ["/static/logos/Angular.png"],
+            backend : ["/static/logos/Spring-Boot.png"],
+            database : ["/static/logos/Postgresql.png"],
+            link : "https://getyourstart-81c23cb78e24.herokuapp.com"
+        },
+
+        {
             name : "RETRORESELL", 
             image : "/static/Retroresell.jpg", 
             description : "An e-comnmerce store for purchasing retro video games developed in the MERN stack.", 
@@ -44,8 +55,8 @@ function Projects() {
         
 
         useEffect(() => {
-        
-        
+                window.scrollTo(0, 0)
+                
                 console.log("Section refs after mount:", projectRefs.current.map(ref => ref.current));
                 console.log(projectRefs)
                 if (observer === null) {
@@ -110,7 +121,7 @@ function Projects() {
                         <div className="GithubImageContainer">
                             <img src="/static/GitHub-Logo.png" alt="no image"/>
                         </div>
-                        <a className="GithubLink" href="https://github.com/NasirCrossGriffin">GITHUB</a>
+                        <a className="GithubLink" href="https://github.com/NasirCrossGriffin" target="_blank">GITHUB</a>
                     </div>
                 </div>
             </div>
@@ -180,7 +191,7 @@ function Projects() {
                                         </div>
                                     </div>
                                 </div>
-                                <a className="ProjectLink" href={project.link}>CHECK OUT {project.name}</a>
+                                <a className="ProjectLink" href={project.link} target="_blank">CHECK OUT {project.name}</a>
                             </div>
                         </div>
                     ))

@@ -10,6 +10,7 @@ function Navbar() {
         {page : "About", link : "/about", isHovered : false, linkRef : React.createRef()},
         {page : "Projects", link : "/projects", isHovered : false, linkRef : React.createRef()},
         {page : "Contact", link : "/contact", isHovered : false, linkRef : React.createRef()},
+        {page : "Blog", link : "https://nasir-blog-792bbfe2e46b.herokuapp.com/home", isHovered : false, linkRef : React.createRef()},
     ])
 
     const handleMouseEnter = (index) => {

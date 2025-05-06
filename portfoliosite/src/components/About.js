@@ -32,7 +32,7 @@ function LandingPage() {
 
 
     useEffect(() => {
-
+        window.scrollTo(0, 0);
 
         console.log("Section refs after mount:", sectionRefs.current.map(ref => ref.current));
         console.log(sectionRefs)
@@ -100,7 +100,7 @@ function LandingPage() {
                         <div className="LinkedInImageContainer">
                             <img src="/static/LinkedIn_icon.svg.webp" alt="no image"/>
                         </div>
-                        <a className="LinkedInLink" href="https://www.linkedin.com/in/nasir-cross-griffin-a87b98303/">LINKEDIN</a>
+                        <a className="LinkedInLink" href="https://www.linkedin.com/in/nasir-cross-griffin-a87b98303/" target="_blank">LINKEDIN</a>
                     </div>
                 </div>
             </div>

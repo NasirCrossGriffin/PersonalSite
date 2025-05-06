@@ -33,15 +33,17 @@
     width: 80%;
 }
 
-@media (min-width : 390px) {
+@media (max-width : 1439px) {
     .ProjectContainer {
-        height: 500px;
+        min-height: 500px;
+        height: fit-content;
     }
 }
 
-@media (min-width : 768px) {
+@media (min-width : 1440px) {
     .ProjectContainer {
-        height: 600px;
+        min-height: 700px;
+        height: fit-content;
     }
 }
 
@@ -60,7 +62,7 @@
     }
 }
 
-@media (min-width : 390px) {
+@media (max-width : 1439px) {
     .ProjectName {
         font-family: GlitchFont;
         font-weight: bold;
@@ -68,7 +70,7 @@
     }
 }
 
-@media (min-width : 768px) {
+@media (min-width : 1440px) {
     .ProjectName {
         font-family: GlitchFont;
         font-weight: bold;
@@ -76,7 +78,7 @@
     }
 }
 
-@media (min-width : 390px) {
+@media (max-width : 1439px) {
     .ImgAndDesc {
         display: flex;
         flex-direction: column;
@@ -86,25 +88,27 @@
     }
 }
 
-@media (min-width : 768px) {
+@media (min-width : 1440px) {
     .ImgAndDesc {
         display: flex;
         flex-direction: row;
         align-items: center;
-        width : 100%;
         height : fit-content;
     }
 }
 
-@media (min-width : 390px) {
+@media (max-width : 1439px) {
     .ProjectDesc {
         font-size: 12px;
     }
 }
 
-@media (min-width : 768px) {
+@media (min-width : 1440px) {
     .ProjectDesc {
         font-size: 20px;
+        width : 600px;
+        height: 100%;
+        text-wrap: wrap;
     }
 }
 
@@ -112,20 +116,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
-@media (min-width : 390px) {
+@media (max-width : 1439px) {
     .ProjectImageContainer {
-        width : 40%;
-        height : fit-content;
+        width : 100px;
+        height : 100px;
         margin-right: 20px;
     }
 }
 
-@media (min-width : 768px) {
+@media (min-width : 1440px) {
     .ProjectImageContainer {
-        width : 20%;
-        height : 20%;
+        width : 200px;
+        height : 200px;
         margin-right: 20px;
     }
 }
@@ -136,7 +141,6 @@
     width : 100%;
     height : auto;
     object-fit: contain;
-    max-height: 100px;
 }
 
 .Github {
@@ -160,28 +164,28 @@
     box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.164);
 }
 
-@media (min-width : 390px) {
+@media (max-width : 1439px) {
     .GithubLogoAndLink {
         width: 70%;
         height: 100px;
     }
 }
 
-@media (min-width : 768px) {
+@media (min-width : 1440px) {
     .GithubLogoAndLink {
         width: 20%;
         height: 100%;
     }
 }
 
-@media (min-width : 390px) {
+@media (max-width : 1439px) {
     .GithubImageContainer {
         height : 100%;
         width : 30%;
     }
 }
 
-@media (min-width : 768px) {
+@media (min-width : 1440px) {
     .GithubImageContainer {
         height : 100%;
         width : 50%;
@@ -194,14 +198,16 @@
     object-fit: contain;
 }
 
-@media (min-width : 390px) {
+@media (max-width : 1439px) {
     .GithubLink {
         font-size: 15px;
         font-family: GlitchFont;
     }
+
+    
 }
 
-@media (min-width : 768px) {
+@media (min-width : 1440px) {
     .GithubLink {
         font-size: 25px;
         font-family: GlitchFont;
@@ -209,7 +215,6 @@
 }
 
 .GithubLink:hover {
-    font-size: 25px;
     transform: scale(1.2);
 }
 
@@ -220,6 +225,7 @@
     width : 100%;
     height : 60%;
     max-width : 100%;
+    margin-bottom: 15px;
 }
 
 .Languages, .Frontend, .Backend, .Database {
@@ -243,10 +249,24 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width : 15%;
-    height: 100%;
+    width : 50px;
+    height: 50px;
     margin-left: 10px;
     margin-right: 10px;
+}
+
+@media (max-width : 1439px) {
+    .TechnologyCont {
+        width : 50px;
+        height: 50px;
+    }
+}
+
+@media (min-width : 1440px) {
+    .TechnologyCont {
+        width : 80px;
+        height: 80px;
+    }
 }
 
 .TechnologyCont img {
@@ -263,13 +283,13 @@
     font-weight: bold;
 }
 
-@media (min-width : 390px) {
+@media (max-width : 1439px) {
     .TechnologyType {
         font-size: 10px;
     }
 }
 
-@media (min-width : 768px) {
+@media (min-width : 1440px) {
     .TechnologyType {
         font-size: 25px;
     }
@@ -283,13 +303,13 @@
     width: 100%;
 }
 
-@media (min-width : 390px) {
+@media (max-width : 1439px) {
     .ProjectsBanner {
         font-size: 25px;
     }
 }
 
-@media (min-width : 768px) {
+@media (min-width : 1440px) {
     .ProjectsBanner {
         font-size: 50px;
     }
@@ -300,15 +320,17 @@
     transform: scale(1.2);
 }
 
-@media (min-width : 390px) {
+@media (max-width : 1439px) {
     .ProjectLink {
         font-size: 10px;
+        margin-top: 15px;
     }
 }
 
-@media (min-width : 768px) {
+@media (min-width : 1440px) {
     .ProjectLink {
         font-size: 25px;
+        margin-top: 15px;
     }
 }
 

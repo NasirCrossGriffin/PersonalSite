@@ -10,7 +10,10 @@ function Contact() {
 
     const BASE_URL = (process.env.NODE_ENV === "development" ? process.env.REACT_APP_API_URL : "")
 
-    useEffect(() => {console.log(BASE_URL)}, [])
+    useEffect(() => {
+        window.scrollTo(0, 0)
+        console.log(BASE_URL)
+    }, [])
     
 
     const updateCompany = (e) => {
