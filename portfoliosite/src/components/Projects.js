@@ -23,7 +23,7 @@ function Projects() {
             frontend : ["/static/logos/React.png"],
             backend : ["/static/logos/NJS.png"],
             database : ["/static/logos/Mongodb.png"],
-            link : "http://www.retro-resell.com/storefront/Home"
+            link : "http://www.retro-resell.com"
         },
 
         {
@@ -45,7 +45,7 @@ function Projects() {
             frontend : ["/static/logos/Angular.png"],
             backend : ["/static/logos/Spring-Boot.png"],
             database : ["/static/logos/MSQ.png"],
-            link : "https://myrpg-dd3b021ef1ed.herokuapp.com/"
+            link : "https://myrpgapp.com"
         }
     ]
         const projectRefs = useRef(projects.map(() => React.createRef()));

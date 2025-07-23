@@ -40,7 +40,7 @@ function LandingPage() {
             <div className="LandingPage Fade-In Slide-Up">
                 <div className='LandingPageText'>
                     <div className="Introduction">
-                        <h1 className='IntroductionText'>NASIR GRIFFIN<br/>FULL-STACK WEB DEVELOPER</h1>
+                        <h1 className='IntroductionText'>NASIR GRIFFIN<br/>SOFTWARE ENGINEER</h1>
                     </div>
                     <div className="Welcome">
                         <CSSTransition 

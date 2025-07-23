@@ -10,7 +10,6 @@
     align-items: center;
     justify-content: center;
     padding-top: 5%;
-    background-color: navy;
     overflow: -moz-hidden-unscrollable;
 }
 
@@ -33,7 +32,6 @@
         width: 100%;
         height: 100%;
         align-items: center;
-        background-color: navy;
     }
 }
 
@@ -45,7 +43,6 @@
         align-items: flex-start;
         width: 100%;
         height: 100%;
-        background-color: navy;
         overflow: hidden;
     }
 }
@@ -68,6 +65,7 @@
 @media (min-width : 768px) {
     .LandingPageText {
         font-size: 30px;
+        width: 1000px;
     }
 }
 
