@@ -33,6 +33,7 @@ function App() {
           <Route path="/resume" element={<Resume />}/> 
         </Routes>
       </BrowserRouter>
+      <div className='background'></div>
     </>
     
   );

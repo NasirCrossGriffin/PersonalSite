@@ -6,24 +6,37 @@ function LandingPage() {
     const [observer, setObserver] = useState(null);
     const Sections = [
     {
+        name: "EXPERIENCE", 
+        headerimage: "/static/238388.png", 
+        image: "/static/experience.png", 
+        text: `Founder and full-stack engineer delivering end-to-end solutions; from requirements and architecture through implementation, infrastructure, and launch. 
+        Built and shipped GetYourStart, a job-search platform featuring multi-API ingestion, geospatial and synonym-aware search, and an in-product feedback loop, deployed on a self-managed Ubuntu stack (Nginx, Docker, Spring Boot, PostgreSQL). 
+        Proficient in Java, TypeScript, and SQL, with a strong track record of product-focused execution.`
+    },
+
+    {
         name: "EDUCATION", 
         headerimage: "/static/open-book-icon-symbol-vector-free-vector-silhouette-graphics-ai-open-book-silhouette-png-800_800.png", 
         image: "/static/i.png", 
-        text: "I graduated from Rowan University in 2024 with my Bachelor of Science in Computer Science. Classes such as Data Structures and Algorithms, as well as Object-Oriented Programming and Data Abstraction, equipped me with knowledge of essential programming concepts. The Rowan curriculum prepared me for work in the industry and provided me the opportunity to develop a Dynamic Tracing Tools Testing Environment for ASRC Federal, as well as a trade study to display my findings from my own use of the tool. For my Senior Project, I and a team of other students developed a full-stack website to host the Online Philadelphia Pointing Span Test. To conclude, I have undergone and completed formal education in the field of computer science."
+        text: `I graduated from Rowan University in 2024 with my Bachelor of Science in Computer Science. 
+        Classes such as Data Structures and Algorithms, as well as Object-Oriented Programming and Data Abstraction, equipped me with knowledge of essential programming concepts. 
+        The Rowan curriculum prepared me for work in the industry and provided me the opportunity to develop a Dynamic Tracing Tools Testing Environment for ASRC Federal, as well as a trade study to display my findings from my own use of the tool. 
+        For my Senior Project, I and a team of other students developed a full-stack website to host the Online Philadelphia Pointing Span Test. To conclude, I have undergone and completed formal education in the field of computer science.`
     },
 
     {
         name: "SKILLS", 
         headerimage: "/static/68984377806c969d9504f0faaaede75f-computer-silhouette.webp", 
         image: "/static/1693764088119.png", 
-        text: "I am a full-stack web developer, meaning I am capable of developing both frontend UIs and backend APIs. My expertise is in the MERN stack, with most of my projects completed using this stack — including this very portfolio site. Despite my focus on the MERN stack, I also have experience with other frontend frameworks like Angular and HTMX. On the backend, I’ve worked with Django and Spring Boot. I am well-versed in the HTML5 markup language and experienced in creating modern CSS3 stylesheets. Many of my projects utilize AWS cloud services to host files and databases, through which I’ve learned to leverage cloud technology to power applications. All of the code for my projects, including this site, can be found on my GitHub, which is linked on the Projects page. An extensive list of my projects and the technologies I used to build them can also be found there."
-    },
-
-    {
-        name: "EXPERIENCE", 
-        headerimage: "/static/238388.png", 
-        image: "/static/logo-artboard_2_4x_4x.webp", 
-        text: "As a junior developer and new graduate, I am actively seeking opportunities to gain experience in the tech industry. I have developed full-stack web applications and deployed them through personal projects as well as academic work at Rowan University. I also have experience working in a team setting using the SCRUM framework during my collaboration with ASRC Federal on a Dynamic Tracing Tools Testing Environment."
+        text: `I am a full-stack web developer, meaning I am capable of developing both frontend UIs and backend APIs. 
+        My expertise is in the MERN stack, with most of my projects completed using this stack — including this very portfolio site. 
+        Despite my focus on the MERN stack, I also have experience with other frontend frameworks like Angular and HTMX. 
+        On the backend, I’ve worked with Django and Spring Boot. 
+        I am well-versed in the HTML5 markup language and experienced in creating modern CSS3 stylesheets. 
+        Many of my projects utilize AWS cloud services to host files and databases, 
+        through which I’ve learned to leverage cloud technology to power applications. 
+        All of the code for my projects, including this site, can be found on my GitHub, which is linked on the Projects page.
+        An extensive list of my projects and the technologies I used to build them can also be found there.`
     }
 ]
 

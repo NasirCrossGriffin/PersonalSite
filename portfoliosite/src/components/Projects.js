@@ -6,17 +6,18 @@ function Projects() {
     const projects = [
         {
             name : "GET YOUR START", 
-            image : "/static/GetYourStart.jfif", 
+            image : "/static/GetYourStart.png", 
             description : "Get your start is an application to help those who are struggling to break into the workforce during this difficult period where entry level jobs are disappearing. This application aggregates output from multiple job APIs and filters them to return true entry level jobs. Users can save jobs they're interested in to their personal list of saved jobs.", 
             languages : ["/static/logos/Java.png", "/static/logos/Typescript.png"],
             frontend : ["/static/logos/Angular.png"],
             backend : ["/static/logos/Spring-Boot.png"],
             database : ["/static/logos/Postgresql.png"],
-            link : "https://getyourstart-81c23cb78e24.herokuapp.com"
+            link : "https://www.get-your-start.com"
         },
 
+        /*
         {
-            name : "RETRORESELL", 
+            name : "RETRORESELL UNDER CONSTRUCTION", 
             image : "/static/Retroresell.jpg", 
             description : "An e-comnmerce store for purchasing retro video games developed in the MERN stack.", 
             languages : ["/static/logos/Javascript.webp"],
@@ -25,6 +26,7 @@ function Projects() {
             database : ["/static/logos/Mongodb.png"],
             link : "http://www.retro-resell.com"
         },
+        */
 
         {
             name : "OPPST SITE", 
@@ -40,7 +42,7 @@ function Projects() {
         {
             name : "MYRPG", 
             image : "/static/MyRPG.png", 
-            description : "a social media and self-improvement app where users can make an account and share their different experiences. By sharing more experiences, users can increase their stats for the class they chose for their account, and increase their level.", 
+            description : "A social media and self-improvement app where users can make an account and share their different experiences. By sharing more experiences, users can increase their stats for the class they chose for their account, and increase their level.", 
             languages : ["/static/logos/Java.png", "/static/logos/Typescript.png"],
             frontend : ["/static/logos/Angular.png"],
             backend : ["/static/logos/Spring-Boot.png"],
