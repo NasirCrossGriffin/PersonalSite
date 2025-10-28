@@ -114,17 +114,35 @@ function Projects() {
             }, observer)
 
     return (
-        <div className="Projects Fade-In">
-            <div className='InitialSection'>
-                <h1 className="ProjectsBanner">PROJECTS</h1>
-                <h2>SCROLL DOWN</h2>
-                <div className="Github">
-                    <div className="GithubLogoAndLink">
-                        <div className="GithubImageContainer">
-                            <img src="/static/GitHub-Logo.png" alt="no image"/>
+        <div className="Projects">
+            <div className="InitialSection Fade-In" >
+                <div class="ProjectInformation">
+                    <h1 className="header">PROJECTS</h1>
+                    <div className="divider"></div>
+                    <div className="ProjectPageDetails">
+                        <h2>BUILDER</h2>
+                        <p>I am a builder. I build software end-end that solves problems such as retro video game 
+                            preservation and the legitimacy of entry-level jobs. 
+                        </p>
+                        <h2>INFRASTRUCTURE</h2>
+                        <p>
+                            All of my work is hosted on my own ubuntu server, Ultron. Ultron is secured using Fail2Ban and UFW.
+                            Projects are containerized with docker and served using nginx.
+                        </p>
+                        <div className='Socials'>
+                            <div className="Github">
+                                <button>
+                                    <a href="https://github.com/NasirCrossGriffin" target="_blank">
+                                        <img src="/static/GitHub-Logo.png"/>
+                                    </a>
+                                </button>
+                            </div>
                         </div>
-                        <a className="GithubLink" href="https://github.com/NasirCrossGriffin" target="_blank">GITHUB</a>
                     </div>
+                </div>                    
+                
+                <div class="ProjectIMG">
+                        <img src="/static/Projects.png" />
                 </div>
             </div>
 

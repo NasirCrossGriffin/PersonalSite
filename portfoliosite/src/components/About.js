@@ -105,17 +105,46 @@ function LandingPage() {
     return(
         <div className="AboutPage">
             <div className="InitialSection Fade-In" >
-                <h1 className="header">NASIR GRIFFIN</h1>
-                <h2>SCROLL DOWN</h2>
-                
+                <div class="Information">
+                    <h1 className="header">WHO IS NASIR GRIFFIN</h1>
+                    <div className="divider"></div>
+                    <div className="PageDetails">
+                        <h2>FOUNDER</h2>
+                        <p>I am the founder of Get-Your-Start, an entry-level job board.</p>
+                        <h2>SOFTWARE ENGINEER</h2>
+                        <p>I've built multiple projects in many different stacks end-end, hosted on my own Ubuntu Server.</p>
+                        <h2>TECH CONTENT CREATOR</h2>
+                        <p>I produce tech content teaching software engineering skills and discussing my products.</p>
+                        <div className='Socials'>
+                            <div className="LinkedIn">
+                                <button>
+                                    <a href="https://www.linkedin.com/in/nasir-cross-griffin" target="_blank">
+                                        <img src="/static/LinkedIn_icon.svg.webp"/>
+                                    </a>
+                                </button>
+                            </div>
 
-                <div className="LinkedIn">
-                    <div className="LinkedInLogoAndLink">
-                        <div className="LinkedInImageContainer">
-                            <img src="/static/LinkedIn_icon.svg.webp" alt="no image"/>
+                            <div className="YouTube">
+                                <button>
+                                    <a href="https://www.youtube.com/@nasirgriffin-20XX" target="_blank">
+                                        <img src="/static/youtube-logo.png"/>
+                                    </a>
+                                </button>
+                            </div>
+
+                            <div className="GetYourStart">
+                                <button>
+                                    <a href="https://www.get-your-start.com" target="_blank">
+                                        <img src="/static/App Icon.png"/>
+                                    </a>
+                                </button>
+                            </div>
                         </div>
-                        <a className="LinkedInLink" href="https://www.linkedin.com/in/nasir-cross-griffin-a87b98303/" target="_blank">LINKEDIN</a>
                     </div>
+                </div>                    
+                
+                <div class="NasirGriffin">
+                        <img src="/static/Nasir Griffin.png" />
                 </div>
             </div>
 

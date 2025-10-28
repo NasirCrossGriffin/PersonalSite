@@ -4,12 +4,41 @@
   }
 
 .InitialSection {
-    width : 100%;
+    position: relative;
+    top: 0;
+    left : 0;
+    width : 100vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow-y: hidden;
+    margin-bottom: 75px;
+}
+
+@media (max-width : 1439px) {
+    .NasirGriffin {
+        width : 0px;
+        height: 0px;
+        display: none;
+    }
+}
+
+@media (min-width : 1440px) {
+    .NasirGriffin {
+        position: absolute;
+        height: 100vh;
+        left : 50px;
+        top : 120px;
+        overflow-y: hidden;
+    }
+}
+
+.NasirGriffin img {
+    width: 100%;
+    height : 100%;
+    overflow-y: hidden;
 }
 
 .AboutPage {
@@ -17,26 +46,206 @@
     height: 100%;
 }
 
+.Information {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+}
 
+@media (max-width : 1439px) {
+    .Information {
+        left : 50%;
+        transform: translate(-50%);
+        width : 300px;
+    }
+}
+
+@media (min-width : 1440px) {
+    .Information {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        right : 50px;
+        width : 1000px;
+    }
+}
+
+.Socials {
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+@media (max-width : 1439px) {
+    .Socials {
+        bottom : 20px;
+        right: 20px;
+        flex-direction: row;
+    }
+}
+
+@media (min-width : 1440px) {
+    .Socials {
+        top : 20px;
+        right: 20px;
+        flex-direction: column;
+    }
+}
+
+.LinkedIn {
+    width : 50px;
+    height: auto;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.LinkedIn button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: fit-content;
+    background-color: transparent;
+    border-width: 0px;
+}
+
+.LinkedIn img {
+    position: relative;
+    width: 50px;
+    height: auto;
+}
+
+.YouTube {
+    width : 50px;
+    height: auto;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.YouTube button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: fit-content;
+    background-color: transparent;
+    border-width: 0px;
+}
+
+.YouTube img {
+    position: relative;
+    width: 50px;
+    height: auto;
+}
+
+.GetYourStart {
+    width : 50px;
+    height: auto;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.GetYourStart button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: fit-content;
+    background-color: transparent;
+    border-width: 0px;
+}
+
+.GetYourStart img {
+    position: relative;
+    width: 50px;
+    height: auto;
+}
+
+.PageDetails {
+    background-color: black;
+    position: relative;
+    color: white;
+    width: 100%;
+    height: 450px;
+}
+
+.PageDetails p {
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    left: 80px;
+    width : 80%
+}
+
+@media (max-width : 1439px) {
+    .PageDetails p {
+        font-size: 15px;
+        left: 30px;
+    }
+}
+
+@media (min-width : 1440px) {
+    .PageDetails p {
+        font-size: 25px;
+        left: 85px;
+    }
+}
+
+.PageDetails h2 {
+    position: relative;
+    font-family: GlitchFont;
+}
+
+@media (max-width : 1439px) {
+    .PageDetails h2 {
+        font-size: 20px;
+        left: 20px;
+    }
+}
+
+@media (min-width : 1440px) {
+    .PageDetails h2 {
+        font-size: 30px;
+        left: 50px;
+    }
+}
+
+.divider {
+    width: 100%;
+    height : 5px;
+    background-color: white;
+    margin-bottom: 25px;
+}
 
 .header {
-    margin: 0 auto 0 auto;
-    padding-top: 5%;
-    padding-bottom: 5px;
     text-align: center;
-    font-size : 5vw;
     font-family: GlitchFont;
     color: white;
 }
 
-.AboutPage .InitialSection h2 {
-    margin: 0 auto 0 auto;
-    padding-top: 5%;
-    padding-bottom: 10%;
-    text-align: center;
-    font-size : 2vw;
-    font-family: GlitchFont;
-    color: white;
+@media (max-width : 1439px) {
+    .header {
+        font-size : 20px;
+    }
+}
+
+@media (min-width : 1440px) {
+    .header {
+        margin-top: 170px;
+        font-size : 50px;
+    }
 }
 
 .About {
@@ -158,28 +367,6 @@
     font-size: 20px;
 }
 
-.LinkedIn {
-    width : 100%;
-    height : 100px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 25px;
-    margin-top: -5%;
-}
-
-.LinkedInLogoAndLink {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: fit-content;
-    height: fit-content;
-    background-color: white;
-    padding: 25px 25px 25px 25px;
-    box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.164);
-}
 
 @media (min-width : 390px) {
     .LinkedInLogoAndLink {

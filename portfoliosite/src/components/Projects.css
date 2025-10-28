@@ -3,6 +3,256 @@
     src: url('../assets/fonts/CfGlitchCityRegular-L1vZ.ttf');
 }
 
+@media (max-width : 1439px) {
+    .ProjectIMG {
+        width : 0px;
+        height: 0px;
+        display: none;
+    }
+}
+
+@media (min-width : 1440px) {
+    .ProjectIMG {
+        position: absolute;
+        height: 500px;
+        left : 50px;
+        bottom : 70px;
+        overflow-y: hidden;
+    }
+}
+
+.ProjectIMG img {
+    width: 100%;
+    height : 100%;
+    overflow-y: hidden;
+}
+
+.AboutPage {
+    width: 100%;
+    height: 100%;
+}
+
+.ProjectInformation {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+}
+
+@media (max-width : 1439px) {
+    .ProjectInformation {
+        left : 50%;
+        transform: translate(-50%);
+        width : 300px;
+    }
+}
+
+@media (min-width : 1440px) {
+    .ProjectInformation {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        right : 50px;
+        width : 700px;
+    }
+}
+
+.Socials {
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+@media (max-width : 1439px) {
+    .Socials {
+        bottom : 20px;
+        right: 20px;
+        flex-direction: row;
+    }
+}
+
+@media (min-width : 1440px) {
+    .Socials {
+        top : 5px;
+        right: 5px;
+        flex-direction: column;
+    }
+}
+
+.Github {
+    width : 50px;
+    height: auto;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.Github button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: fit-content;
+    background-color: transparent;
+    border-width: 0px;
+}
+
+.Github img {
+    position: relative;
+    width: 50px;
+    height: auto;
+}
+
+.YouTube {
+    width : 50px;
+    height: auto;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.YouTube button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: fit-content;
+    background-color: transparent;
+    border-width: 0px;
+}
+
+.YouTube img {
+    position: relative;
+    width: 50px;
+    height: auto;
+}
+
+.GetYourStart {
+    width : 50px;
+    height: auto;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.GetYourStart button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: fit-content;
+    background-color: transparent;
+    border-width: 0px;
+}
+
+.GetYourStart img {
+    position: relative;
+    width: 50px;
+    height: auto;
+}
+
+.ProjectPageDetails {
+    background-color: black;
+    position: relative;
+    color: white;
+    width: 100%;
+    height: 450px;
+}
+
+.ProjectPageDetails p {
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    left: 80px;
+    width : 80%
+}
+
+@media (max-width : 1439px) {
+    .ProjectPageDetails p {
+        font-size: 15px;
+        left: 50px;
+    }
+}
+
+@media (min-width : 1440px) {
+    .ProjectPageDetails p {
+        font-size: 25px;
+        left: 70px;
+    }
+}
+
+.ProjectPageDetails h2 {
+    position: relative;
+    font-family: GlitchFont;
+}
+
+@media (max-width : 1439px) {
+    .ProjectPageDetails h2 {
+        font-size: 20px;
+        left: 20px;
+    }
+}
+
+@media (min-width : 1440px) {
+    .ProjectPageDetails h2 {
+        font-size: 30px;
+        left: 20px;
+    }
+}
+
+.divider {
+    width: 100%;
+    height : 5px;
+    background-color: white;
+    margin-bottom: 25px;
+}
+
+.header {
+    text-align: center;
+    font-family: GlitchFont;
+    color: white;
+}
+
+@media (max-width : 1439px) {
+    .header {
+        font-size : 20px;
+    }
+}
+
+@media (min-width : 1440px) {
+    .header {
+        margin-top: 170px;
+        font-size : 50px;
+    }
+}
+
+.About {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width : 390px) {
+    .About {
+        align-items: center;
+    }
+}
+
+@media (min-width : 768px) {
+    .About {
+        align-items: flex-start;
+    }
+}
+
 .Projects {
     width: 100%;
     height: 100%;
@@ -141,81 +391,6 @@
     width : 100%;
     height : auto;
     object-fit: contain;
-}
-
-.Github {
-    width : 100%;
-    height : 100px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-top: 60px;
-    margin-bottom: 60px;
-}
-
-.GithubLogoAndLink {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    padding: 25px 25px 25px 25px;
-    box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.164);
-}
-
-@media (max-width : 1439px) {
-    .GithubLogoAndLink {
-        width: 70%;
-        height: 100px;
-    }
-}
-
-@media (min-width : 1440px) {
-    .GithubLogoAndLink {
-        width: 20%;
-        height: 100%;
-    }
-}
-
-@media (max-width : 1439px) {
-    .GithubImageContainer {
-        height : 100%;
-        width : 30%;
-    }
-}
-
-@media (min-width : 1440px) {
-    .GithubImageContainer {
-        height : 100%;
-        width : 50%;
-    }
-}
-
-.GithubImageContainer img {
-    width : 100%;
-    height : 100%;
-    object-fit: contain;
-}
-
-@media (max-width : 1439px) {
-    .GithubLink {
-        font-size: 15px;
-        font-family: GlitchFont;
-    }
-
-    
-}
-
-@media (min-width : 1440px) {
-    .GithubLink {
-        font-size: 25px;
-        font-family: GlitchFont;
-    }
-}
-
-.GithubLink:hover {
-    transform: scale(1.2);
 }
 
 .Technologies {
@@ -384,11 +559,4 @@
 
 .Fade-In {
     animation: fade-in 1.2s both;
-}
-
-.Projects .InitialSection h2 {
-    text-align: center;
-    font-size : 2vw;
-    font-family: GlitchFont;
-    color: white;
 }
