@@ -15,28 +15,16 @@ function Projects() {
             link : "https://www.get-your-start.com"
         },
 
-        /*
+        
         {
-            name : "RETRORESELL UNDER CONSTRUCTION", 
-            image : "/static/Retroresell.jpg", 
+            name : "RETRORESELL", 
+            image : "/static/Retroresell.png", 
             description : "An e-comnmerce store for purchasing retro video games developed in the MERN stack.", 
             languages : ["/static/logos/Javascript.webp"],
             frontend : ["/static/logos/React.png"],
             backend : ["/static/logos/NJS.png"],
             database : ["/static/logos/Mongodb.png"],
             link : "http://www.retro-resell.com"
-        },
-        */
-
-        {
-            name : "OPPST SITE", 
-            image : "/static/oppst-logo.jpg", 
-            description : "A site made to host the Online Philadelphia Pointing Span Test developed using Django and HTMX.", 
-            languages : ["/static/logos/Python.png", "/static/logos/Javascript.webp"],
-            frontend : ["/static/logos/Htmx.png"],
-            backend : ["/static/logos/Django.png"],
-            database : ["/static/logos/SQLite3.webp"],
-            link : "https://docs.google.com/presentation/d/1C48mTB3q1vYIXQIC--kedldmwOEuUba7Y0u6F14XXhg/edit#slide=id.p1"
         },
 
         {
@@ -48,7 +36,18 @@ function Projects() {
             backend : ["/static/logos/Spring-Boot.png"],
             database : ["/static/logos/MSQ.png"],
             link : "https://myrpgapp.com"
-        }
+        },
+        
+        {
+            name : "OPPST SITE", 
+            image : "/static/oppst-logo.jpg", 
+            description : "A site made to host the Online Philadelphia Pointing Span Test developed using Django and HTMX.", 
+            languages : ["/static/logos/Python.png", "/static/logos/Javascript.webp"],
+            frontend : ["/static/logos/Htmx.png"],
+            backend : ["/static/logos/Django.png"],
+            database : ["/static/logos/SQLite3.png"],
+            link : "https://docs.google.com/presentation/d/1C48mTB3q1vYIXQIC--kedldmwOEuUba7Y0u6F14XXhg/edit#slide=id.p1"
+        },
     ]
         const projectRefs = useRef(projects.map(() => React.createRef()));
         const visibilityList = (projectRefs.current.map((ref) => ({ ref: ref, visibility: false })));

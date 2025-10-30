@@ -9,11 +9,11 @@ const nodemailer = require("nodemailer")
 const apikey = process.env.APIKEY;
 
 let transporter = nodemailer.createTransport({
-    host: 'smtp.sendgrid.net',
+    host: 'mail.nasirgriffin.com',
     port: 587,
     auth: {
-        user: 'apikey', 
-        pass: apikey
+        user: process.env.ULTRON_MAIL_USER, 
+        pass: process.env.ULTRON_MAIL_PASSWORD
     }
 });
 
