@@ -143,7 +143,7 @@ function LandingPage() {
                     </div>
                 </div>                    
                 
-                <div class="NasirGriffin">
+                <div className="NasirGriffin" style={{ "--img": "url(https://www.nasirgriffin.com/static/Nasir%20Griffin.png)"}}>
                         <img src="/static/Nasir Griffin.png" />
                 </div>
             </div>
