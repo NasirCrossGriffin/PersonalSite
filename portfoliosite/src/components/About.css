@@ -458,6 +458,53 @@
         top : 120px;
         overflow-y: hidden;
     }
+
+    .NasirGriffin {
+        display: inline-block;
+        transform-origin: 50% 50%;
+        --amp: 6px;
+        --dur: 2s;
+        --blink: 0.9;
+        --blur: 0.6px;
+    }
+
+    /* Create RGB split layers */
+    .NasirGriffin::before,
+    .NasirGriffin::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: center/cover no-repeat;
+    background-image: var(--img);       /* ensure we use the var directly */
+    mix-blend-mode: screen;
+    pointer-events: none;
+    will-change: transform, opacity, clip-path, filter;
+    opacity: 0.75;
+    z-index: 2;                          /* <-- bring slices above <img> */
+    }
+
+    .NasirGriffin::before {
+    filter: drop-shadow(0 0 0 #00ffff);
+    animation: shift var(--dur) steps(12,end) infinite,
+                slice var(--dur) steps(24,end) infinite,
+                blink calc(var(--dur)*.9) steps(10,end) infinite;
+    }
+
+    .NasirGriffin::after {
+    filter: drop-shadow(0 0 0 #ff00ff);
+    animation: shift2 var(--dur) steps(12,end) infinite reverse,
+                slice2 var(--dur) steps(24,end) infinite,
+                blink calc(var(--dur)*.9) steps(10,end) infinite reverse;
+    }
+
+    .NasirGriffin img{
+        display: block;
+        animation: microjit var(--dur) steps(20,end) infinite,
+        pop calc(var(--dur)*3) linear infinite;
+        transform-origin: inherit;
+        position: relative;
+        z-index: 1;         /* stays below the color layers */
+    }
 }
 
 .NasirGriffin img {
@@ -466,49 +513,3 @@
     overflow-y: hidden;
 }
 
-.NasirGriffin {
-    display: inline-block;
-    transform-origin: 50% 50%;
-    --amp: 6px;
-    --dur: 2s;
-    --blink: 0.9;
-    --blur: 0.6px;
-}
-
-/* Create RGB split layers */
-.NasirGriffin::before,
-.NasirGriffin::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: center/cover no-repeat;
-  background-image: var(--img);       /* ensure we use the var directly */
-  mix-blend-mode: screen;
-  pointer-events: none;
-  will-change: transform, opacity, clip-path, filter;
-  opacity: 0.75;
-  z-index: 2;                          /* <-- bring slices above <img> */
-}
-
-.NasirGriffin::before {
-  filter: drop-shadow(0 0 0 #00ffff);
-  animation: shift var(--dur) steps(12,end) infinite,
-             slice var(--dur) steps(24,end) infinite,
-             blink calc(var(--dur)*.9) steps(10,end) infinite;
-}
-
-.NasirGriffin::after {
-  filter: drop-shadow(0 0 0 #ff00ff);
-  animation: shift2 var(--dur) steps(12,end) infinite reverse,
-             slice2 var(--dur) steps(24,end) infinite,
-             blink calc(var(--dur)*.9) steps(10,end) infinite reverse;
-}
-
-.NasirGriffin img{
-    display: block;
-    animation: microjit var(--dur) steps(20,end) infinite,
-    pop calc(var(--dur)*3) linear infinite;
-    transform-origin: inherit;
-    position: relative;
-    z-index: 1;         /* stays below the color layers */
-}
