@@ -29,17 +29,12 @@
     z-index: 5000;
     top: 0%;
     left: 0%;
+    height: 100px;
 }
 
-@media (max-width : 1439px) {
+@media (max-width: 1023px) and (pointer: coarse) and (hover: none) {
     .navContainer {
         height: 50px;
-    }
-}
-
-@media (min-width : 1440px) {
-    .navContainer {
-        height: 100px;
     }
 }
 

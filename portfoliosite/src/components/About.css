@@ -5,18 +5,23 @@
 
 .InitialSection {
     position: relative;
+    z-index: 10;
     top: 0;
     left : 0;
     width : 100vw;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    overflow-y: hidden;
+    justify-content: flex-start;
     margin-bottom: 75px;
 }
 
+@media (min-width : 1024px) {
+    .InitialSection {
+        height: 100vh;
+        overflow-y: hidden;
+    }
+}
 
 
 .AboutPage {
@@ -28,50 +33,37 @@
     display: flex;
     flex-direction: column;
     position: absolute;
+    width : 1000px;
+    bottom: 0;
+    z-index: 5;
 }
 
-@media (max-width : 1439px) {
+@media (min-width : 1024px) {
     .Information {
-        left : 50%;
-        transform: translate(-50%);
-        width : 300px;
-    }
-}
-
-@media (min-width : 1440px) {
-    .Information {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
         right : 50px;
-        width : 1000px;
     }
 }
+
 
 .Socials {
     position: absolute;
     width: fit-content;
     height: fit-content;
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    right: 20px;
+    flex-direction: column;
 }
 
-@media (max-width : 1439px) {
-    .Socials {
-        bottom : 20px;
-        right: 20px;
-        flex-direction: row;
-    }
-}
-
-@media (min-width : 1440px) {
+@media (min-width: 1440px) {
     .Socials {
         top : 20px;
-        right: 20px;
-        flex-direction: column;
     }
+
 }
+
 
 .LinkedIn {
     width : 50px;
@@ -155,50 +147,37 @@
     background-color: black;
     position: relative;
     color: white;
+    font-family: 'Montserrat';
     width: 100%;
     height: 450px;
 }
 
 .PageDetails p {
     position: relative;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Montserrat';
     font-size: 25px;
     left: 80px;
     width : 80%
 }
 
-@media (max-width : 1439px) {
-    .PageDetails p {
-        font-size: 15px;
-        left: 30px;
-    }
-}
-
-@media (min-width : 1440px) {
     .PageDetails p {
         font-size: 25px;
         left: 85px;
     }
-}
+
 
 .PageDetails h2 {
     position: relative;
     font-family: GlitchFont;
 }
 
-@media (max-width : 1439px) {
-    .PageDetails h2 {
-        font-size: 20px;
-        left: 20px;
-    }
-}
 
-@media (min-width : 1440px) {
+
     .PageDetails h2 {
         font-size: 30px;
         left: 50px;
     }
-}
+
 
 .divider {
     width: 100%;
@@ -211,20 +190,15 @@
     text-align: center;
     font-family: GlitchFont;
     color: white;
+    text-wrap: nowrap;
 }
 
-@media (max-width : 1439px) {
-    .header {
-        font-size : 20px;
-    }
+
+
+.header {
+    font-size : 50px;
 }
 
-@media (min-width : 1440px) {
-    .header {
-        margin-top: 170px;
-        font-size : 50px;
-    }
-}
 
 .About {
     width: 100%;
@@ -233,13 +207,10 @@
     flex-direction: column;
 }
 
-@media (min-width : 390px) {
-    .About {
-        align-items: center;
-    }
-}
 
-@media (min-width : 768px) {
+
+
+@media (min-width : 1024px) {
     .About {
         align-items: flex-start;
     }
@@ -247,9 +218,8 @@
 
 .SectionContainer {
     width: 50%;
-    min-height : 700px;
     height: fit-content;
-    margin-bottom: 50px;
+    margin-bottom: 300px;
 }
 
 .NameAndLogo {
@@ -282,13 +252,9 @@
     font-family: GlitchFont;
 }
 
-@media (min-width : 390px) {
-    .SectionName {
-        font-size: 15px;
-    }
-}
 
-@media (min-width : 768px) {
+
+@media (min-width : 1024px) {
     .SectionName {
         font-size: 35px;
     }
@@ -314,13 +280,8 @@
     
 }
 
-@media (min-width : 390px) {
-    .TextAndImageContainer {
-        font-size: 12px;
-    }
-}
 
-@media (min-width : 768px) {
+@media (min-width : 1024px) {
     .TextAndImageContainer {
         font-size: 20px;
     }
@@ -346,27 +307,18 @@
 }
 
 
-@media (min-width : 390px) {
-    .LinkedInLogoAndLink {
-        width: 30%;
-    }
-}
 
-@media (min-width : 768px) {
+
+@media (min-width : 1024px) {
     .LinkedInLogoAndLink {
         width: 20%;
     }
 }
 
-@media (min-width : 390px) {
-    .LinkedInImageContainer {
-        height : 100%;
-        width : 50%;
-        margin-right: 1vw;
-    }
-}
 
-@media (min-width : 768px) {
+
+
+@media (min-width : 1024px) {
     .LinkedInImageContainer {
         height : 100%;
         width : 50%;
@@ -380,14 +332,9 @@
     object-fit: contain;
 }
 
-@media (min-width : 390px) {
-    .LinkedInLink {
-        font-size: 15px;
-        font-family: GlitchFont;
-    }
-}
+
     
-@media (min-width : 768px) {
+@media (min-width : 1024px) {
     .LinkedInLink {
         font-size: 25px;
     }
@@ -400,6 +347,7 @@
     background-color: white;
     padding: 25px 25px 25px 25px;
     box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.164);
+    font-family: 'Montserrat';
 }
 
 @keyframes slide-right {
@@ -441,21 +389,14 @@
     animation: fade-in 1.2s both;
 }
 
-@media (max-width : 1439px) {
-    .NasirGriffin {
-        width : 0px;
-        height: 0px;
-        display: none;
-    }
-}
 
-@media (min-width : 1440px) {
     .NasirGriffin {
         position: absolute;
         height: 100vh;
         width : fit-content;
         left : 50px;
         top : 120px;
+        z-index: 2;
         overflow-y: hidden;
     }
 
@@ -505,7 +446,7 @@
         position: relative;
         z-index: 1;         /* stays below the color layers */
     }
-}
+
 
 .NasirGriffin img {
     width: auto;
@@ -513,3 +454,142 @@
     overflow-y: hidden;
 }
 
+@media (max-width: 1023px) and (pointer: coarse) and (hover: none) {
+    .InitialSection {
+        min-height: 100vh;
+        height: auto;
+    }
+
+    .Information {
+        position: relative;
+        margin-top: 70px;
+        width : 90vw;
+        height: fit-content;
+    }
+
+    .Socials {
+        position: relative;
+        right : 0;
+        flex-direction: row;
+    }
+
+    .PageDetails {
+        height: 100%;
+    }
+
+    .PageDetails p {
+        font-size: 4vw;
+        left: 30px;
+    }
+
+    .PageDetails h2 {
+        font-size: 4vw;
+        left: 20px;
+    }
+
+    .NasirGriffin {
+        width : 0px;
+        height: 0px;
+        display: none;
+    }
+
+    .LinkedInLink {
+        font-size: 15px;
+        font-family: GlitchFont;
+    }
+
+    .LinkedInImageContainer {
+        height : 100%;
+        width : 50%;
+        margin-right: 1vw;
+    }
+
+    .LinkedInLogoAndLink {
+        width: 30%;
+    }
+
+    .TextAndImageContainer {
+        font-size: 12px;
+    }
+
+    .SectionName {
+        font-size: 15px;
+    }
+
+    .About {
+        align-items: center;
+    }
+
+    .header {
+        font-size : 20px;
+        text-wrap: wrap;
+    }
+
+    .SectionContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 60%;
+    }
+
+    .NameAndLogo {
+        width: 100%;
+    }
+
+    .ContentContainer {
+        width: 100%;
+    }
+
+    .divider {
+        min-height: 5px;
+    }
+}
+
+@media (max-width: 1439px) and (min-width : 1024px) and (pointer: coarse) and (hover: none) {
+    .Information {
+        position: absolute;
+        width: 45%;
+        right: 2%;
+        top : 60%;
+        transform: translateY(-60%);
+        height: 80%;
+    }
+
+    .SectionContainer {
+        width: 70%;
+    }
+
+    .NasirGriffin {
+        z-index: -1;
+    }
+
+    .PageDetails {
+        height: 90vh;
+    }
+
+    .PageDetails h2 {
+        font-size: 25px;
+    }
+
+    .PageDetails p {
+        font-size: 20px;
+    }
+
+    .divider {
+        height: 5px;
+        min-height: 5px;
+        margin-bottom: 15px;
+    }
+
+    .Socials {
+        bottom : 20px;
+        right: 20px;
+        flex-direction: row;
+    }
+
+    .header {
+        font-size: 3vw;
+        text-wrap: wrap;
+    }
+}

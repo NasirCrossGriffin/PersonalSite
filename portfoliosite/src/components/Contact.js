@@ -42,7 +42,7 @@ function Contact() {
                 message: message
             };
     
-            const response = await fetch(`${BASE_URL}/contact`, {
+            const response = await fetch(`${BASE_URL}/api/contact`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ function Contact() {
         <div className="ContactPage Fade-In">
             <div className="Contact">
                 {thank === true ? (
-                    <div>
+                    <div className='ThankYou'>
                         <p>Thank you for contacting me, please check your email to confirm that your contact was sent!</p>
                     </div>
                 ) : (
@@ -105,7 +105,7 @@ function Contact() {
                                         cols="30" // Default number of columns
                                         onChange={(e) => updateMessage(e)}
                                     />
-                                    <input type="submit" />
+                                    <input type="submit"/>
                                 </form>
                             </div>
                         </div>

@@ -1,7 +1,7 @@
 import './About.css';
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 
-function LandingPage() {
+function About() {
     
     const [observer, setObserver] = useState(null);
     const Sections = [
@@ -107,7 +107,7 @@ function LandingPage() {
             <div className="InitialSection Fade-In" >
                 <div class="Information">
                     <h1 className="header">WHO IS NASIR GRIFFIN</h1>
-                    <div className="divider"></div>
+                    <span className="divider"></span>
                     <div className="PageDetails">
                         <h2>FOUNDER</h2>
                         <p>I am the founder of Get-Your-Start, an entry-level job board.</p>
@@ -175,4 +175,4 @@ function LandingPage() {
     );
 }
 
-export default LandingPage;
+export default About;

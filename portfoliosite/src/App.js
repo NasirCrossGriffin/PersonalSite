@@ -7,6 +7,7 @@ import Projects from './components/Projects';
 import Resume from './components/Resume';
 import { BrowserRouter, Navigate, Routes, Route, redirect} from "react-router-dom";
 import "./App.css"
+import Systems from './components/Systems';
 
 function App() {
 
@@ -30,7 +31,7 @@ function App() {
           <Route path="/about" element={<About />}/>
           <Route path="/contact" element={<Contact />}/> 
           <Route path="/projects" element={<Projects />}/> 
-          <Route path="/resume" element={<Resume />}/> 
+          <Route path="/systems" element={<Systems />}/> 
         </Routes>
       </BrowserRouter>
       <div className='background'></div>

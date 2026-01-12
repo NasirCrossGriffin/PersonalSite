@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 
 const contactRouter = require('./routes/contactroutes');
 
-app.use('/contact', contactRouter);
+app.use('/api/contact', contactRouter);
 
 app.use(express.static(path.join(__dirname, "build")));
 

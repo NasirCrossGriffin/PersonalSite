@@ -115,10 +115,10 @@ function Projects() {
     return (
         <div className="Projects">
             <div className="InitialSection Fade-In" >
-                <div class="ProjectInformation">
-                    <h1 className="header">PROJECTS</h1>
+                <div class="Information">
+                    <h1 className="header">SOFTWARE ENGINEERING</h1>
                     <div className="divider"></div>
-                    <div className="ProjectPageDetails">
+                    <div className="PageDetails">
                         <h2>BUILDER</h2>
                         <p>I am a builder. I build software end-end that solves problems such as retro video game 
                             preservation and the legitimacy of entry-level jobs. 
