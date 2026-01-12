@@ -45,4 +45,4 @@ sudo docker-compose up --build -d || {
 }
 
 echo "The personal site frontend was rebuilt. The Docker container was started and is successfully serving the personal site!"
-exit
+exit%       
