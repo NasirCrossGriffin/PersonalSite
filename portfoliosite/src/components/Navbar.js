@@ -9,6 +9,7 @@ function Navbar() {
     const [links, setLinks] = useState([
         {page : "About", link : "/about", isHovered : false, linkRef : React.createRef()},
         {page : "Software Eng", link : "/projects", isHovered : false, linkRef : React.createRef()},
+        {page : "Client Services", link : "/client", isHovered : false, linkRef : React.createRef()},
         {page : "Systems", link : "/systems", isHovered : false, linkRef : React.createRef()},
         {page : "Contact", link : "/contact", isHovered : false, linkRef : React.createRef()},
     ])

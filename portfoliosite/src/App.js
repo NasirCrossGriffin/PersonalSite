@@ -8,6 +8,7 @@ import Resume from './components/Resume';
 import { BrowserRouter, Navigate, Routes, Route, redirect} from "react-router-dom";
 import "./App.css"
 import Systems from './components/Systems';
+import Client from './components/Client';
 
 function App() {
 
@@ -30,7 +31,8 @@ function App() {
           <Route path="/home" element={<LandingPage />}/> 
           <Route path="/about" element={<About />}/>
           <Route path="/contact" element={<Contact />}/> 
-          <Route path="/projects" element={<Projects />}/> 
+          <Route path="/projects" element={<Projects />}/>
+          <Route path="/client" element={<Client />}/> 
           <Route path="/systems" element={<Systems />}/> 
         </Routes>
       </BrowserRouter>
