@@ -6,7 +6,7 @@ function Client() {
     const projects = [
         {
             name : "TRINITY SILVA MODEL PAGE", 
-            image : "/static/TrinitySilva.png", 
+            image : "/static/trinitysilva.png", 
             description : `I partnered with Trinity Silva to create a polished portfolio website that positioned her as 
             a serious, professional model rather than just a social media presence. I handled the full build, deployment, 
             and hosting, giving her a centralized platform to showcase her work, aesthetic, and versatility to brands and 
@@ -17,7 +17,7 @@ function Client() {
 
         {
             name : "JD MULTIPROCESS AND SERVICES WEBPAGE", 
-            image : "/static/jdmultiprocessandservices.png", 
+            image : "/static/Jdmultiprocessandservices.png", 
             description : `I worked with Juliana De La Rosa to build a professional online presence that clearly 
             communicated her notary and multi-service offerings and established immediate credibility with new clients. 
             I designed, deployed, and fully managed her website so potential customers could quickly understand her 
