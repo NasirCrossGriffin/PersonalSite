@@ -439,3 +439,15 @@
         font-size: 1.7vh;
     }
 }
+
+.Fade-Out {
+  animation: Fade-Out 1s ease-out forwards;
+}
+
+@keyframes Fade-Out  {
+    0% {
+        opacity: 1;
+    } 100% {
+        opacity: 0;
+    }
+}
