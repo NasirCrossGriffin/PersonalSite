@@ -4,438 +4,677 @@
 }
 
 @media (orientation: landscape) {
-    .ProjectIMG, .UbuntuLogo, .Handshake {
-        position: absolute;
-        width: 30vw;
+        .Services {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 100vw;
         height: fit-content;
-        top: 50%;
-        transform: translateY(-50%);
-        left : 50px;
-        overflow-y: hidden;
-        z-index: 2;
+        place-items: center;
+        row-gap: 20px;
     }
 
-    .ProjectIMG img, .UbuntuLogo img, .Handshake img {
-        width: 100%;
-        height : auto;
-        overflow-y: hidden;
+    .ServiceContainer {
+        width: 20vw;
+        aspect-ratio: 1/1;
     }
 
-    .Github {
-        width : 50px;
-        height: auto;
-        margin-right: 10px;
-        margin-left: 10px;
-        margin-top: 10px;
-        margin-bottom: 10px;
+    .SectionHeader {
+        font-family: 'GlitchFont';
+        color: white;
+        font-size: 4vw;
+        width: 100vw;
+        text-align: center;
+        text-transform: uppercase;
     }
 
-    .Github button {
+    .Service {
         display: flex;
         flex-direction: column;
-        align-items: center;
         justify-content: center;
-        width: 50px;
-        height: fit-content;
-        background-color: transparent;
-        border-width: 0px;
-    }
-
-    .Github img {
-        position: relative;
-        width: 50px;
-        height: auto;
-    }
-
-
-    .divider {
-        width: 100%;
-        height : 5px;
-        background-color: white;
-        margin-bottom: 25px;
-    }
-
-    .header {
-        text-align: center;
-        font-family: GlitchFont;
-        color: white;
-    }
-
-    .Projects {
+        align-items: center;
         width: 100%;
         height: 100%;
-    }
-
-    .ListOfProjects {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        height: fit-content;
-        justify-items: center;
-        align-items: center;
-        margin-bottom: 100px;
-    }
-
-    .ProjectContainer {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        border-color:  rgb(228, 228, 228);
-        border-width: 1px;
-        border-style: solid;
+        background-color: black;
+        opacity: 0;
         box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.164);
-        background-color: rgb(243, 243, 243);
-        margin-top: 20px;
-        margin-bottom: 100px;
-        width: 80%;
     }
 
-    @media (min-width : 1440px) {
-        .ProjectContainer {
-            min-height: 700px;
-            height: fit-content;
-            
+    .ServiceName {
+        font-weight: 800;
+        color : white;
+        font-family: 'Montserrat';
+        text-align: center;
+        font-size: 2vw;
+    }
+
+    .ServiceDesc {
+        text-align: center;
+        color: white;
+        font-weight: 500;
+        font-family: 'Montserrat';
+        height: 30%;
+        overflow-y: auto;
+        font-size: 1.2vw;
+    }
+
+    .ServiceImageContainer {
+        height: 20%;
+        max-width: 70%;
+    }
+
+    .ServiceImageContainer img{
+        object-fit: contain;
+        height: 100%;
+        width: 100%;
+    }
+
+    .Invisible {
+        opacity: 0;
+    }
+
+    .SlideUpAndAppear {
+        transform: translateY(0);
+        animation: slideUpAndAppear 0.45s ease-out forwards;
+        will-change: transform, opacity;
+    }
+
+    @keyframes slideUpAndAppear {
+        from {
+            opacity: 0;
+            transform: translateY(18px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
     }
 
-    .Project {
-        padding: 25px 25px 25px 25px;
-        width : 80%;
-        height : 80%
+    .Testimonials {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        place-items: center;
+        width: 90vw;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .TestimonyContainer {
+        width: 40vw;
+        height: fit-content;
     }
 
-    .ProjectName {
-        font-family: GlitchFont;
-        font-weight: bold;
-        font-size: 2.2vw;
+    .Testimony {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        background-color: white;
+        width: 100%;
+        padding: 20px 20px 20px 20px;
+        opacity: 0;
     }
 
-    .ImgAndDesc {
+    .Client {
         display: flex;
         flex-direction: row;
+        justify-content: flex-start;
         align-items: center;
-        height : fit-content;
+        width: 100%;
+        
     }
 
-    .ProjectDesc {
+    .ClientImage {
+        border-radius: 50%;
+        overflow-y: hidden;
+        overflow-x: hidden;
+        width: 20%;
+        aspect-ratio: 1 / 1;
+        margin-right: 2vw;
+    }
+
+    .ClientImage img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .Client h2 {
+        font-family: 'Montserrat';
+        color : black;
+        font-size: 2vw;
+    }
+
+    .ClientTestimony {
         font-size: 1.3vw;
         font-weight: 500;
-        width : 70%;
-        height: 100%;
-        text-wrap: wrap;
+        font-family: 'Montserrat';
+        color : black;
     }
 
-    .ProjectImageContainer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-
-
-    .ProjectImageContainer {
-        width : 20vw;
-        height : 20vw;
-        margin-right: 20px;
-    }
-
-    .ProjectImageContainer img {
-        display: flex;
-        align-self: center;
-        width : 100%;
-        height : auto;
-        object-fit: contain;
-    }
-
-    .Technologies {
-        display : flex;
-        flex-direction: column;
-        align-items: flex-start;
-        width : 100%;
-        height : 60%;
-        max-width : 100%;
-        margin-bottom: 15px;
-    }
-
-    .Languages, .Frontend, .Backend, .Database {
+    .StarRating {
         display: flex;
         flex-direction: row;
+        justify-content: flex-start;
         align-items: center;
-        height : 25%;
-        width : 100%
+        width: 100%;
     }
 
-    .LanguageContainer, .FrontendContainer, .BackendContainer, .DatabaseContainer {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        width : 100%;
-        height : 100%;
+    .Star {
+        width: 5%;
+        aspect-ratio: 1/1;
     }
 
-    .TechnologyCont {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width : 7vw;
-        height: 7vw;
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-
-    .ProjectDesc {
-        font-family: "Montserrat";
-    }
-
-
-
-    .TechnologyCont img {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    .Star img {
         width: 100%;
         height: 100%;
         object-fit: contain;
     }
 
-    .TechnologyType {
-        font-family: GlitchFont;
-        font-weight: bold;
+    .BusinessTitle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
     }
 
-
-    .TechnologyType {
-        font-size: 25px;
-    }
-
-    .ProjectsBanner {
+    .Slogan {
+        width: 90vw;
         text-align: center;
-        font-size: 50px;
-        font-family: GlitchFont;
+        font-family: 'Montserrat';
+        font-size: 2vw;
         color: white;
-        width: 100%;
+        font-weight: 700;
     }
 
-    .ProjectLink {
+    .BusinessHeader {
+        color: white;
+        font-size: 3vw;
+        width: 95vw;
+        text-align: center;
+        text-transform: uppercase;
         font-family: GlitchFont;
-        font-size: 1.7vw;
+    }
+
+    .BusinessLogo {
+        width: 20vw;
+        aspect-ratio: 1/1;
+    }
+
+    .BusinessLogo img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .Reveal {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    .RevealActive .Reveal {
+        animation: slideUpAndAppear 0.45s ease-out forwards;
+    }
+
+    /* Stagger order */
+    .RevealActive .BusinessHeader {
+        animation-delay: 0s;
+    }
+
+    .RevealActive .BusinessLogo {
+        animation-delay: 0.3s;
+    }
+
+    .RevealActive .Slogan {
+        animation-delay: 0.6s;
+    }
+
+         /* ===== Scroll Down fixed element ===== */
+    .Scroll-Down {
+        position: fixed;
+        left: 50%;
+        bottom: 18px;
+        transform: translateX(-50%);
+        z-index: 9999;
+
+        font-family: "GlitchFont", sans-serif;
+        font-size: 2vw;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+
+        color: #fff;
+        opacity: 1;
+        pointer-events: none; /* doesn't block clicks */
+        user-select: none;
+
+        /* base jitter */
+        animation: glitch-skew 1.8s infinite linear alternate-reverse;
+        width: 100%;
+        text-align: center;
+    }
+
+    .Projects .Contact {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .Projects .ContactContainer {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .ContactMethod {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 20vw;
+    }
+
+    .MethodHeader {
+        color: white;
+        text-transform: uppercase;
+        font-family: 'GlitchFont';
+        text-align: center;
+        text-wrap: nowrap;
+        font-size: 3vw;
+    }
+
+    .MethodButton {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        background-color: white;
+        border-color: transparent;
+    }
+
+    .MethodImage {
+        width: 60%;
+        object-fit: contain;
     }
 }
 
 @media (orientation: portrait) {
-    .ProjectIMG, .UbuntuLogo, .Handshake {
-        display: none;
+    .Services {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100vw;
+        height: fit-content;
+        place-items: center;
+        row-gap: 20px;
     }
 
-    .ProjectIMG img, .UbuntuLogo img, .Handshake img {
-        width: 100%;
-        height : auto;
-        overflow-y: hidden;
+    .ServiceContainer {
+        width: 48vw;
+        height: 48vw;
     }
 
-    .Github {
-        width : 50px;
-        height: auto;
-        margin-right: 10px;
-        margin-left: 10px;
-        margin-top: 10px;
-        margin-bottom: 10px;
+    .SectionHeader {
+        font-family: 'GlitchFont';
+        color: white;
+        font-size: 6vw;
+        width: 100vw;
+        text-align: center;
+        text-transform: uppercase;
     }
 
-    .Github button {
+    .Service {
         display: flex;
         flex-direction: column;
-        align-items: center;
         justify-content: center;
-        width: 50px;
-        height: fit-content;
-        background-color: transparent;
-        border-width: 0px;
-    }
-
-    .Github img {
-        position: relative;
-        width: 50px;
-        height: auto;
-    }
-
-
-    .divider {
-        width: 100%;
-        height : 5px;
-        background-color: white;
-        margin-bottom: 25px;
-    }
-
-    .header {
-        text-align: center;
-        font-family: GlitchFont;
-        color: white;
-    }
-
-    .Projects {
+        align-items: center;
         width: 100%;
         height: 100%;
-    }
-
-    .ListOfProjects {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        height: fit-content;
-        justify-items: center;
-        align-items: center;
-        margin-bottom: 100px;
-    }
-
-    .ProjectContainer {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        border-color:  rgb(228, 228, 228);
-        border-width: 1px;
-        border-style: solid;
+        background-color: black;
+        opacity: 0;
         box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.164);
-        background-color: rgb(243, 243, 243);
-        margin-top: 20px;
-        margin-bottom: 100px;
-        width: 80%;
     }
 
-    @media (min-width : 1440px) {
-        .ProjectContainer {
-            min-height: 700px;
-            height: fit-content;
-            
+    .ServiceName {
+        font-weight: 800;
+        color : white;
+        font-family: 'Montserrat';
+        text-align: center;
+        font-size: 3.5vw;
+    }
+
+    .ServiceDesc {
+        text-align: center;
+        color: white;
+        font-weight: 500;
+        font-family: 'Montserrat';
+        height: 30%;
+        overflow-y: auto;
+        font-size: 3.5vw;
+    }
+
+    .ServiceImageContainer {
+        height: 20%;
+        max-width: 70%;
+    }
+
+    .ServiceImageContainer img{
+        object-fit: contain;
+        height: 100%;
+        width: 100%;
+    }
+
+    .Invisible {
+        opacity: 0;
+    }
+
+    .SlideUpAndAppear {
+        transform: translateY(0);
+        animation: slideUpAndAppear 0.45s ease-out forwards;
+        will-change: transform, opacity;
+    }
+
+    @keyframes slideUpAndAppear {
+        from {
+            opacity: 0;
+            transform: translateY(18px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
     }
 
-    .Project {
-        padding: 25px 25px 25px 25px;
-        width : 80%;
-        height : 80%
-    }
-
-    .ProjectName {
-        font-family: GlitchFont;
-        font-weight: bold;
-        font-size: 2.2vh;
-        width: 100%;
-        text-align: center;
-    }
-
-    .ImgAndDesc {
+    .Testimonials {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        height : fit-content;
-    }
-
-    .ProjectDesc {
-        font-size: 1.6vh;
-        font-weight: 500;
-        width : 90%;
-        height: 100%;
-        text-wrap: wrap;
-    }
-
-    .ProjectImageContainer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
         justify-content: center;
+        align-items: center;
+    }
+    
+    .TestimonyContainer {
+        width: fit-content;
+        height: fit-content;
     }
 
-
-
-    .ProjectImageContainer {
-        width : 20vh;
-        height : 20vh;
-    }
-
-    .ProjectImageContainer img {
+    .Testimony {
         display: flex;
-        align-self: center;
-        width : 100%;
-        height : auto;
-        object-fit: contain;
-    }
-
-    .Technologies {
-        display : flex;
         flex-direction: column;
+        justify-content: center;
         align-items: flex-start;
-        width : 100%;
-        height : 60%;
-        max-width : 100%;
-        margin-bottom: 15px;
+        background-color: white;
+        width: 85vw;
+        padding: 20px 20px 20px 20px;
+        opacity: 0;
     }
 
-    .Languages, .Frontend, .Backend, .Database {
+    .Client {
         display: flex;
         flex-direction: row;
+        justify-content: flex-start;
         align-items: center;
-        height : 25%;
-        width : 100%
+        width: 100%;
+        
     }
 
-    .LanguageContainer, .FrontendContainer, .BackendContainer, .DatabaseContainer {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        width : 100%;
-        height : 100%;
+    .ClientImage {
+        border-radius: 50%;
+        overflow-y: hidden;
+        overflow-x: hidden;
+        width: 20%;
+        aspect-ratio: 1 / 1;
+        margin-right: 5vw;
     }
 
-    .TechnologyCont {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width : 4vh;
-        height: 4vh;
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-
-    .ProjectDesc {
-        font-family: "Montserrat";
-    }
-
-
-    .TechnologyCont img {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    .ClientImage img {
         width: 100%;
         height: 100%;
         object-fit: contain;
     }
 
-    .TechnologyType {
-        font-family: GlitchFont;
-        font-weight: bold;
+    .Client h2 {
+        font-family: 'Montserrat';
+        color : black;
+        font-size: 4vw;
     }
 
-
-    .TechnologyType {
-        font-size: 2vh;
+    .ClientTestimony {
+        font-size: 3vw;
+        font-weight: 500;
+        font-family: 'Montserrat';
+        color : black;
     }
 
-    .ProjectsBanner {
-        text-align: center;
-        font-size: 50px;
-        font-family: GlitchFont;
-        color: white;
+    .StarRating {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
         width: 100%;
     }
 
-    .ProjectLink {
+    .Star {
+        width: 5%;
+        aspect-ratio: 1/1;
+    }
+
+    .Star img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .BusinessTitle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .Slogan {
+        width: 90vw;
+        text-align: center;
+        font-family: 'Montserrat';
+        font-size: 7vw;
+        color: white;
+        font-weight: 700;
+    }
+
+    .BusinessHeader {
+        color: white;
+        font-size: 7vw;
+        width: 95vw;
+        text-align: center;
+        text-transform: uppercase;
         font-family: GlitchFont;
-        font-size: 1.7vh;
+    }
+
+    .BusinessLogo {
+        width: 65vw;
+        aspect-ratio: 1/1;
+    }
+
+    .BusinessLogo img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .Reveal {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    .RevealActive .Reveal {
+        animation: slideUpAndAppear 0.45s ease-out forwards;
+    }
+
+    /* Stagger order */
+    .RevealActive .BusinessHeader {
+        animation-delay: 0s;
+    }
+
+    .RevealActive .BusinessLogo {
+        animation-delay: 0.3s;
+    }
+
+    .RevealActive .Slogan {
+        animation-delay: 0.6s;
+    }
+
+         /* ===== Scroll Down fixed element ===== */
+    .Scroll-Down {
+        position: fixed;
+        left: 50%;
+        bottom: 18px;
+        transform: translateX(-50%);
+        z-index: 9999;
+
+        font-family: "GlitchFont", sans-serif;
+        font-size: 7vw;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+
+        color: #fff;
+        opacity: 1;
+        pointer-events: none; /* doesn't block clicks */
+        user-select: none;
+
+        /* base jitter */
+        animation: glitch-skew 1.8s infinite linear alternate-reverse;
+        width: 100%;
+        text-align: center;
+    }
+
+    .Projects .Contact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: auto;
+        margin-bottom: 50px;
+    }
+
+    .Projects .ContactContainer {
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .ContactMethod {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 35vw;
+    }
+
+    .MethodHeader {
+        color: white;
+        text-transform: uppercase;
+        font-family: 'GlitchFont';
+        text-align: center;
+        text-wrap: nowrap;
+        font-size: 5vw;
+    }
+
+    .MethodButton {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        background-color: white;
+        border-color: transparent;
+    }
+
+    .MethodImage {
+        width: 60%;
+        object-fit: contain;
     }
 }
+
+    /* Use pseudo-layers for the glitch */
+    .Scroll-Down::before,
+    .Scroll-Down::after {
+        content: attr(data-text);
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+
+        opacity: 0.9;
+    }
+
+    .Scroll-Down::before {
+        transform: translate(-1px, 0);
+        clip-path: inset(0 0 0 0);
+        animation: glitch-slice-1 1.2s infinite steps(2, end);
+    }
+
+    .Scroll-Down::after {
+        transform: translate(1px, 0);
+        clip-path: inset(0 0 0 0);
+        animation: glitch-slice-2 1.35s infinite steps(2, end);
+    }
+
+    /* Fade out when BusinessTitle is no longer intersecting */
+    .Fade-Out {
+        opacity: 0;
+        transition: opacity 350ms ease;
+    }
+
+    /* ===== Glitch Animations ===== */
+    @keyframes glitch-skew {
+        0% { transform: translateX(-50%) skewX(0deg); }
+        20% { transform: translateX(-50%) skewX(0.6deg); }
+        40% { transform: translateX(-50%) skewX(-0.8deg); }
+        60% { transform: translateX(-50%) skewX(0.4deg); }
+        80% { transform: translateX(-50%) skewX(-0.5deg); }
+        100% { transform: translateX(-50%) skewX(0deg); }
+    }
+
+    @keyframes glitch-slice-1 {
+        0% { clip-path: inset(0 0 85% 0); transform: translate(-2px, -1px); }
+        10% { clip-path: inset(15% 0 60% 0); transform: translate(-1px, 0); }
+        20% { clip-path: inset(55% 0 25% 0); transform: translate(-3px, 1px); }
+        30% { clip-path: inset(10% 0 70% 0); transform: translate(-1px, -1px); }
+        40% { clip-path: inset(70% 0 10% 0); transform: translate(-2px, 0); }
+        50% { clip-path: inset(25% 0 55% 0); transform: translate(-4px, 1px); }
+        60% { clip-path: inset(80% 0 5% 0); transform: translate(-1px, 0); }
+        70% { clip-path: inset(40% 0 40% 0); transform: translate(-3px, -1px); }
+        80% { clip-path: inset(5% 0 80% 0); transform: translate(-2px, 1px); }
+        90% { clip-path: inset(60% 0 25% 0); transform: translate(-1px, 0); }
+        100% { clip-path: inset(0 0 85% 0); transform: translate(-2px, -1px); }
+    }
+
+    @keyframes glitch-slice-2 {
+        0% { clip-path: inset(80% 0 10% 0); transform: translate(2px, 1px); }
+        10% { clip-path: inset(55% 0 25% 0); transform: translate(3px, 0); }
+        20% { clip-path: inset(10% 0 70% 0); transform: translate(1px, -1px); }
+        30% { clip-path: inset(65% 0 20% 0); transform: translate(4px, 1px); }
+        40% { clip-path: inset(25% 0 55% 0); transform: translate(2px, 0); }
+        50% { clip-path: inset(5% 0 85% 0); transform: translate(3px, -1px); }
+        60% { clip-path: inset(45% 0 35% 0); transform: translate(1px, 1px); }
+        70% { clip-path: inset(75% 0 10% 0); transform: translate(4px, 0); }
+        80% { clip-path: inset(15% 0 65% 0); transform: translate(2px, -1px); }
+        90% { clip-path: inset(60% 0 25% 0); transform: translate(3px, 1px); }
+        100% { clip-path: inset(80% 0 10% 0); transform: translate(2px, 1px); }
+    }
