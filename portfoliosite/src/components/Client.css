@@ -93,6 +93,8 @@
         position: relative;
         display: grid;
         grid-template-columns: 1fr 1fr;
+        row-gap: 5vw;
+        column-gap: 5vw;
         place-items: center;
         width: 90vw;
         left: 50%;
@@ -404,6 +406,7 @@
     .TestimonyContainer {
         width: fit-content;
         height: fit-content;
+        margin-bottom: 15vw;
     }
 
     .Testimony {

@@ -304,28 +304,28 @@ function Client() {
             <div className='Testimonials' ref={testimonialsSectionRef}>
                 {testimonials.map((testimony, index) => (
                     <div
-                    key={index}
-                    className='TestimonyContainer'
-                    ref={(node) => (testimonialRefs.current[index] = node)}
+                        key={index}
+                        className='TestimonyContainer'
+                        ref={(node) => (testimonialRefs.current[index] = node)}
                     >
-                    <div className='Testimony'>
-                        <div className='Client'>
-                        <div className='ClientImage'>
-                            <img src={testimony.image} alt={testimony.client} />
-                        </div>
-                        <h2>{testimony.client}</h2>
-                        </div>
-
-                        <p className='ClientTestimony'>{testimony.testimony}</p>
-
-                        <div className='StarRating'>
-                        {Array.from({ length: testimony.Stars }).map((_, starIndex) => (
-                            <div key={starIndex} className="Star">
-                            <img src="/static/star.png" alt="star" />
+                        <div className='Testimony'>
+                            <div className='Client'>
+                            <div className='ClientImage'>
+                                <img src={testimony.image} alt={testimony.client} />
                             </div>
-                        ))}
+                            <h2>{testimony.client}</h2>
+                            </div>
+
+                            <p className='ClientTestimony'>{testimony.testimony}</p>
+
+                            <div className='StarRating'>
+                            {Array.from({ length: testimony.Stars }).map((_, starIndex) => (
+                                <div key={starIndex} className="Star">
+                                <img src="/static/star.png" alt="star" />
+                                </div>
+                            ))}
+                            </div>
                         </div>
-                    </div>
                     </div>
                 ))}
             </div>
