@@ -26,7 +26,7 @@ router.post("/", async (req, res) => {
                     <tr>
                       <td style="padding:24px 28px;background:#0b0b0d;">
                         <img
-                          src="/"
+                          src="https://nasirgriffin/email_icon.png"
                           alt="Nasir Griffin"
                           style="display:block;width:120px;max-width:120px;height:auto;"
                         />
@@ -110,7 +110,7 @@ router.post("/", async (req, res) => {
                     <tr>
                       <td style="padding:24px 28px;background:#0b0b0d;">
                         <img
-                          src="https://Nasir Griffinportfolio.s3.us-east-1.amazonaws.com/public/Nasir Griffin+Logo.png"
+                          src="https://nasirgriffin/email_icon.png"
                           alt="Nasir Griffin"
                           style="display:block;width:120px;max-width:120px;height:auto;"
                         />

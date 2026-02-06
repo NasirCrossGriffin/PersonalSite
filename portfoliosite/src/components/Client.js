@@ -38,13 +38,20 @@ function Client() {
         }
     ];
 
-    const testimonials = [
+    const testimonials = [ 
         {
             client : "JDMultiprocessAndServices", 
             image : "/static/Juliana.png", 
             testimony : `"Griffin is the best he did my web page and I like so much is it great."`, 
             Stars : 5
-        }, 
+        }, {
+            client : "Trinity Silva", 
+            image : "/static/Trinity.png", 
+            testimony : `"Griffin is an excellent company to work with. they are very professional, 
+            creative and have a driven personality to take care of business right away. 
+            I recommend them 100% and you won’t regret it!"`, 
+            Stars : 5
+        },  
     ]
 
     const projects = [
