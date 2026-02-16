@@ -2,7 +2,8 @@ import './Contact.css';
 import React, { useState, useCallback, useEffect } from 'react';
 
 function Contact() {
-    const [company, setCompany] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("")
     const [phonenumber, setPhonenumber] = useState("")
     const [message, setMessage] = useState("")
@@ -16,8 +17,12 @@ function Contact() {
     }, [])
     
 
-    const updateCompany = (e) => {
-        setCompany(e.target.value)
+    const updateFirstName = (e) => {
+        setFirstName(e.target.value)
+    }
+
+    const updateLastName = (e) => {
+        setLastName(e.target.value)
     }
 
     const updateEmail = (e) => {
@@ -32,36 +37,50 @@ function Contact() {
         setMessage(e.target.value)
     }
 
-    const submitHandler = async (e) => {
-        e.preventDefault();
+    const newContact = async (contact) => {
+        console.log(contact)
+
+        const BASE_URL = process.env.NODE_ENV === 'production' ? '' : process.env.REACT_APP_API_URL;
+
         try {
-            const contactData = {
-                company: company,
-                email: email,
-                phonenumber: phonenumber,
-                message: message
-            };
-    
-            const response = await fetch(`${BASE_URL}/api/contact`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(contactData) 
+            const response = await fetch(`${BASE_URL}/api/contact/`, {
+                    method: 'POST',
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json",
+                    },
+                    body: JSON.stringify(contact),
             });
-    
-            if (!response.ok) {
-                throw new Error('Failed to create contact');
+
+            if (response.ok) {
+                return await response.json();
             } else {
-                const contact = response.json();
-                setThank(true);
-                return contact;
+                console.log(await response.status);
+                throw new Error("Contact unsuccessful");
             }
-        } catch (err) {
-            console.error('Error:', err.message);
-            return null;
+        } catch(err) {
+            throw new Error("Contact unsuccessful");
         }
     }
+
+    const submitContact = async (e) => {
+        e.preventDefault();
+
+        const contactObj = {
+            email: email,
+            firstname: firstName,
+            lastname: lastName,
+            phone: phonenumber,
+            message: message
+        };
+
+        try {
+        await newContact(contactObj);
+            setThank(true);
+        } catch (err) {
+            console.log(err)
+        }
+    };
 
     return (
         <div className="ContactPage Fade-In">
@@ -75,13 +94,21 @@ function Contact() {
                         <div className="BannerAndForm">
                             <h1 className="ContactBanner">CONTACT</h1>
                             <div className="FormContainer">
-                                <form method="POST" onSubmit={(e) => submitHandler(e)}>
-                                    <label htmlFor="company">Company</label>
+                                <form method="POST" onSubmit={(e) => {submitContact(e)}}>
+                                    <label htmlFor="firstName">First Name</label>
                                     <input
                                         type="text"
-                                        name="company"
-                                        id="company"
-                                        onChange={(e) => updateCompany(e)}
+                                        name="firstName"
+                                        id="firstName"
+                                        onChange={(e) => updateFirstName(e)}
+                                    />
+
+                                    <label htmlFor="firstName">Last Name</label>
+                                    <input
+                                        type="text"
+                                        name="lastName"
+                                        id="lastName"
+                                        onChange={(e) => updateLastName(e)}
                                     />
                                     <label htmlFor="email">Email</label>
                                     <input

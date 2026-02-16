@@ -87,6 +87,14 @@ function Client() {
     const testimonialRefs = useRef([]); // array of refs for each TestimonyContainer
     const businessTitleRef = useRef(null);
     const scrollDownRef = useRef(null);
+    const contactRef = useRef(null);
+    const [observingContact, setObservingContact] = useState(false);
+    const [messageSent, setMessageSent] = useState(null);
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [message, setMessage] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -113,9 +121,69 @@ function Client() {
     return () => observer.disconnect();
     }, []);
 
+    useEffect(() => {
+        const el = contactRef.current;
+        if (!el) return;
 
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+            if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+                setObservingContact(true);
+                console.log(observingContact)
+            } else {
+                setObservingContact(false);
+                console.log(observingContact)
+            }
+            },
+            { threshold: 0.5 }
+        );
+
+        observer.observe(el);
+    }, []);
+
+    const newContact = async (contact) => {
+        console.log(contact)
+
+        const BASE_URL = process.env.NODE_ENV === 'production' ? '' : process.env.REACT_APP_API_URL;
+
+        try {
+            const response = await fetch(`${BASE_URL}/api/contact/`, {
+                    method: 'POST',
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json",
+                    },
+                    body: JSON.stringify(contact),
+            });
+
+            if (response.ok) {
+                return await response.json();
+            } else {
+                console.log(await response.status);
+                throw new Error("Contact unsuccessful");
+            }
+        } catch(err) {
+            throw new Error("Contact unsuccessful");
+        }
+    }
+
+    const submitContact = async () => {
+        const contactObj = {
+            email: email,
+            firstname: firstName,
+            lastname: lastName,
+            phone: phone,
+            message: message
+        };
+
+        try {
+        await newContact(contactObj);
+        setMessageSent("Your contact message was sent!");
+        } catch (err) {
+        setMessageSent("Your contact message failed to send.");
+        }
+    };
     
-
     useEffect(() => {
         window.scrollTo(0, 0)
         
@@ -353,7 +421,40 @@ function Client() {
 
             <h1 className='SectionHeader'>Let Us Handle This For You</h1>
 
-            <div className='Contact'>
+            <div
+                className='Contact'
+                ref={contactRef}
+                data-section="contact"
+            >
+                <img className={`Snapshot ${/*observingContact ? "fade-in" : "fade-out"*/''}`} src="/static/GriffinMWS.png" />
+                <div className='ContactContainer'>
+                    <div className='WhiteRectangle'>
+                        <p>Get in Touch!</p>
+                    </div>
+                    <p className='ContactTag'>contact / inquiries</p>
+                    <p className='ContactDescription'>Got questions, inquiries, or want information about bookings? Send me a message below!</p>
+
+                    <div className='SubmissionBox'>
+                        <div className='ContactGrid'>
+                        <input placeholder="First Name" onChange={(e) => setFirstName(e.target.value)} />
+                        <input placeholder="Last Name" onChange={(e) => setLastName(e.target.value)} />
+                        <input placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+                        <input placeholder="Phone" onChange={(e) => setPhone(e.target.value)} />
+                        </div>
+
+                        <textarea
+                        placeholder="Enter Your Message Here"
+                        onChange={(e) => setMessage(e.target.value)}
+                        />
+
+                        <button onClick={submitContact}>Submit</button>
+                    </div>
+
+                    {messageSent ? <p className='ContactMessage'>{messageSent}</p> : null}
+                </div>
+            </div>
+
+            {/*<div className='Contact'>
                 <div className='ContactContainer'>
                     <div className='ContactMethod'>
                         <h2 className='MethodHeader'>Email Us</h2>
@@ -369,7 +470,7 @@ function Client() {
                         </a>
                     </div>
                 </div>
-            </div>
+            </div>*/}
 
         </div>
     );

@@ -7,7 +7,8 @@ const resend = new Resend(process.env.RESEND_KEY);
 
 router.post("/", async (req, res) => {
   const email = req.body.email;
-  const company = req.body.company;
+  const firstName = req.body.firstname;
+  const lastName = req.body.lastname;
   const phone = req.body.phone;
   const message = req.body.message;
 
@@ -16,7 +17,7 @@ router.post("/", async (req, res) => {
       {
         from: "Nasir Griffin <no-reply@nasirgriffin.com>",
         to: [process.env.CLIENT_EMAIL],
-        subject: "New website inquiry (Nasir Griffin)",
+        subject: "New website inquiry (Griffin Managed Web Solutions)",
         html: `
           <div style="margin:0;padding:0;background:#f6f7fb;font-family:Arial,Helvetica,sans-serif;">
             <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#f6f7fb;padding:24px 0;">
@@ -26,7 +27,7 @@ router.post("/", async (req, res) => {
                     <tr>
                       <td style="padding:24px 28px;background:#0b0b0d;">
                         <img
-                          src="https://nasirgriffin.com/static/email_icon.png"
+                          src="https://www.nasirgriffin.com/static/email_icon.png"
                           alt="Nasir Griffin"
                           style="display:block;width:120px;max-width:120px;height:auto;"
                         />
@@ -48,7 +49,15 @@ router.post("/", async (req, res) => {
                               First Name
                             </td>
                             <td style="padding:10px 12px;background:#ffffff;border:1px solid #e5e7eb;font-size:13px;color:#111827;">
-                              ${String(company ?? "").trim()}
+                              ${String(firstName ?? "").trim()}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td style="padding:10px 12px;background:#f9fafb;border:1px solid #e5e7eb;width:160px;font-size:13px;color:#374151;">
+                              Last Name
+                            </td>
+                            <td style="padding:10px 12px;background:#ffffff;border:1px solid #e5e7eb;font-size:13px;color:#111827;">
+                              ${String(lastName ?? "").trim()}
                             </td>
                           </tr>
                           <tr>
@@ -110,7 +119,7 @@ router.post("/", async (req, res) => {
                     <tr>
                       <td style="padding:24px 28px;background:#0b0b0d;">
                         <img
-                          src="https://nasirgriffin.com/static/email_icon.png"
+                          src="https://www.nasirgriffin.com/static/email_icon.png"
                           alt="Nasir Griffin"
                           style="display:block;width:120px;max-width:120px;height:auto;"
                         />
@@ -123,7 +132,7 @@ router.post("/", async (req, res) => {
                           Thank you for reaching out
                         </h1>
                         <p style="margin:0 0 14px 0;font-size:14px;line-height:22px;color:#374151;">
-                          Hi ${String(company ?? "").trim() || "there"}, we’ve received your message and will respond as soon as possible.
+                          Hi ${String(firstName ?? "").trim() || "there"}, we’ve received your message and will respond as soon as possible.
                         </p>
 
                         <div style="margin:18px 0 0 0;padding:14px 16px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:10px;">
