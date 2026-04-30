@@ -7,9 +7,9 @@ function Client() {
 
     const Services = [
         {
-            name: "Mobile-Friendly",
-            description: "All websites are designed to be highly mobile responsive.",
-            image: "/static/mobile.png"
+            name: "Systems That Convert",
+            description: "Systems that capture leads and turn them into paying customers.",
+            image: "/static/systems.png"
         },
         {
             name: "Direct Communication",
@@ -51,7 +51,16 @@ function Client() {
             creative and have a driven personality to take care of business right away. 
             I recommend them 100% and you won’t regret it!"`, 
             Stars : 5
-        },  
+        }, {
+            client : "Dae's Mobile Mechanic", 
+            image : "/static/DaesMobileMechanic.png", 
+            testimony : `"Very professional website looks extremely professional. 
+            He services definitely helps scales growth. Contacting him about any 
+            business inquiries or questions was very easy fast and helpful. Any 
+            business owner just starting off or established will need him to take 
+            you to the next that level."`, 
+            Stars : 5
+        },
     ]
 
     const projects = [
@@ -74,13 +83,49 @@ function Client() {
             services, trust her legitimacy, and contact her without friction. The result was a clean, reliable digital 
             foundation that strengthened her brand and made it easier for clients to find and choose her services.`, 
             link : "https://www.jdmultiprocessandservices.com"
+        }
+    ]
+
+        const systems = [
+        {
+            name : "AUTO BODY LEAD CAPTURE SYSTEM", 
+            image : "/static/GMWSAutobody.png", 
+            description : `The GMWS Auto Body Collision System is built to turn inquiries into booked jobs 
+            by capturing estimate requests instantly, organizing customer details and vehicle damage in one place, 
+            and streamlining communication from first contact to final invoice. Instead of missed calls, scattered 
+            messages, and slow follow-ups, your shop gets a structured pipeline that increases response speed, 
+            builds customer trust, and helps you close more repair work consistently, without adding extra 
+            workload to your team.`, 
+            link : "https://www.nasirgriffin.com/autobody"
         },
+        {
+            name : "REAL ESTATE LEAD CAPTURE SYSTEM", 
+            image : "/static/GMWSRealEstate.png", 
+            description : `The GMWS Real Estate System is designed to turn interest into qualified deals by capturing 
+            buyer and seller leads instantly, organizing them into a clear pipeline, and making follow-up seamless and 
+            consistent. Instead of losing opportunities through missed messages or disorganized tracking, you get a 
+            system that builds trust from the first interaction, keeps prospects engaged, and helps you move more leads 
+            from inquiry to closed transaction, without adding complexity to your workflow.`, 
+            link : "https://www.nasirgriffin.com/realestate"
+        }
     ]
     
     const projectRefs = useRef(projects.map(() => React.createRef()));
-    const visibilityList = (projectRefs.current.map((ref) => ({ ref: ref, visibility: false })));
-    const [visibilityState, setVisibilityState] = useState(visibilityList);
-    const [observer, setObserver] = useState(null);
+    const systemRefs = useRef(systems.map(() => React.createRef()));
+    const projectVisibilityList = projectRefs.current.map((ref) => ({
+        ref,
+        visibility: false,
+    }));
+
+    const systemVisibilityList = systemRefs.current.map((ref) => ({
+        ref,
+        visibility: false,
+    }));
+
+    const [projectVisibilityState, setProjectVisibilityState] = useState(projectVisibilityList);
+    const [systemVisibilityState, setSystemVisibilityState] = useState(systemVisibilityList);
+    const [projectObserver, setProjectObserver] = useState(null);
+    const [systemObserver, setSystemObserver] = useState(null);
     const servicesSectionRef = useRef(null);
     const serviceRefs = useRef([]); // array of refs for each ServiceContainer
     const testimonialsSectionRef = useRef(null);
@@ -96,6 +141,24 @@ function Client() {
     const [phone, setPhone] = useState('');
     const [message, setMessage] = useState(null);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const setHeight = () => {
+            const height = window.visualViewport
+            ? window.visualViewport.height
+            : window.innerHeight;
+
+            document.documentElement.style.setProperty("--app-height", `${height}px`);
+        };
+
+        setHeight();
+
+        window.addEventListener("orientationchange", setHeight);
+
+        return () => {
+            window.removeEventListener("orientationchange", setHeight);
+        };
+    }, []);
 
     useEffect(() => {
         const el = businessTitleRef.current;
@@ -189,8 +252,8 @@ function Client() {
         
         console.log("Section refs after mount:", projectRefs.current.map(ref => ref.current));
         console.log(projectRefs)
-        if (observer === null) {
-            setObserver(new IntersectionObserver((entries) => {
+        if (projectObserver === null) {
+            setProjectObserver(new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
                     console.log(entry.target)
                     if (entry.isIntersecting) {
@@ -198,10 +261,10 @@ function Client() {
                         projectRefs.current.forEach((ref) => {
                             if (entry.target === ref.current) {
                                 console.log("project " + index + " is currently intersecting")
-                                visibilityList[index].visibility = true;
+                                projectVisibilityList[index].visibility = true;
                                 const updatedVisibilityList = []
-                                visibilityList.forEach((item) => updatedVisibilityList.push(item))
-                                setVisibilityState(updatedVisibilityList)  
+                                projectVisibilityList.forEach((item) => updatedVisibilityList.push(item))
+                                setProjectVisibilityState(updatedVisibilityList)  
                             } 
                             index++;
                         }) 
@@ -210,16 +273,57 @@ function Client() {
                         projectRefs.current.forEach((ref) => {
                             if (entry.target === ref.current) {
                                 console.log("section " + index + " is currently not intersecting")
-                                visibilityList[index].visibility = false;
+                                projectVisibilityList[index].visibility = false;
                                 const updatedVisibilityList = []
-                                visibilityList.forEach((item) => updatedVisibilityList.push(item))
-                                setVisibilityState(updatedVisibilityList)    
+                                projectVisibilityList.forEach((item) => updatedVisibilityList.push(item))
+                                setProjectVisibilityState(updatedVisibilityList)    
                             } 
                             index++;
                         }) 
                     }
 
-                    console.log(visibilityList) 
+                    console.log(projectVisibilityList) 
+                })
+            }, { threshold : 0.60}));
+        }
+    }, [])
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+        
+        console.log("Section refs after mount:", systemRefs.current.map(ref => ref.current));
+        console.log(systemRefs)
+        if (systemObserver === null) {
+            setSystemObserver(new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    console.log(entry.target)
+                    if (entry.isIntersecting) {
+                        var index = 0;
+                        systemRefs.current.forEach((ref) => {
+                            if (entry.target === ref.current) {
+                                console.log("project " + index + " is currently intersecting")
+                                systemVisibilityList[index].visibility = true;
+                                const updatedVisibilityList = []
+                                systemVisibilityList.forEach((item) => updatedVisibilityList.push(item))
+                                setSystemVisibilityState(updatedVisibilityList)  
+                            } 
+                            index++;
+                        }) 
+                    } else {
+                        var index = 0;
+                        systemRefs.current.forEach((ref) => {
+                            if (entry.target === ref.current) {
+                                console.log("section " + index + " is currently not intersecting")
+                                systemVisibilityList[index].visibility = false;
+                                const updatedVisibilityList = []
+                                systemVisibilityList.forEach((item) => updatedVisibilityList.push(item))
+                                setSystemVisibilityState(updatedVisibilityList)    
+                            } 
+                            index++;
+                        }) 
+                    }
+
+                    console.log(systemVisibilityList) 
                 })
             }, { threshold : 0.60}));
         }
@@ -257,22 +361,30 @@ function Client() {
         return () => observer.disconnect();
     }, []);
 
-    
-    useEffect(() => {
-        console.log(visibilityState); // This will log the updated state
-    }, [visibilityState]); // Runs whenever visibilityList updates
 
     useEffect(() => {
-        if (observer !== null) {
+        if (projectObserver !== null) {
 
-            console.log(observer)
+            console.log(projectObserver)
 
             projectRefs.current.forEach((ref) => {
                 console.log(ref.current)
-                observer.observe(ref.current)
+                projectObserver.observe(ref.current)
             });
         }
-    }, observer)
+    }, projectObserver)
+
+    useEffect(() => {
+        if (systemObserver !== null) {
+
+            console.log(systemObserver)
+
+            systemRefs.current.forEach((ref) => {
+                console.log(ref.current)
+                systemObserver.observe(ref.current)
+            });
+        }
+    }, systemObserver)
 
     useEffect(() => {
         const el = servicesSectionRef.current;
@@ -317,14 +429,14 @@ function Client() {
         <div className="Projects">
             <p className='Scroll-Down' data-text="SCROLL DOWN" ref={scrollDownRef}>SCROLL DOWN</p>
             <div className="BusinessTitle" ref={businessTitleRef}>
-                <h1 className="BusinessHeader Reveal">Griffin Managed Web Solutions</h1>
+                <div className="BusinessHeader Reveal"><img src='/static/GMWSLogo.png' /></div>
 
                 <div className="BusinessLogo Reveal">
                     <img src="/static/GriffinMWS.png" />
                 </div>
 
                 <p className="Slogan Reveal">
-                    We handle the tech so that you don't have to.
+                    We turn leads into customers.
                 </p>
             </div>
 
@@ -332,12 +444,12 @@ function Client() {
                 <div class="Information">
                     <h1 className="header">CLIENT SERVICES</h1>
                     <div className="divider"></div>
-                    <div className="PageDetails">
-                        <h2>MANAGED WEB SOLUTIONS PROVIDER</h2>
+                    <div className="PageDetails ClientServices">
+                        <h2 style={{textTransform : 'uppercase'}}>Websites that build trust<br />Systems that bring you customers.</h2>
                         <p>
-                            We build and manage production-ready websites for small businesses and personal brands. 
-                            Each site is fully handled end-to-end, including development, hosting, and ongoing maintenance. 
-                            Clients get a reliable online presence without having to manage any technical details.
+                            We don’t just build websites, we build systems that make your business 
+                            look credible and bring in customers. Every site is designed to capture 
+                            leads, build trust instantly, and turn visitors into real opportunities.
                         </p>
                     </div>
                 </div>                    
@@ -347,7 +459,7 @@ function Client() {
                 </div>
             </div>
 
-            <h1 className='SectionHeader'>WHY YOU CHOOSE US</h1>
+            <h1 className='SectionHeader ClientServices'><span>How we stregnthen your business</span></h1>
 
             <div className="Services" ref={servicesSectionRef}>
                 {Services.map((service, index) => (
@@ -369,42 +481,56 @@ function Client() {
 
             <h1 className='SectionHeader'>Testimonials</h1>
 
-            <div className='Testimonials' ref={testimonialsSectionRef}>
-                {testimonials.map((testimony, index) => (
-                    <div
-                        key={index}
-                        className='TestimonyContainer'
-                        ref={(node) => (testimonialRefs.current[index] = node)}
-                    >
-                        <div className='Testimony'>
-                            <div className='Client'>
-                            <div className='ClientImage'>
-                                <img src={testimony.image} alt={testimony.client} />
-                            </div>
-                            <h2>{testimony.client}</h2>
-                            </div>
-
-                            <p className='ClientTestimony'>{testimony.testimony}</p>
-
-                            <div className='StarRating'>
-                            {Array.from({ length: testimony.Stars }).map((_, starIndex) => (
-                                <div key={starIndex} className="Star">
-                                <img src="/static/star.png" alt="star" />
+            <div className='CredibilitySection'>
+                <div className='Testimonials' ref={testimonialsSectionRef}>
+                    {testimonials.map((testimony, index) => (
+                        <div
+                            key={index}
+                            className='TestimonyContainer'
+                            ref={(node) => (testimonialRefs.current[index] = node)}
+                        >
+                            <div className='Testimony'>
+                                <div className='Client'>
+                                <div className='ClientImage'>
+                                    <img src={testimony.image} alt={testimony.client} />
                                 </div>
-                            ))}
+                                <h2>{testimony.client}</h2>
+                                </div>
+
+                                <p className='ClientTestimony'>{testimony.testimony}</p>
+
+                                <div className='StarRating'>
+                                {Array.from({ length: testimony.Stars }).map((_, starIndex) => (
+                                    <div key={starIndex} className="Star">
+                                    <img src="/static/star.png" alt="star" />
+                                    </div>
+                                ))}
+                                </div>
                             </div>
                         </div>
+                    ))}
+                </div>
+                <button className='GoogleLink' onClick={() => {window.open(`https://share.google/0dNpvbwOEFTvyWejN`, '_blank')}}>
+                    <div className='GoogleIcon'>
+                        <img src='/static/google.png' />
                     </div>
-                ))}
+                    Google<br />Reviews 
+                    <div className='GoogleStars'>
+                        5 
+                        <div>
+                            <img src='/static/GoogleStar.png'/>
+                        </div>
+                    </div>
+                </button>
             </div>
 
-            <h1 className='SectionHeader'>Our Clients</h1>
+            <h1 className='SectionHeader'>High Conversion Websites</h1>
 
             <div className="ListOfProjects">
                 {  
                     projects.map((project, index) => (
                         <div key={index} className="ProjectContainer" ref={projectRefs.current[index]}>
-                            <div className={`Project ${visibilityState[index].visibility ? "Slide-Up" : "Fade-Out"}`}>
+                            <div className={`Project ${projectVisibilityState[index].visibility ? "Slide-Up" : "Fade-Out"}`}>
                                 <p className="ProjectName">{project.name}</p>
                                 <div className="ImgAndDesc">
                                     <div className="ProjectImageContainer">
@@ -417,6 +543,125 @@ function Client() {
                         </div>
                     ))
                 }
+            </div>
+
+            <h1 className='SectionHeader'>Revenue Optimizing Systems</h1>
+
+            <div className="ListOfProjects">
+                {  
+                    systems.map((system, index) => (
+                        <div key={index} className="ProjectContainer" ref={systemRefs.current[index]}>
+                            <div className={`Project ${systemVisibilityState[index].visibility ? "Slide-Up" : "Fade-Out"}`}>
+                                <p className="ProjectName">{system.name}</p>
+                                <div className="ImgAndDesc">
+                                    <div className="ProjectImageContainer">
+                                        <img src={system.image} alt="no image"/>
+                                    </div>
+                                    <p className="ProjectDesc">{system.description}</p>
+                                </div>
+                                <a className="ProjectLink" href={system.link} target="_blank">CHECK OUT {system.name}</a>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+
+            <h1 className='SectionHeader'>CAPTURE MORE REVENUE TODAY</h1>
+
+            <div className='ProductsSection'>
+                <div className='Products'>
+                    <div className='Product'>
+                        <h1 className='Tier'>GMWS System Access</h1>
+
+                        <div className='TierImage'><img src='/static/alpha.png' /></div>
+
+                        <ul>
+                            <li>Instant access to a proven lead capture system</li>
+                            <li>Capture and organize customer inquiries automatically</li>
+                            <li>Structured pipeline to track and manage every lead</li>
+                            <li>Built-in workflows to respond faster and close more deals</li>
+                            <li>Customer-friendly intake experience that builds trust</li>
+                            <li>Admin dashboard to view, manage, and update leads in real time</li>
+                            <li>Integrated into a clean, professional website</li>
+                            <li>Fully hosted, maintained, and managed for you</li>
+                            <li>Continuous updates and improvements to the system</li>
+                        </ul>
+
+                        <div className='Fees'>
+                            <span className='BuildFee'>Build Fee: $0</span>
+                            <span className='MonthlyFee'>Monthly Fee: $150</span>
+                        </div>
+                    </div>
+
+                    <div className='Product'>
+                        <h1 className='Tier'>High-Conversion Website</h1>
+
+                        <div className='TierImage'><img src='/static/beta.png' /></div>
+
+                        <ul>
+                            <li>Custom-designed website tailored to your business</li>
+                            <li>Built to establish trust and professional credibility</li>
+                            <li>Mobile-optimized for a seamless experience on all devices</li>
+                            <li>Clear messaging that communicates your services effectively</li>
+                            <li>Strategic layout designed to guide visitors to take action</li>
+                            <li>Contact forms to capture inquiries and leads</li>
+                            <li>Fast-loading, reliable performance</li>
+                            <li>Deployed and hosted for you (no technical setup required)</li>
+                            <li>Ongoing support and maintenance available</li>
+                        </ul>
+
+                        <div className='Fees'>
+                            <span>Build Fee: $500</span>
+                            <span>Monthly Maintenance: $100</span>
+                        </div>
+                    </div>
+
+                    <div className='Product'>
+                        <h1 className='Tier'>Elite Brand Experience</h1>
+
+                        <div className='TierImage'><img src='/static/gamma.png' /></div>
+
+                        <ul>
+                            <li>Custom-designed website tailored to your business</li>
+                            <li>Built to establish trust and professional credibility</li>
+                            <li>Mobile-optimized for a seamless experience on all devices</li>
+                            <li>Clear messaging that communicates your services effectively</li>
+                            <li>Strategic layout designed to guide visitors to take action</li>
+                            <li>Contact forms to capture inquiries and leads</li>
+                            <li>Fast-loading, reliable performance</li>
+                            <li>Deployed and hosted for you (no technical setup required)</li>
+                            <li>Ongoing support and maintenance available</li>
+                        </ul>
+
+                        <div className='Fees'>
+                            <span>Build Fee: $2,500</span>
+                            <span>Monthly Maintenance: $150</span>
+                        </div>
+                    </div>
+
+                    <div className='Product'>
+                        <h1 className='Tier'>Custom Revenue System</h1>
+
+                        <div className='TierImage'><img src='/static/omega.png' /></div>
+
+                        <ul>
+                            <li>Fully custom-built lead capture system tailored to your business workflow</li>
+                            <li>Custom frontend experience designed for maximum user conversion</li>
+                            <li>Advanced backend system to manage, track, and update all leads</li>
+                            <li>Structured pipeline to move leads from inquiry to closed deal</li>
+                            <li>Admin dashboard with full control over leads, statuses, and data</li>
+                            <li>Automated workflows to reduce manual work and increase response speed</li>
+                            <li>Custom features built specifically for your industry and operations</li>
+                            <li>Fully deployed, hosted, and managed infrastructure</li>
+                            <li>Ongoing support, updates, and system expansion</li>
+                        </ul>
+
+                        <div className='Fees'>
+                            <span>Build Fee: $4,000</span>
+                            <span>Monthly Maintenance: $250</span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <h1 className='SectionHeader'>Let Us Handle This For You</h1>
