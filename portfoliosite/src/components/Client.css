@@ -247,7 +247,7 @@
         height : 90%;
         aspect-ratio: 1/1;
 
-        margin-left: 1vw;
+        margin-left: 10px;
     }
 
     .GoogleStars div img {
@@ -262,7 +262,8 @@
         justify-content: center;
         align-items: center;
         width: 100vw;
-        height: var(--app-height);
+        height: 100lvh;
+        min-height: var(--app-height);
     }
 
     .Slogan {
@@ -351,7 +352,8 @@
       position: relative;
       z-index: 5;
       width: 100vw;
-      height: calc(var(--app-height) * 1.6);
+      height : 160lvh;
+      min-height: calc(var(--app-height) * 1.6);
       min-height: 800px;
       scroll-margin-top: calc(var(--app-height) * .26);
       overflow-y: hidden;
@@ -370,7 +372,8 @@
 
   .ProductsSection {
     width : 100vw;
-    height : var(--app-height);
+    height: 100lvh;
+    min-height : var(--app-height);
 
     display: flex;
     flex-direction: row;
@@ -671,7 +674,7 @@
         height : 90%;
         aspect-ratio: 1/1;
 
-        margin-left: 1vw;
+        margin-left: 10px;
     }
 
     .GoogleStars div img {
@@ -946,7 +949,8 @@
         justify-content: center;
         align-items: center;
         width: 100vw;
-        height: var(--app-height);
+        height: 100lvh;
+        min-height: var(--app-height);
     }
 
     .Slogan {

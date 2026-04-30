@@ -143,20 +143,52 @@ function Client() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const setHeight = () => {
-            const height = window.visualViewport
-            ? window.visualViewport.height
-            : window.innerHeight;
+        const isInstagram =
+            navigator.userAgent.includes("Instagram") ||
+            navigator.userAgent.includes("FBAN") ||
+            navigator.userAgent.includes("FBAV");
 
+        const isAndroid = /Android/i.test(navigator.userAgent);
+
+        const setAppHeight = () => {
+            const height = window.visualViewport?.height || window.innerHeight;
             document.documentElement.style.setProperty("--app-height", `${height}px`);
         };
 
-        setHeight();
+        if (isInstagram) {
+            setAppHeight();
 
-        window.addEventListener("orientationchange", setHeight);
+            window.visualViewport?.addEventListener("resize", setAppHeight);
+            window.addEventListener("resize", setAppHeight);
+
+            return () => {
+            window.visualViewport?.removeEventListener("resize", setAppHeight);
+            window.removeEventListener("resize", setAppHeight);
+            };
+        }
+
+        if (isAndroid) {
+            setTimeout(setAppHeight, 300);
+            setTimeout(setAppHeight, 800);
+            setTimeout(setAppHeight, 1500);
+
+            window.visualViewport?.addEventListener("resize", setAppHeight);
+            window.addEventListener("resize", setAppHeight);
+
+            return () => {
+            window.visualViewport?.removeEventListener("resize", setAppHeight);
+            window.removeEventListener("resize", setAppHeight);
+            };
+        }
+
+        setAppHeight();
+
+        window.visualViewport?.addEventListener("resize", setAppHeight);
+        window.addEventListener("resize", setAppHeight);
 
         return () => {
-            window.removeEventListener("orientationchange", setHeight);
+            window.visualViewport?.removeEventListener("resize", setAppHeight);
+            window.removeEventListener("resize", setAppHeight);
         };
     }, []);
 
