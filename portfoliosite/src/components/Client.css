@@ -233,7 +233,7 @@
 
     .GoogleStars {
         height: 50%;
-        width: fit-content;
+        width: 20%;
 
         display: flex;
         flex-direction: row;
@@ -245,7 +245,7 @@
 
     .GoogleStars div{
         height : 90%;
-        aspect-ratio: 1/1;
+        width: 100%;
 
         margin-left: 10px;
     }
