@@ -32,6 +32,13 @@
         width: var(--app-width);
         height: calc(var(--app-height) * 1);
         z-index: 2;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        background-color: black;
     }
 
     .StartingBackground img {
@@ -652,6 +659,12 @@
         width: var(--app-width);
         height: var(--app-height);
 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        background-color: black;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
