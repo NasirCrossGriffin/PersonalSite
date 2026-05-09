@@ -10,7 +10,7 @@ import Systems from './components/Systems';
 import Client from './components/Client';
 
 function App() {
-  const [orientation, setOrientation] = useState('');
+  const [orientation, setOrientation] = useState(null);
 
   useEffect(() => {
     function determineOrientation() {

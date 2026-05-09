@@ -19,7 +19,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 100%;
+        width: var(--app-width);
         height: calc(var(--page-height) - (var(--app-height) * 2.8));
         z-index: 2;
         pointer-events: none;
