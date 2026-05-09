@@ -6,7 +6,7 @@
 @media (orientation: landscape) {
     .ProjectIMG, .UbuntuLogo, .Handshake {
         position: absolute;
-        width: 30vw;
+        width: calc(var(--app-width) * .3);
         height: fit-content;
         top: 50%;
         transform: translateY(-50%);
@@ -62,8 +62,10 @@
     }
 
     .Projects {
+        position: relative;
         width: 100%;
         height: 100%;
+        z-index: 5;
     }
 
     .ListOfProjects {
@@ -84,7 +86,7 @@
         border-color:  rgb(228, 228, 228);
         border-width: 1px;
         border-style: solid;
-        box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.164);
+        box-shadow: 12px 12px 36px 12px rgba(0, 0, 0, 0.8);
         background-color: rgb(243, 243, 243);
         margin-top: 20px;
         margin-bottom: 100px;
@@ -108,7 +110,7 @@
     .ProjectName {
         font-family: GlitchFont;
         font-weight: bold;
-        font-size: 2.2vw;
+        font-size: calc(var(--app-width) * .022);
     }
 
     .ImgAndDesc {
@@ -119,7 +121,7 @@
     }
 
     .ProjectDesc {
-        font-size: 1.3vw;
+        font-size: calc(var(--app-width) * .013);
         font-weight: 500;
         width : 70%;
         height: 100%;
@@ -136,8 +138,8 @@
 
 
     .ProjectImageContainer {
-        width : 20vw;
-        height : 20vw;
+        width : calc(var(--app-width) * .2);
+        height : calc(var(--app-width) * .2);
         margin-right: 20px;
     }
 
@@ -180,8 +182,8 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width : 7vw;
-        height: 7vw;
+        width : calc(var(--app-width) * .07);
+        height: calc(var(--app-width) * .07);
         margin-left: 10px;
         margin-right: 10px;
     }
@@ -221,7 +223,7 @@
 
     .ProjectLink {
         font-family: GlitchFont;
-        font-size: 1.7vw;
+        font-size: calc(var(--app-width) * .017);
     }
 }
 
@@ -277,8 +279,7 @@
     }
 
     .Projects {
-        width: 100%;
-        height: 100%;
+        width: var(--app-width);
     }
 
     .ListOfProjects {
@@ -288,10 +289,12 @@
         height: fit-content;
         justify-items: center;
         align-items: center;
+        width: var(--app-width);
         margin-bottom: 100px;
     }
 
     .ProjectContainer {
+        position: relative;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -304,6 +307,7 @@
         margin-top: 20px;
         margin-bottom: 100px;
         width: 80%;
+        z-index: 7;
     }
 
     @media (min-width : 1440px) {
@@ -323,7 +327,7 @@
     .ProjectName {
         font-family: GlitchFont;
         font-weight: bold;
-        font-size: 2.2vh;
+        font-size: calc(var(--app-height) * .022);
         width: 100%;
         text-align: center;
     }
@@ -336,7 +340,7 @@
     }
 
     .ProjectDesc {
-        font-size: 1.6vh;
+        font-size: calc(var(--app-height) * .016);
         font-weight: 500;
         width : 90%;
         height: 100%;
@@ -353,8 +357,8 @@
 
 
     .ProjectImageContainer {
-        width : 20vh;
-        height : 20vh;
+        width : calc(var(--app-height) * .20);
+        height : calc(var(--app-height) * .2);
     }
 
     .ProjectImageContainer img {
@@ -396,8 +400,8 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width : 4vh;
-        height: 4vh;
+        width : calc(var(--app-height) * .04);
+        height: calc(var(--app-height) * .04);
         margin-left: 10px;
         margin-right: 10px;
     }
@@ -423,7 +427,7 @@
 
 
     .TechnologyType {
-        font-size: 2vh;
+        font-size: calc(var(--app-height) * .02);
     }
 
     .ProjectsBanner {
@@ -436,7 +440,7 @@
 
     .ProjectLink {
         font-family: GlitchFont;
-        font-size: 1.7vh;
+        font-size: calc(var(--app-height) * .017);
     }
 }
 

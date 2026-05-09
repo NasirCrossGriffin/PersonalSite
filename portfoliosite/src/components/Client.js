@@ -3,7 +3,7 @@ import './Client.css';
 import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 
-function Client() {
+function Client({orientation}) {
 
     const Services = [
         {
@@ -143,56 +143,6 @@ function Client() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const isInstagram =
-            navigator.userAgent.includes("Instagram") ||
-            navigator.userAgent.includes("FBAN") ||
-            navigator.userAgent.includes("FBAV");
-
-        const isAndroid = /Android/i.test(navigator.userAgent);
-
-        const setAppHeight = () => {
-            const height = window.visualViewport?.height || window.innerHeight;
-            document.documentElement.style.setProperty("--app-height", `${height}px`);
-        };
-
-        if (isInstagram) {
-            setAppHeight();
-
-            window.visualViewport?.addEventListener("resize", setAppHeight);
-            window.addEventListener("resize", setAppHeight);
-
-            return () => {
-            window.visualViewport?.removeEventListener("resize", setAppHeight);
-            window.removeEventListener("resize", setAppHeight);
-            };
-        }
-
-        if (isAndroid) {
-            setTimeout(setAppHeight, 300);
-            setTimeout(setAppHeight, 800);
-            setTimeout(setAppHeight, 1500);
-
-            window.visualViewport?.addEventListener("resize", setAppHeight);
-            window.addEventListener("resize", setAppHeight);
-
-            return () => {
-            window.visualViewport?.removeEventListener("resize", setAppHeight);
-            window.removeEventListener("resize", setAppHeight);
-            };
-        }
-
-        setAppHeight();
-
-        window.visualViewport?.addEventListener("resize", setAppHeight);
-        window.addEventListener("resize", setAppHeight);
-
-        return () => {
-            window.visualViewport?.removeEventListener("resize", setAppHeight);
-            window.removeEventListener("resize", setAppHeight);
-        };
-    }, []);
-
-    useEffect(() => {
         const el = businessTitleRef.current;
         const scrollEl = scrollDownRef.current;
         if (!el || !scrollEl) return;
@@ -273,9 +223,9 @@ function Client() {
 
         try {
         await newContact(contactObj);
-        setMessageSent("Your contact message was sent!");
+            setMessageSent("Your contact message was sent!");
         } catch (err) {
-        setMessageSent("Your contact message failed to send.");
+            setMessageSent("Your contact message failed to send.");
         }
     };
     
@@ -458,298 +408,331 @@ function Client() {
         };
     }, []);
     return (
-        <div className="Projects">
-            <p className='Scroll-Down' data-text="SCROLL DOWN" ref={scrollDownRef}>SCROLL DOWN</p>
-            <div className="BusinessTitle" ref={businessTitleRef}>
-                <div className="BusinessHeader Reveal"><img src='/static/GMWSLogo.png' /></div>
-
-                <div className="BusinessLogo Reveal">
-                    <img src="/static/GriffinMWS.png" />
+        <>
+            <div className="BackgroundLayer">
+                <div className="StartingBackground">
+                    <img src={orientation ? orientation === 'landscape' ? "/static/GriffinHome.png" : "/static/GriffinBGMobile.png" : null} />
                 </div>
 
-                <p className="Slogan Reveal">
-                    We turn leads into customers.
-                </p>
+                <div className="TrueBackground"></div>
             </div>
 
-            <div className="InitialSection Fade-In" >
-                <div class="Information">
-                    <h1 className="header">CLIENT SERVICES</h1>
-                    <div className="divider"></div>
-                    <div className="PageDetails ClientServices">
-                        <h2 style={{textTransform : 'uppercase'}}>Websites that build trust<br />Systems that bring you customers.</h2>
-                        <p>
-                            We don’t just build websites, we build systems that make your business 
-                            look credible and bring in customers. Every site is designed to capture 
-                            leads, build trust instantly, and turn visitors into real opportunities.
-                        </p>
-                    </div>
-                </div>                    
-                
-                <div class="Handshake">
-                        <img src="/static/handshake.png" />
+            <div className='SecondBackgroundLayer'>
+                <div className="FinalBackground">
+                    <img src={orientation ? orientation === 'landscape' ? "/static/GriffinContact.png" : "/static/GriffinContactMobile.png" : null} />
                 </div>
             </div>
 
-            <h1 className='SectionHeader ClientServices'><span>How we stregnthen your business</span></h1>
+            <div className="Projects">
+                <p className='Scroll-Down' data-text="SCROLL DOWN" ref={scrollDownRef}>SCROLL DOWN</p>
+                <div className="BusinessTitle" ref={businessTitleRef}>
+                    <div className="BusinessHeader Reveal"><img src='/static/GriffinLogo.png' /></div>
 
-            <div className="Services" ref={servicesSectionRef}>
-                {Services.map((service, index) => (
-                    <div
-                    key={index}
-                    className="ServiceContainer"
-                    ref={(node) => (serviceRefs.current[index] = node)}
-                    >
-                    <div className="Service" id={`service-${index}`}>
-                        <p className="ServiceName">{service.name}</p>
-                        <div className="ServiceImageContainer">
-                            <img src={service.image} alt="no image" />
+                    <p className="Slogan Reveal">
+                        We turn leads into customers.
+                    </p>
+
+                    <button className='CTAButton Reveal'>
+                        <span>Get Started </span>
+                        <svg width="2vw" height="2vw" viewBox="0 0 36 16">
+                            <path d="M0 8h24M20 4L28 8L20 12" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div className='firstdivider'></div>
+
+                <div className="InitialSection Fade-In" >
+                    <div class="Information">
+                        <h1 className="header">CLIENT SERVICES</h1>
+                        <div className="divider"></div>
+                        <div className="PageDetails ClientServices">
+                            <h2 style={{textTransform : 'uppercase'}}>Websites that build trust<br />Systems that bring you customers.</h2>
+                            <p>
+                                We don’t just build websites, we build systems that make your business 
+                                look credible and bring in customers. Every site is designed to capture 
+                                leads, build trust instantly, and turn visitors into real opportunities.
+                            </p>
                         </div>
-                        <p className="ServiceDesc">{service.description}</p>
+                    </div>                    
+                    
+                    <div class="Handshake">
+                            <img src="/static/handshake.png" />
                     </div>
-                    </div>
-                ))}
-            </div>
+                </div>
 
-            <h1 className='SectionHeader'>Testimonials</h1>
+                <h1 className='SectionHeader ClientServices'><span>How we strengthen your business</span></h1>
 
-            <div className='CredibilitySection'>
-                <div className='Testimonials' ref={testimonialsSectionRef}>
-                    {testimonials.map((testimony, index) => (
+                <div className="Services" ref={servicesSectionRef}>
+                    {Services.map((service, index) => (
                         <div
-                            key={index}
-                            className='TestimonyContainer'
-                            ref={(node) => (testimonialRefs.current[index] = node)}
+                        key={index}
+                        className="ServiceContainer"
+                        ref={(node) => (serviceRefs.current[index] = node)}
                         >
-                            <div className='Testimony'>
-                                <div className='Client'>
-                                <div className='ClientImage'>
-                                    <img src={testimony.image} alt={testimony.client} />
-                                </div>
-                                <h2>{testimony.client}</h2>
-                                </div>
-
-                                <p className='ClientTestimony'>{testimony.testimony}</p>
-
-                                <div className='StarRating'>
-                                {Array.from({ length: testimony.Stars }).map((_, starIndex) => (
-                                    <div key={starIndex} className="Star">
-                                    <img src="/static/star.png" alt="star" />
-                                    </div>
-                                ))}
-                                </div>
+                        <div className="Service" id={`service-${index}`}>
+                            <p className="ServiceName">{service.name}</p>
+                            <div className="ServiceImageContainer">
+                                <img src={service.image} alt="no image" />
                             </div>
+                            <p className="ServiceDesc">{service.description}</p>
+                        </div>
                         </div>
                     ))}
                 </div>
-                <button className='GoogleLink' onClick={() => {window.open(`https://share.google/0dNpvbwOEFTvyWejN`, '_blank')}}>
-                    <div className='GoogleIcon'>
-                        <img src='/static/google.png' />
-                    </div>
-                    Google<br />Reviews 
-                    <div className='GoogleStars'>
-                        5 
-                        <div>
-                            <img src='/static/GoogleStar.png'/>
-                        </div>
-                    </div>
-                </button>
-            </div>
 
-            <h1 className='SectionHeader'>High Conversion Websites</h1>
+                <h1 className='SectionHeader'>Testimonials</h1>
 
-            <div className="ListOfProjects">
-                {  
-                    projects.map((project, index) => (
-                        <div key={index} className="ProjectContainer" ref={projectRefs.current[index]}>
-                            <div className={`Project ${projectVisibilityState[index].visibility ? "Slide-Up" : "Fade-Out"}`}>
-                                <p className="ProjectName">{project.name}</p>
-                                <div className="ImgAndDesc">
-                                    <div className="ProjectImageContainer">
-                                        <img src={project.image} alt="no image"/>
+                <div className='CredibilitySection'>
+                    <div className='Testimonials' ref={testimonialsSectionRef}>
+                        {testimonials.map((testimony, index) => (
+                            <div
+                                key={index}
+                                className='TestimonyContainer'
+                                ref={(node) => (testimonialRefs.current[index] = node)}
+                            >
+                                <div className='Testimony'>
+                                    <div className='Client'>
+                                    <div className='ClientImage'>
+                                        <img src={testimony.image} alt={testimony.client} />
                                     </div>
-                                    <p className="ProjectDesc">{project.description}</p>
+                                    <h2>{testimony.client}</h2>
+                                    </div>
+
+                                    <p className='ClientTestimony'>{testimony.testimony}</p>
+
+                                    <div className='StarRating'>
+                                    {Array.from({ length: testimony.Stars }).map((_, starIndex) => (
+                                        <div key={starIndex} className="Star">
+                                        <img src="/static/star.png" alt="star" />
+                                        </div>
+                                    ))}
+                                    </div>
                                 </div>
-                                <a className="ProjectLink" href={project.link} target="_blank">CHECK OUT {project.name}</a>
+                            </div>
+                        ))}
+                    </div>
+                    <button className='GoogleLink' onClick={() => {window.open(`https://share.google/0dNpvbwOEFTvyWejN`, '_blank')}}>
+                        <div className='GoogleIcon'>
+                            <img src='/static/google.png' />
+                        </div>
+                        Google<br />Reviews 
+                        <div className='GoogleStars'>
+                            5 
+                            <div>
+                                <img src='/static/GoogleStar.png'/>
                             </div>
                         </div>
-                    ))
-                }
-            </div>
+                    </button>
+                </div>
 
-            <h1 className='SectionHeader'>Revenue Optimizing Systems</h1>
+                <h1 className='SectionHeader'>High Conversion Websites</h1>
 
-            <div className="ListOfProjects">
-                {  
-                    systems.map((system, index) => (
-                        <div key={index} className="ProjectContainer" ref={systemRefs.current[index]}>
-                            <div className={`Project ${systemVisibilityState[index].visibility ? "Slide-Up" : "Fade-Out"}`}>
-                                <p className="ProjectName">{system.name}</p>
-                                <div className="ImgAndDesc">
-                                    <div className="ProjectImageContainer">
-                                        <img src={system.image} alt="no image"/>
+                <div className="ListOfProjects">
+                    {  
+                        projects.map((project, index) => (
+                            <div key={index} className="ProjectContainer" ref={projectRefs.current[index]}>
+                                <div className={`Project ${projectVisibilityState[index].visibility ? "Slide-Up" : "Fade-Out"}`}>
+                                    <p className="ProjectName">{project.name}</p>
+                                    <div className="ImgAndDesc">
+                                        <div className="ProjectImageContainer">
+                                            <img src={project.image} alt="no image"/>
+                                        </div>
+                                        <p className="ProjectDesc">{project.description}</p>
                                     </div>
-                                    <p className="ProjectDesc">{system.description}</p>
+                                    <a className="ProjectLink" href={project.link} target="_blank">CHECK OUT {project.name}</a>
                                 </div>
-                                <a className="ProjectLink" href={system.link} target="_blank">CHECK OUT {system.name}</a>
+                            </div>
+                        ))
+                    }
+                </div>
+
+                <h1 className='SectionHeader'>Revenue Optimizing Systems</h1>
+
+                <div className="ListOfProjects">
+                    {  
+                        systems.map((system, index) => (
+                            <div key={index} className="ProjectContainer" ref={systemRefs.current[index]}>
+                                <div className={`Project ${systemVisibilityState[index].visibility ? "Slide-Up" : "Fade-Out"}`}>
+                                    <p className="ProjectName">{system.name}</p>
+                                    <div className="ImgAndDesc">
+                                        <div className="ProjectImageContainer">
+                                            <img src={system.image} alt="no image"/>
+                                        </div>
+                                        <p className="ProjectDesc">{system.description}</p>
+                                    </div>
+                                    <a className="ProjectLink" href={system.link} target="_blank">CHECK OUT {system.name}</a>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+
+                <h1 className='SectionHeader'>CAPTURE MORE REVENUE TODAY</h1>
+
+                <div className='ProductsSection'>
+                    <div className='Products'>
+                        <div className='Product'>
+                            <h1 className='Tier'>GMWS System Access</h1>
+
+                            <div className='TierImage'><img src='/static/alpha.png' /></div>
+
+                            <ul>
+                                <li>Instant access to a proven lead capture system</li>
+                                <li>Capture and organize customer inquiries automatically</li>
+                                <li>Structured pipeline to track and manage every lead</li>
+                                <li>Built-in workflows to respond faster and close more deals</li>
+                                <li>Customer-friendly intake experience that builds trust</li>
+                                <li>Admin dashboard to view, manage, and update leads in real time</li>
+                                <li>Integrated into a clean, professional website</li>
+                                <li>Fully hosted, maintained, and managed for you</li>
+                                <li>Continuous updates and improvements to the system</li>
+                            </ul>
+
+                            <div className='Fees'>
+                                <span className='BuildFee'>Setup Fee: $500</span>
+                                <span className='MonthlyFee'>Monthly Fee: $150</span>
                             </div>
                         </div>
-                    ))
-                }
-            </div>
 
-            <h1 className='SectionHeader'>CAPTURE MORE REVENUE TODAY</h1>
+                        <div className='Product'>
+                            <h1 className='Tier'>High-Conversion Website</h1>
 
-            <div className='ProductsSection'>
-                <div className='Products'>
-                    <div className='Product'>
-                        <h1 className='Tier'>GMWS System Access</h1>
+                            <div className='TierImage'><img src='/static/beta.png' /></div>
 
-                        <div className='TierImage'><img src='/static/alpha.png' /></div>
+                            <ul>
+                                <li>Custom-designed website tailored to your business</li>
+                                <li>Built to establish trust and professional credibility</li>
+                                <li>Mobile-optimized for a seamless experience on all devices</li>
+                                <li>Clear messaging that communicates your services effectively</li>
+                                <li>Strategic layout designed to guide visitors to take action</li>
+                                <li>Contact forms to capture inquiries and leads</li>
+                                <li>Fast-loading, reliable performance</li>
+                                <li>Deployed and hosted for you (no technical setup required)</li>
+                                <li>Ongoing support and maintenance available</li>
+                            </ul>
 
-                        <ul>
-                            <li>Instant access to a proven lead capture system</li>
-                            <li>Capture and organize customer inquiries automatically</li>
-                            <li>Structured pipeline to track and manage every lead</li>
-                            <li>Built-in workflows to respond faster and close more deals</li>
-                            <li>Customer-friendly intake experience that builds trust</li>
-                            <li>Admin dashboard to view, manage, and update leads in real time</li>
-                            <li>Integrated into a clean, professional website</li>
-                            <li>Fully hosted, maintained, and managed for you</li>
-                            <li>Continuous updates and improvements to the system</li>
-                        </ul>
-
-                        <div className='Fees'>
-                            <span className='BuildFee'>Build Fee: $0</span>
-                            <span className='MonthlyFee'>Monthly Fee: $150</span>
+                            <div className='Fees'>
+                                <span>Build Fee: $1000</span>
+                                <span>Monthly Maintenance: $100</span>
+                            </div>
                         </div>
-                    </div>
 
-                    <div className='Product'>
-                        <h1 className='Tier'>High-Conversion Website</h1>
+                        <div className='Product'>
+                            <h1 className='Tier'>Elite Brand Experience</h1>
 
-                        <div className='TierImage'><img src='/static/beta.png' /></div>
+                            <div className='TierImage'><img src='/static/gamma.png' /></div>
 
-                        <ul>
-                            <li>Custom-designed website tailored to your business</li>
-                            <li>Built to establish trust and professional credibility</li>
-                            <li>Mobile-optimized for a seamless experience on all devices</li>
-                            <li>Clear messaging that communicates your services effectively</li>
-                            <li>Strategic layout designed to guide visitors to take action</li>
-                            <li>Contact forms to capture inquiries and leads</li>
-                            <li>Fast-loading, reliable performance</li>
-                            <li>Deployed and hosted for you (no technical setup required)</li>
-                            <li>Ongoing support and maintenance available</li>
-                        </ul>
+                            <ul>
+                                <li>Fully custom-built website engineered from the ground up</li>
+                                <li>Advanced animations and interactions for a premium user experience</li>
+                                <li>Expert-level UI/UX design focused on engagement and retention</li>
+                                <li>Strategic storytelling layout that elevates your brand perception</li>
+                                <li>High-impact visuals and motion design to stand out from competitors</li>
+                                <li>Optimized user flow to guide visitors toward conversion</li>
+                                <li>Seamless experience across desktop and mobile devices</li>
+                                <li>Fully deployed, hosted, and managed for you</li>
+                                <li>Ongoing support, updates, and refinement</li>
+                            </ul>
 
-                        <div className='Fees'>
-                            <span>Build Fee: $500</span>
-                            <span>Monthly Maintenance: $100</span>
+                            <div className='Fees'>
+                                <span>Build Fee: $2,500</span>
+                                <span>Monthly Maintenance: $150</span>
+                            </div>
                         </div>
-                    </div>
 
-                    <div className='Product'>
-                        <h1 className='Tier'>Elite Brand Experience</h1>
+                        <div className='Product'>
+                            <h1 className='Tier'>Custom Revenue System</h1>
 
-                        <div className='TierImage'><img src='/static/gamma.png' /></div>
+                            <div className='TierImage'><img src='/static/omega.png' /></div>
 
-                        <ul>
-                            <li>Custom-designed website tailored to your business</li>
-                            <li>Built to establish trust and professional credibility</li>
-                            <li>Mobile-optimized for a seamless experience on all devices</li>
-                            <li>Clear messaging that communicates your services effectively</li>
-                            <li>Strategic layout designed to guide visitors to take action</li>
-                            <li>Contact forms to capture inquiries and leads</li>
-                            <li>Fast-loading, reliable performance</li>
-                            <li>Deployed and hosted for you (no technical setup required)</li>
-                            <li>Ongoing support and maintenance available</li>
-                        </ul>
+                            <ul>
+                                <li>Fully custom-built lead capture system tailored to your business workflow</li>
+                                <li>Custom frontend experience designed for maximum user conversion</li>
+                                <li>Advanced backend system to manage, track, and update all leads</li>
+                                <li>Structured pipeline to move leads from inquiry to closed deal</li>
+                                <li>Admin dashboard with full control over leads, statuses, and data</li>
+                                <li>Automated workflows to reduce manual work and increase response speed</li>
+                                <li>Custom features built specifically for your industry and operations</li>
+                                <li>Fully deployed, hosted, and managed infrastructure</li>
+                                <li>Ongoing support, updates, and system expansion</li>
+                            </ul>
 
-                        <div className='Fees'>
-                            <span>Build Fee: $2,500</span>
-                            <span>Monthly Maintenance: $150</span>
-                        </div>
-                    </div>
-
-                    <div className='Product'>
-                        <h1 className='Tier'>Custom Revenue System</h1>
-
-                        <div className='TierImage'><img src='/static/omega.png' /></div>
-
-                        <ul>
-                            <li>Fully custom-built lead capture system tailored to your business workflow</li>
-                            <li>Custom frontend experience designed for maximum user conversion</li>
-                            <li>Advanced backend system to manage, track, and update all leads</li>
-                            <li>Structured pipeline to move leads from inquiry to closed deal</li>
-                            <li>Admin dashboard with full control over leads, statuses, and data</li>
-                            <li>Automated workflows to reduce manual work and increase response speed</li>
-                            <li>Custom features built specifically for your industry and operations</li>
-                            <li>Fully deployed, hosted, and managed infrastructure</li>
-                            <li>Ongoing support, updates, and system expansion</li>
-                        </ul>
-
-                        <div className='Fees'>
-                            <span>Build Fee: $4,000</span>
-                            <span>Monthly Maintenance: $250</span>
+                            <div className='Fees'>
+                                <span>Build Fee: $4,000</span>
+                                <span>Monthly Maintenance: $250</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <h1 className='SectionHeader'>Let Us Handle This For You</h1>
-
-            <div
-                className='Contact'
-                ref={contactRef}
-                data-section="contact"
-            >
-                <img className={`Snapshot ${/*observingContact ? "fade-in" : "fade-out"*/''}`} src="/static/GriffinMWS.png" />
-                <div className='ContactContainer'>
-                    <div className='WhiteRectangle'>
-                        <p>Get in Touch!</p>
+                <div className='CallToAction'>
+                    <div className='CTAContainer'>
+                        <h1>Scale Your Business Today</h1>
                     </div>
-                    <p className='ContactTag'>contact / inquiries</p>
-                    <p className='ContactDescription'>Got questions, inquiries, or want information about bookings? Send me a message below!</p>
+                    <button className='CTAButton'>
+                        <span>Get Started </span>
+                        <svg width="2vw" height="2vw" viewBox="0 0 36 16">
+                            <path d="M0 8h24M20 4L28 8L20 12" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                    </button>
+                </div>
 
-                    <div className='SubmissionBox'>
-                        <div className='ContactGrid'>
-                        <input placeholder="First Name" onChange={(e) => setFirstName(e.target.value)} />
-                        <input placeholder="Last Name" onChange={(e) => setLastName(e.target.value)} />
-                        <input placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
-                        <input placeholder="Phone" onChange={(e) => setPhone(e.target.value)} />
+                <h1 className='SectionHeader'>Let Us Handle This For You</h1>
+
+                <div
+                    className='Contact'
+                    ref={contactRef}
+                    data-section="contact"
+                >
+                    <img className={`Snapshot ${/*observingContact ? "fade-in" : "fade-out"*/''}`} src="/static/GriffinMWS.png" />
+                    <div className='ContactContainer'>
+                        <div className='WhiteRectangle'>
+                            <p>Get in Touch!</p>
+                        </div>
+                        <p className='ContactTag'>contact / inquiries</p>
+                        <p className='ContactDescription'>Got questions, inquiries, or want information about services? Send me a message below!</p>
+
+                        <div className='SubmissionBox'>
+                            <div className='ContactGrid'>
+                            <input placeholder="First Name" onChange={(e) => setFirstName(e.target.value)} />
+                            <input placeholder="Last Name" onChange={(e) => setLastName(e.target.value)} />
+                            <input placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+                            <input placeholder="Phone" onChange={(e) => setPhone(e.target.value)} />
+                            </div>
+
+                            <textarea
+                            placeholder="Enter Your Message Here"
+                            onChange={(e) => setMessage(e.target.value)}
+                            />
+
+                            <button onClick={messageSent === "Your contact message failed to send." || null ? submitContact : null}>Submit</button>
                         </div>
 
-                        <textarea
-                        placeholder="Enter Your Message Here"
-                        onChange={(e) => setMessage(e.target.value)}
-                        />
-
-                        <button onClick={submitContact}>Submit</button>
+                        {messageSent ? <p className='ContactMessage'>{messageSent}</p> : null}
                     </div>
-
-                    {messageSent ? <p className='ContactMessage'>{messageSent}</p> : null}
                 </div>
+
+                {/*<div className='Contact'>
+                    <div className='ContactContainer'>
+                        <div className='ContactMethod'>
+                            <h2 className='MethodHeader'>Email Us</h2>
+                            <button className='MethodButton' onClick={() => {navigate(`/contact`, { replace: true })}}>
+                                <img className='MethodImage' src='/static/email.png'/>
+                            </button>
+                        </div>
+
+                        <div className='ContactMethod'>
+                            <h2 className='MethodHeader'>Call Us</h2>
+                            <a className='MethodButton' href="tel:+16098059113">
+                                <img className='MethodImage' src='/static/call.png'/>
+                            </a>
+                        </div>
+                    </div>
+                </div>*/}
+
             </div>
-
-            {/*<div className='Contact'>
-                <div className='ContactContainer'>
-                    <div className='ContactMethod'>
-                        <h2 className='MethodHeader'>Email Us</h2>
-                        <button className='MethodButton' onClick={() => {navigate(`/contact`, { replace: true })}}>
-                            <img className='MethodImage' src='/static/email.png'/>
-                        </button>
-                    </div>
-
-                    <div className='ContactMethod'>
-                        <h2 className='MethodHeader'>Call Us</h2>
-                        <a className='MethodButton' href="tel:+16098059113">
-                            <img className='MethodImage' src='/static/call.png'/>
-                        </a>
-                    </div>
-                </div>
-            </div>*/}
-
-        </div>
+        </>
     );
 }
 

@@ -4,27 +4,80 @@
 }
 
 @media (orientation: landscape) {
-        .Services {
+    .Services {
+        position: relative;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        width: 100vw;
+        width: var(--app-width);
         height: fit-content;
         place-items: center;
-        row-gap: 20px;
+        row-gap: calc(var(--app-height) * .1);
+        z-index: 5;
     }
 
+    .BackgroundLayer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: calc(var(--page-height) - (var(--app-height) * 2.8));
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    .StartingBackground {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: var(--app-width);
+        height: calc(var(--app-height) * 1);
+        z-index: 2;
+    }
+
+    .StartingBackground img {
+        width: auto;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .TrueBackground {
+        position: sticky;
+        top: 0;
+        margin-top: calc(var(--app-height) * 1.25);
+
+        width: 100%;
+        height: var(--app-height);
+
+        background: linear-gradient(to bottom, navy, black);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: 3;
+    }
+
+
     .ServiceContainer {
-        width: 20vw;
+        width: calc(var(--app-width) * .2);
         aspect-ratio: 1/1;
     }
 
     .SectionHeader {
+        position: relative;
         font-family: 'GlitchFont';
         color: white;
-        font-size: 4vw;
-        width: 100vw;
+        font-size: calc(var(--app-width) * .04);
+        width: var(--app-width);
         text-align: center;
         text-transform: uppercase;
+        z-index: 15;
+        text-align: center;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        height: calc(var(--app-height) * .25) ;
     }
 
     .Service {
@@ -36,7 +89,7 @@
         height: 100%;
         background-color: black;
         opacity: 0;
-        box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.164);
+        box-shadow: 0px 0px 36px 12px rgba(255, 255, 255, 0.8);
     }
 
     .ServiceName {
@@ -44,7 +97,7 @@
         color : white;
         font-family: 'Montserrat';
         text-align: center;
-        font-size: 2vw;
+        font-size: calc(var(--app-width) * .02);
     }
 
     .ServiceDesc {
@@ -54,7 +107,7 @@
         font-family: 'Montserrat';
         height: 30%;
         overflow-y: auto;
-        font-size: 1.2vw;
+        font-size: calc(var(--app-width) * .012);
     }
 
     .ServiceImageContainer {
@@ -63,11 +116,11 @@
     }
 
     .ClientServices h2 {
-        font-size: 2.5vw;
+        font-size: calc(var(--app-width) * .025);
     }
     
     .ClientServices span {
-        font-size: 3vw;
+        font-size: calc(var(--app-width) * .03);
     }
 
     .ServiceImageContainer img{
@@ -99,22 +152,23 @@
 
     .CredibilitySection {
         position: relative;
-        width: 100vw;
+        width: var(--app-width);
 
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        z-index: 5;
     }
 
     .Testimonials {
         position: relative;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        row-gap: 5vw;
-        column-gap: 5vw;
+        row-gap: calc(var(--app-width) * .05);
+        column-gap: calc(var(--app-width) * .05);
         place-items: center;
-        width: 90vw;
+        width: calc(var(--app-width) * .9);
     }
     
     .TestimonyContainer {
@@ -122,7 +176,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 40vw;
+        width: calc(var(--app-width) * .4);
         aspect-ratio: 2/1;
     }
 
@@ -136,6 +190,7 @@
         height: 100%;
         padding: 20px 20px 20px 20px;
         opacity: 0;
+        box-shadow: 12px 12px 36px 12px rgba(0, 0, 0, 0.8);
     }
 
     .Client {
@@ -153,7 +208,7 @@
         overflow-x: hidden;
         height: 100%;
         aspect-ratio: 1 / 1;
-        margin-right: 2vw;
+        margin-right: calc(var(--app-width) * .02);
     }
 
     .ClientImage img {
@@ -165,11 +220,11 @@
     .Client h2 {
         font-family: 'Montserrat';
         color : black;
-        font-size: 2vw;
+        font-size: calc(var(--app-width) * .02);
     }
 
     .ClientTestimony {
-        font-size: 1.3vw;
+        font-size: calc(var(--app-width) * .013);
         font-weight: 500;
         font-family: 'Montserrat';
         color : black;
@@ -200,13 +255,13 @@
         position: relative;
         border-radius: 45px;
         border-style: none;
-        width : 20vw;
+        width : calc(var(--app-width) * .2);
         aspect-ratio: 15/3;
         background-color: white;
         font-family: 'Montserrat';
-        font-size: 1.2vw;
-        margin-top: 5vw;
-        margin-bottom: 5vw;
+        font-size: calc(var(--app-width) * .012);
+        margin-top: calc(var(--app-width) * .05);
+        margin-bottom: calc(var(--app-width) * .05);
 
         display: flex;
         flex-direction: row;
@@ -221,7 +276,7 @@
     }
 
     .GoogleIcon {
-        height : 50%;
+        width : 15%;
         aspect-ratio: 1/1;
     }
 
@@ -240,7 +295,7 @@
         justify-content: space-between;
         align-items: center;
         font-family: 'Montserrat';
-        font-size: 1.2vw;
+        font-size: calc(var(--app-width) * .012);
     }
 
     .GoogleStars div{
@@ -257,28 +312,39 @@
     }
 
     .BusinessTitle {
+        position: relative;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 100vw;
-        height: 100lvh;
-        min-height: var(--app-height);
+        width: var(--app-width);
+        height: var(--app-height);
+        z-index: 5;
     }
 
+    .firstdivider {
+        position: relative;
+        width: var(--app-width);
+        height: calc(var(--app-height) * .25);
+        background: linear-gradient(to bottom, rgb(0, 0, 0, 0.01), rgb(0, 0, 128, 1));
+        z-index: 3;
+    }
+
+
+
     .Slogan {
-        width: 90vw;
+        width: calc(var(--app-width) * .9);
         text-align: center;
         font-family: 'Montserrat';
-        font-size: 2vw;
+        font-size: calc(var(--app-width) * .02);
         color: white;
         font-weight: 700;
     }
 
     .BusinessHeader {
         color: white;
-        font-size: 3vw;
-        width: 45vw;
+        font-size: calc(var(--app-width) * .03);
+        width: calc(var(--app-width) * .45);
         height: fit-content;
         text-align: center;
         text-transform: uppercase;
@@ -293,7 +359,7 @@
     }
 
     .BusinessLogo {
-        width: 20vw;
+        width: calc(var(--app-width) * .2);
         aspect-ratio: 1/1;
     }
 
@@ -333,7 +399,7 @@
         z-index: 9999;
 
         font-family: "GlitchFont", sans-serif;
-        font-size: 2vw;
+        font-size: calc(var(--app-width) * .02);
         letter-spacing: 0.22em;
         text-transform: uppercase;
 
@@ -351,10 +417,8 @@
     .Projects .Contact {
       position: relative;
       z-index: 5;
-      width: 100vw;
-      height : 160lvh;
-      min-height: calc(var(--app-height) * 1.6);
-      min-height: 800px;
+      width: 100%;
+      height: calc(var(--app-height) * 1.6);
       scroll-margin-top: calc(var(--app-height) * .26);
       overflow-y: hidden;
   }
@@ -365,14 +429,14 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      left: 5vw;
+      left: calc(var(--app-width) * .05);
       top : 10%;
       z-index: 4;
   }
 
   .ProductsSection {
-    width : 100vw;
-    height: 100vh;
+    width : var(--app-width);
+    height: var(--app-height);
     min-height : var(--app-height);
 
     display: flex;
@@ -395,10 +459,9 @@
     background-color: black;
     color : white;
     font-family: 'Montserrat';
-    width: 18vw;
-    height: 100%;
-    min-height: 95vh;
-    padding: 2vw 2vw 2vw 2vw;
+    width: calc(var(--app-width) * .18);
+    height: calc(var(--app-height) * .95);
+    padding: calc(var(--app-width) * .02) calc(var(--app-width) * .02) calc(var(--app-width) * .02) calc(var(--app-width) * .02);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -408,7 +471,7 @@
   .Tier {
     text-align: center;
     height: 10%;
-    font-size: 1.5vw;
+    font-size: calc(var(--app-width) * .015);
   }
 
   .TierImage {
@@ -424,10 +487,10 @@
 
   .ContactContainer button{
       margin-top: 30px;
-      width: 20vw;
+      width: calc(var(--app-width) * .2);
       padding-top: 20px;
       padding-bottom: 20px;
-      font-size: 1.4vw;
+      font-size: calc(var(--app-width) * .014);
       font-family: 'montserrat';
       border-radius: 35px;
       background-color: rgb(32, 32, 32);
@@ -450,7 +513,7 @@
 
   .Product li {
     font-weight: 500;
-    font-size: 0.9vw;
+    font-size: calc(var(--app-width) * .009);
   }
 
   .Fees {
@@ -464,13 +527,13 @@
 
   .Fees span {
     font-weight: 500;
-    font-size: 1.4vw;
+    font-size: calc(var(--app-width) * .014);
     text-align: center;
   }
 
   .WhiteRectangle {
-      width: 20vw;
-      height: 6.4vw;
+      width: calc(var(--app-width) * .2);
+      height: calc(var(--app-width) * .064);
       border-width: 5px;
       border-color: white;
       border-style: solid;
@@ -482,7 +545,7 @@
   }
 
   .WhiteRectangle p {
-      font-size: 2vw;
+      font-size: calc(var(--app-width) * .02);
       font-family: 'Montserrat', sans-serif;
       text-transform: uppercase;
       font-weight: bold;
@@ -495,8 +558,8 @@
       justify-content: center;
       align-items: center;
       background-color: white;
-      width : 40vw;
-      padding: 6vw 6vw 3vw 6vw;
+      width : calc(var(--app-width) * .4);
+      padding: calc(var(--app-width) * .06) calc(var(--app-width) * .06) calc(var(--app-width) * .03) calc(var(--app-width) * .06);
   }
 
   .ContactGrid {
@@ -508,8 +571,8 @@
 
   .ContactGrid input {
     width: 100%;
-    height: 4vw;
-    font-size: 1.3vw;
+    height: calc(var(--app-width) * .04);
+    font-size: calc(var(--app-width) * .013);
     font-family:  'Montserrat', sans-serif;
     background-color: rgb(32, 32, 32);
     color: white;
@@ -522,7 +585,7 @@
 
 
   .ContactTag {
-      font-size: 35px;
+      font-size: calc(var(--app-width) * .025);
       font-family: 'Montserrat', sans-serif;
       text-transform: uppercase;
       font-weight: bolder;
@@ -530,7 +593,7 @@
   }
 
   .ContactDescription {
-      font-size: 20px;
+      font-size: calc(var(--app-width) * .0135);
       font-family: 'Montserrat', sans-serif;
       width: 400px;
       color: white;
@@ -538,9 +601,9 @@
 
   .SubmissionBox textarea {
     width: 100%;
-    height: 15vw;
+    height: calc(var(--app-width) * .15);
     font-family:  'Montserrat', sans-serif;
-    font-size: 1.3vw;
+    font-size: calc(var(--app-width) * .013);
     background-color: rgb(32, 32, 32);
     color: white;
     margin: 0 0 0 0;
@@ -554,13 +617,102 @@
       position: absolute;
       right: 0px;
       top : 100px;
-      width: 30vw;
+      width: calc(var(--app-width) * .3);
       height: auto;
       z-index: 3;
   }
 
+  .SecondDivider {
+    position: relative;
+    width: var(--app-width);
+    height : calc(var(--app-height) * .25);
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,.6) 0%,
+        rgba(0,0,0,.5) 30%,
+        rgba(0,0,0,0) 100%
+    );
+    z-index : 7;
+  }
+
+  .SecondBackgroundLayer {
+    position: absolute;
+    width: var(--app-width);
+    height: calc(var(--app-height) * 2.8);
+    top: calc(var(--page-height) - (var(--app-height) * 2.8));
+    left: 0;
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  .FinalBackground {
+        position: sticky;
+        top : 0;
+
+        width: var(--app-width);
+        height: var(--app-height);
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: 5;
+    }
+
+    .FinalBackground img {
+        width: auto;
+        height: 100%;
+        object-fit: contain;
+    }
+
+  .CallToAction {
+    position: relative;
+    width: var(--app-width);
+    height: var(--app-height);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 7;
+  }
+
+  .CallToAction h1 {
+    font-family: 'GlitchFont';
+    text-transform: uppercase;
+    font-size: calc(var(--app-width) * .04);
+    color : white
+  }
+
+  .CTAButton {
+    border-radius: 35px;
+    border-style: none;
+    border-width: 0;
+    font-family: 'Montserrat';
+    color : white;
+    background-color: black;
+    font-size: clamp(7px, calc(var(--app-width) * .017), 32px);
+    font-weight: 500;
+    padding: 15px 15px 15px 15px;
+    min-width: fit-content;
+    min-height: fit-content;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.6s ease;
+  }
+
+  .CTAButton:hover {
+    background-color: navy;
+  }
+
+  .CTAButton span {
+    margin-right: calc(var(--app-width) * .01);
+  }
+
   .ContactMessage {
-      font-size: 2vw;
+      font-size: calc(var(--app-width) * .02);
       color: white;
       font-family: "Montserrat";
       text-align: center;
@@ -572,7 +724,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 20vw;
+        width: calc(var(--app-width) * .2);
     }
 
     .MethodHeader {
@@ -581,7 +733,7 @@
         font-family: 'GlitchFont';
         text-align: center;
         text-wrap: nowrap;
-        font-size: 3vw;
+        font-size: calc(var(--app-width) * .03);
     }
 
     .MethodButton {
@@ -603,10 +755,172 @@
 }
 
 @media (orientation: portrait) {
+    .firstdivider {
+        position: relative;
+        width: var(--app-width);
+        height: calc(var(--app-height) * .25);
+        background: linear-gradient(to bottom, rgb(0, 0, 0, 0.01), rgb(0, 0, 128, 1));
+        z-index: 3;
+    }
+
+    .SecondDivider {
+        position: relative;
+        width: var(--app-width);
+        height : calc(var(--app-height) * .25);
+        background: linear-gradient(
+            to bottom,
+            rgba(0,0,0,.6) 0%,
+            rgba(0,0,0,.5) 30%,
+            rgba(0,0,0,0) 100%
+        );
+        z-index : 7;
+    }
+
+    .BackgroundLayer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: var(--app-width);
+        height: calc(var(--page-height) - (var(--app-height) * 3.25));
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    .StartingBackground {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: var(--app-width);
+        height: calc(var(--app-height) * 1);
+        z-index: 2;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        background-color: black;
+        overflow-x: hidden;
+    }
+
+    .StartingBackground img {
+        width: auto;
+        height: 100%;
+        object-fit: contain;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .TrueBackground {
+        position: sticky;
+        top: 0;
+        margin-top: calc(var(--app-height) * 1.25);
+
+        width: 100%;
+        height: var(--app-height);
+
+        background: linear-gradient(to bottom, navy, black);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: 3;
+    }
+
+    .CallToAction {
+        position: relative;
+        width: var(--app-width);
+        height: var(--app-height);
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 7;
+    }
+
+    .CallToAction h1 {
+        width: 90%;
+        font-family: 'GlitchFont';
+        text-transform: uppercase;
+        font-size: calc(var(--app-width) * .05);
+        text-wrap: nowrap;
+        color : white
+    }
+
+    .CTAButton {
+        border-radius: 35px;
+        border-style: none;
+        border-width: 0;
+        font-family: 'Montserrat';
+        color : white;
+        background-color: black;
+        font-size: clamp(16px, calc(var(--app-width) * .07), 32px);
+        font-weight: 500;
+        padding: 15px 15px 15px 15px;
+        min-width: fit-content;
+        min-height: fit-content;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.6s ease;
+    }
+
+    .CTAButton:hover {
+        background-color: navy;
+    }
+
+    .CTAButton span {
+        margin-right: calc(var(--app-width) * .01);
+    }
+
+    .SecondBackgroundLayer {
+        position: absolute;
+        width: var(--app-width);
+        height: calc(var(--app-height) * 3.25);
+        top: calc(var(--page-height) - (var(--app-height) * 3.25));
+        left: 0;
+        pointer-events: none;
+        z-index: 5;
+    }
+
+  .FinalBackground {
+        position: sticky;
+        top : 0;
+
+        width: var(--app-width);
+        height: var(--app-height);
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        overflow-x: hidden;
+
+        z-index: 5;
+
+        background-color: black;
+    }
+
+    .FinalBackground img {
+        width: auto;
+        height: 100%;
+        object-fit: contain;
+    }
+
     .BusinessHeader {
         color: white;
-        font-size: 3vw;
-        width: 45vw;
+        font-size: calc(var(--app-width) * .03);
+        width: calc(var(--app-width) * .45);
         height: fit-content;
         text-align: center;
         text-transform: uppercase;
@@ -615,25 +929,26 @@
 
     .CredibilitySection {
         position: relative;
-        width: 100vw;
+        width: var(--app-width);
 
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        z-index: 7;
     }
 
     .GoogleLink {
         position: relative;
         border-radius: 45px;
         border-style: none;
-        width : 45vw;
+        width : calc(var(--app-width) * .6);
         aspect-ratio: 15/3;
         background-color: white;
         font-family: 'Montserrat';
-        font-size: 4vw;
-        margin-top: 5vw;
-        margin-bottom: 5vw;
+        font-size: calc(var(--app-width) * .04);
+        margin-top: calc(var(--app-width) * .05);
+        margin-bottom: calc(var(--app-width) * .05);
 
         display: flex;
         flex-direction: row;
@@ -648,7 +963,7 @@
     }
 
     .GoogleIcon {
-        height : 50%;
+        width : 10%;
         aspect-ratio: 1/1;
     }
 
@@ -659,15 +974,15 @@
     }
 
     .GoogleStars {
-        height: 50%;
-        width: fit-content;
+        width : 20%;
+        aspect-ratio: 2/1;
 
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         font-family: 'Montserrat';
-        font-size: 4vw;
+        font-size: calc(var(--app-width) * .04);
     }
 
     .GoogleStars div{
@@ -684,13 +999,15 @@
     }
 
 .ProductsSection {
-    width : 100vw;
-    height : fit-content;
+    position: relative;
+    width : var(--app-width);
+    height :  calc(var(--app-height) * 5);
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    z-index: 7;
   }
 
   .Products {
@@ -707,9 +1024,9 @@
     background-color: black;
     color : white;
     font-family: 'Montserrat';
-    width: 80vw;
+    width: calc(var(--app-width) * .8);
     height: calc(var(--app-height) * .9);;
-    padding: 2vw 2vw 2vw 2vw;
+    padding: calc(var(--app-width) * .02) calc(var(--app-width) * .02) calc(var(--app-width) * .02) calc(var(--app-width) * .02);
 
     display: flex;
     flex-direction: column;
@@ -736,7 +1053,7 @@
 
   .ContactContainer button{
       margin-top: 30px;
-      width: 20vw;
+      width: calc(var(--app-width) * .2);
       padding-top: 20px;
       padding-bottom: 20px;
       background-color: rgb(32, 32, 32);
@@ -753,7 +1070,7 @@
 
     .Product li {
         font-weight: 500;
-        font-size: 3.5vw;
+        font-size: calc(var(--app-width) * .035);
     }
 
     .Fees {
@@ -767,7 +1084,7 @@
 
     .Fees span {
         font-weight: 500;
-        font-size: 5vw;
+        font-size: calc(var(--app-width) * .05);
         text-align: center;
     }
 
@@ -779,26 +1096,37 @@
     }
 
     .Services {
+        position: relative;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        width: 100vw;
+        width: var(--app-width);
         height: fit-content;
         place-items: center;
         row-gap: 20px;
+        z-index: 7;
     }
 
     .ServiceContainer {
-        width: 48vw;
-        height: 48vw;
+        width: calc(var(--app-width) * .48);
+        height: calc(var(--app-width) * .48);
     }
 
     .SectionHeader {
+        position: relative;
         font-family: 'GlitchFont';
         color: white;
-        font-size: 6vw;
-        width: 100vw;
+        font-size: calc(var(--app-width) * .06);
+        width: var(--app-width);
+        height: calc(var(--app-height) * .25);
         text-align: center;
         text-transform: uppercase;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        z-index: 7;
     }
 
     .Service {
@@ -818,7 +1146,7 @@
         color : white;
         font-family: 'Montserrat';
         text-align: center;
-        font-size: 3.5vw;
+        font-size: calc(var(--app-width) * .035);
     }
 
     .ServiceDesc {
@@ -828,7 +1156,7 @@
         font-family: 'Montserrat';
         height: 30%;
         overflow-y: auto;
-        font-size: 3.5vw;
+        font-size: calc(var(--app-width) * .035);
     }
 
     .ServiceImageContainer {
@@ -868,12 +1196,13 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        height: fit-content;
     }
     
     .TestimonyContainer {
-        width: fit-content;
-        height: fit-content;
-        margin-bottom: 15vw;
+        width: calc(var(--app-width) * .9);
+        height: calc((var(--app-width) * .9) * .7);
+        margin-bottom: calc(var(--app-width) * .15);
     }
 
     .Testimony {
@@ -882,9 +1211,11 @@
         justify-content: center;
         align-items: flex-start;
         background-color: white;
-        width: 85vw;
+        width: calc(var(--app-width) .85);
+        height: 100%;
         padding: 20px 20px 20px 20px;
         opacity: 0;
+        box-shadow: 12px 12px 36px 12px rgba(0, 0, 0, 0.8);
     }
 
     .Client {
@@ -893,16 +1224,16 @@
         justify-content: flex-start;
         align-items: center;
         width: 100%;
-        
+        height: 30%;
     }
 
     .ClientImage {
         border-radius: 50%;
         overflow-y: hidden;
         overflow-x: hidden;
-        width: 20%;
+        height: 100%;
         aspect-ratio: 1 / 1;
-        margin-right: 5vw;
+        margin-right: calc(var(--app-width) * .05);
     }
 
     .ClientImage img {
@@ -914,14 +1245,17 @@
     .Client h2 {
         font-family: 'Montserrat';
         color : black;
-        font-size: 4vw;
+        font-size: calc(var(--app-width) * .04);
     }
 
     .ClientTestimony {
-        font-size: 3vw;
+        font-size: calc(var(--app-width) * .03);
         font-weight: 500;
+        width: 100%;
+        height: 30%;
         font-family: 'Montserrat';
         color : black;
+        height: 30%;
     }
 
     .StarRating {
@@ -930,6 +1264,7 @@
         justify-content: flex-start;
         align-items: center;
         width: 100%;
+        height: 30%;
     }
 
     .Star {
@@ -944,35 +1279,37 @@
     }
 
     .BusinessTitle {
+        position: relative;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 100vw;
-        height: 100lvh;
+        width: var(--app-width);
+        height: var(--app-height);;
         min-height: var(--app-height);
+        z-index: 7;
     }
 
     .Slogan {
-        width: 90vw;
+        width: calc(var(--app-width) * .9);
         text-align: center;
         font-family: 'Montserrat';
-        font-size: 7vw;
+        font-size: calc(var(--app-width) * .07);
         color: white;
         font-weight: 700;
     }
 
     .BusinessHeader {
         color: white;
-        font-size: 7vw;
-        width: 95vw;
+        font-size: calc(var(--app-width) * .07);
+        width: calc(var(--app-width) * .95);
         text-align: center;
         text-transform: uppercase;
         font-family: GlitchFont;
     }
 
     .BusinessLogo {
-        width: 65vw;
+        width: calc(var(--app-width) * .65);
         aspect-ratio: 1/1;
     }
 
@@ -1012,7 +1349,7 @@
         z-index: 9999;
 
         font-family: "GlitchFont", sans-serif;
-        font-size: 7vw;
+        font-size: calc(var(--app-width) * .07);
         letter-spacing: 0.22em;
         text-transform: uppercase;
 
@@ -1027,11 +1364,12 @@
         text-align: center;
     }
 
-    .Contact {
+
+    .Projects .Contact {
       position: relative;
       z-index: 5;
-      width: 100vw;
-      height: fit-content;
+      width: var(--app-width);
+      height: calc(var(--app-height) * 2);
       scroll-margin-top: 176px;
       display: flex;
       flex-direction: column;
@@ -1059,7 +1397,7 @@
     }
 
   .WhiteRectangle {
-      width: 90vw;
+      width: calc(var(--app-width) * .9);
       height: fit-content;
       border-width: 5px;
       border-color: white;
@@ -1071,7 +1409,7 @@
     }
 
   .WhiteRectangle p {
-      font-size: 6vw;
+      font-size: calc(var(--app-width) * .06);
       font-family: 'Montserrat', sans-serif;
       text-transform: uppercase;
       font-weight: bold;
@@ -1084,8 +1422,8 @@
       justify-content: center;
       align-items: center;
       background-color: white;
-      padding: 5vw 5vw 5vw 5vw;
-      width: 80vw;
+      padding: calc(var(--app-width) * .05) calc(var(--app-width) * .05) calc(var(--app-width) * .05) calc(var(--app-width) * .05);
+      width: calc(var(--app-width) * .8);
       height: fit-content;
       margin-bottom: 50px;
     }
@@ -1101,8 +1439,8 @@
 
   .ContactGrid input {
       width: 90%;
-      margin-bottom: calc(var(--app-height) * .02);;
-      height: 10vw;
+      margin-bottom: calc(var(--app-height) * .02);
+      height: calc(var(--app-width) * .1);
       font-size: 20px;
       font-family:  'Montserrat', sans-serif;
       background-color: rgb(32, 32, 32);
@@ -1110,7 +1448,7 @@
     }
 
     .ContactTag {
-        font-size: 7vw;
+        font-size: calc(var(--app-width) * .07);
         font-family: 'Montserrat', sans-serif;
         text-transform: uppercase;
         font-weight: bolder;
@@ -1121,12 +1459,12 @@
         font-size: 20px;
         font-family: 'Montserrat', sans-serif;
         color : white;
-        width: 90vw;
+        width: calc(var(--app-width) * .9);
     }
 
     .SubmissionBox textarea {
         width: 90%;
-        height: 60vw;
+        height: calc(var(--app-width) * .6);
         font-family:  'Montserrat', sans-serif;
         font-size: 15px;
         color: white;
@@ -1138,7 +1476,7 @@
         position: relative;
         right: 0px;
         bottom: 0px;
-        width: 70vw;
+        width: calc(var(--app-width) * .7);
         height: auto;
         z-index: 3;
     }
@@ -1146,7 +1484,7 @@
     .ContactMessage {
         width: 100%;
         text-align: center;
-        font-size: 5vw;
+        font-size: calc(var(--app-width) * .5);
         color: white;
         font-family: "Montserrat";
     }
@@ -1156,7 +1494,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 35vw;
+        width: calc(var(--app-width) * .35);
     }
 
     .MethodHeader {
@@ -1165,7 +1503,7 @@
         font-family: 'GlitchFont';
         text-align: center;
         text-wrap: nowrap;
-        font-size: 5vw;
+        font-size: calc(var(--app-width) * .05);
     }
 
     .MethodButton {

@@ -9,18 +9,18 @@
         z-index: 10;
         top: 0;
         left : 0;
-        width : 100vw;
+        width : var(--app-width);
         display: flex;
         flex-direction: column;
         align-items: flex-end;
         justify-content: flex-start;
-        margin-top: 5vw;
-        margin-bottom: 30vh;
+        margin-top: calc(var(--app-width) * .05);
+        margin-bottom: calc(var(--app-height) * .3);
     }
 
     @media (min-width : 1024px) {
         .InitialSection {
-            height: 100vh;
+            height: calc(var(--app-height) * 1);
         }
     }
 
@@ -40,9 +40,9 @@
         justify-content: flex-start;
         align-items: center;
         position: relative;
-        width : 55vw;
-        margin-right: 5vw;
-        margin-top: 2vh;
+        width : calc(var(--app-width) * .55);
+        margin-right: calc(var(--app-width) * .05);
+        margin-top: calc(var(--app-height) * .2);
         z-index: 5;
     }
 
@@ -55,7 +55,7 @@
         justify-content: flex-start;
         align-items: center;
         top: 0;
-        right: 1vw;
+        right: calc(var(--app-width) * .01);
         flex-direction: column;
     }
 
@@ -81,7 +81,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 4vw;
+        width: calc(var(--app-width) * .04);
         height: fit-content;
         background-color: transparent;
         border-width: 0px;
@@ -89,7 +89,7 @@
 
     .LinkedIn img {
         position: relative;
-        width: 4vw;
+        width: calc(var(--app-width) * .04);
         height: auto;
     }
 
@@ -107,7 +107,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 4vw;
+        width: calc(var(--app-width) * .04);
         height: fit-content;
         background-color: transparent;
         border-width: 0px;
@@ -115,7 +115,7 @@
 
     .YouTube img {
         position: relative;
-        width: 4vw;
+        width: calc(var(--app-width) * .04);
         height: auto;
     }
 
@@ -133,7 +133,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 4vw;
+        width: calc(var(--app-width) * .04);
         height: fit-content;
         background-color: transparent;
         border-width: 0px;
@@ -141,7 +141,7 @@
 
     .GetYourStart img {
         position: relative;
-        width: 4vw;
+        width: calc(var(--app-width) * .04);
         height: auto;
     }
 
@@ -152,13 +152,14 @@
         font-family: 'Montserrat';
         width: 100%;
         height: fit-content;
+        box-shadow: 0px 0px 36px 12px rgba(255, 255, 255, 0.8);
     }
 
     .PageDetails p {
         position: relative;
         font-family: 'Montserrat';
-        font-size: 2vw;
-        left: 6vw;
+        font-size: calc(var(--app-width) * .02);
+        left: calc(var(--app-width) * .06);
         width : 70%
     }
 
@@ -167,8 +168,8 @@
     .PageDetails h2 {
         position: relative;
         font-family: GlitchFont;
-        font-size: 3vw;
-        left : 2vw;
+        font-size: calc(var(--app-width) * .03);
+        left : calc(var(--app-width) * .02);
         width : 90%;
     }
 
@@ -184,7 +185,7 @@
         font-family: GlitchFont;
         color: white;
         text-wrap: nowrap;
-        font-size: 3vw;
+        font-size: calc(var(--app-width) * .03);
         margin: 0 0 0 0;
     }
 
@@ -266,7 +267,7 @@
         flex-direction: column;
         justify-content: center;
         font-weight: 500;
-        font-size: 1.3vw;
+        font-size: calc(var(--app-width) * .013);
     }
 
     .SectionImageContainer {
@@ -304,7 +305,7 @@
         .LinkedInImageContainer {
             height : 100%;
             width : 50%;
-            margin-right: 1vw;
+            margin-right: calc(var(--app-width) * .01);
         }
     }
 
@@ -449,13 +450,13 @@
         z-index: 10;
         top: 0;
         left : 0;
-        width : 100vw;
+        width : var(--app-width);
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
         margin-bottom: 75px;
-        margin-top: 5vh;
+        margin-top: calc(var(--app-height) * .05);
         height: fit-content;
         overflow-y: hidden;
     }
@@ -471,8 +472,8 @@
         flex-direction: column;
         align-items: center;
         position: relative;
-        width : 90vw;
-        margin-top: 2vh;
+        width : calc(var(--app-width) * .9);
+        margin-top: calc(var(--app-height) * .02);
         z-index: 5;
     }
 
@@ -487,7 +488,7 @@
     }
 
     .LinkedIn {
-        width : 17vw;
+        width : calc(var(--app-width) * .17);
         height: auto;
         margin-right: 10px;
         margin-left: 10px;
@@ -513,7 +514,7 @@
     }
 
     .YouTube {
-        width : 17vw;
+        width : calc(var(--app-width) * .17);
         height: auto;
         margin-right: 10px;
         margin-left: 10px;
@@ -539,7 +540,7 @@
     }
 
     .GetYourStart {
-        width : 17vw;
+        width : calc(var(--app-width) * .17);
         height: auto;
         margin-right: 10px;
         margin-left: 10px;
@@ -585,7 +586,7 @@
     }
 
         .PageDetails p {
-            font-size: 3vh;
+            font-size: calc(var(--app-height) * .03);
         }
 
 
@@ -599,7 +600,7 @@
 
 
         .PageDetails h2 {
-            font-size: 3vh;
+            font-size: calc(var(--app-height) * .03);
         }
 
 
@@ -621,7 +622,7 @@
 
 
     .header {
-        font-size : 3vh;
+        font-size : calc(var(--app-height) * .03);
         margin: 0 0 0 0;
     }
 
@@ -641,7 +642,7 @@
         align-items: center;
         width: 70%;
         height: fit-content;
-        margin-bottom: 25vh;
+        margin-bottom: calc(var(--app-height) * .25);
     }
 
     .NameAndLogo {
@@ -670,7 +671,7 @@
 
     .SectionName {
         color: white;
-        font-size: 4vw;
+        font-size: calc(var(--app-width) * .04);
         font-family: GlitchFont;
     }
 
@@ -690,7 +691,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        font-size: 4.2vw;
+        font-size: calc(var(--app-width) * .042);
         font-weight: 500;
     }
 
@@ -730,7 +731,7 @@
         .LinkedInImageContainer {
             height : 100%;
             width : 50%;
-            margin-right: 1vw;
+            margin-right: calc(var(--app-width) * .01);
         }
     }
 

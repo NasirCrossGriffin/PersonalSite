@@ -15,7 +15,7 @@
     }
 
     .container {
-        margin-top: 5vh;
+        margin-top: calc(var(--app-height) * .05);
     }
 
     .LandingPage {
@@ -38,8 +38,8 @@
 
     @media (min-width : 768px) {
         .LandingPageText {
-            font-size: 2vw;
-            width: 60vw;
+            font-size: calc(var(--app-width) * .02);
+            width: calc(var(--app-width) * .6);
         }
     }
 
@@ -260,7 +260,7 @@
         animation: microjit var(--dur) steps(20,end) infinite,
         pop calc(var(--dur)*3) linear infinite;
         transform-origin: inherit;
-        height : 40vh;
+        height : calc(var(--app-height) * .4);
         width : auto;
         position : relative;
         margin : 0px 5% 0px 5%;
@@ -271,7 +271,7 @@
         flex-direction: column;
         justify-content: flex-start;
         position : relative;
-        height: 20vh;
+        height: calc(var(--app-height) * .2);
         width : 80%;
         text-align: center;
     }
