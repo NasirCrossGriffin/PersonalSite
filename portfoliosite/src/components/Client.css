@@ -703,9 +703,8 @@
     font-family: 'Montserrat';
     color : white;
     background-color: black;
-    font-size: clamp(7px, calc(var(--app-width) * .017), 32px);
-    font-weight: 500;
-    padding: 15px 15px 15px 15px;
+    font-size: clamp(7px, calc(var(--app-width) * .011), 32px);
+    padding: 10px 15px 10px 15px;
     min-width: fit-content;
     min-height: fit-content;
 
@@ -870,9 +869,8 @@
         font-family: 'Montserrat';
         color : white;
         background-color: black;
-        font-size: clamp(16px, calc(var(--app-width) * .07), 32px);
-        font-weight: 500;
-        padding: 15px 15px 15px 15px;
+        font-size: clamp(7px, calc(var(--app-width) * .03), 32px);
+        padding: 10px 15px 10px 15px;
         min-width: fit-content;
         min-height: fit-content;
 
