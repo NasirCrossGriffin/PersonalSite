@@ -51,15 +51,15 @@ function App() {
         console.log(pageHeight);
     };
 
-      const resetPageHeight = () => {
-        document.documentElement.style.setProperty(
-            "--page-height",
-            `${0}px`
-        );
-        
-        console.log(document.documentElement.style.getPropertyValue(
-            "--page-height"
-        ));
+    const resetPageHeight = () => {
+      document.documentElement.style.setProperty(
+          "--page-height",
+          `${0}px`
+      );
+      
+      console.log(document.documentElement.style.getPropertyValue(
+          "--page-height"
+      ));
     };
   
     requestAnimationFrame(() => {
@@ -125,6 +125,42 @@ function App() {
     });
 
     resizeObserver.observe(document.body);
+
+    const isMobile = window.matchMedia("(pointer: coarse)").matches;
+
+    let maxSeenHeight = 0;
+
+    const setMobileAppHeight = () => {
+      const currentHeight = window.visualViewport?.height || window.innerHeight;
+
+      // Only grow height, never shrink it
+      if (currentHeight > maxSeenHeight) {
+        maxSeenHeight = currentHeight;
+
+        document.documentElement.style.setProperty(
+          "--app-height",
+          `${maxSeenHeight}px`
+        );
+      }
+    };
+
+    if (isMobile) {
+      setMobileAppHeight();
+
+      setTimeout(setMobileAppHeight, 300);
+      setTimeout(setMobileAppHeight, 800);
+      setTimeout(setMobileAppHeight, 1500);
+
+      window.visualViewport?.addEventListener("resize", setMobileAppHeight);
+      window.addEventListener("orientationchange", () => {
+        maxSeenHeight = 0;
+        setTimeout(setMobileAppHeight, 500);
+      });
+
+      return () => {
+        window.visualViewport?.removeEventListener("resize", setMobileAppHeight);
+      };
+    }
   }, []);
 
   useEffect(() => {
