@@ -49,6 +49,22 @@
         align-items: center;
     }
 
+        .NavBar .ClientLink {
+        color: white;
+        font-family: HackedFont;
+        font-size: calc(var(--app-width) * .023);
+        font-weight: bold;
+        margin: 0px 5% 0px 5%;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        transition: color 300ms ease-in-out;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
     .NavBar .Link:hover {
         color: rgb(0, 5, 54);
         transform: scale(1.2);
@@ -104,6 +120,22 @@
     }
 
     .NavBar .Link {
+        color: white;
+        font-family: HackedFont;
+        font-size: calc(var(--app-height) * .015);
+        font-weight: bold;
+        margin: 0px 5% 0px 5%;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        transition: color 300ms ease-in-out;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .NavBar .ClientLink {
         color: white;
         font-family: HackedFont;
         font-size: calc(var(--app-height) * .015);

@@ -131,3 +131,15 @@ html {
     filter: none !important;
   }
 }
+
+@property --app-height {
+  syntax: "<integer>";
+  inherits: false;
+  initial-value: 100svh;
+}
+
+@property --app-width {
+  syntax: "<integer>";
+  inherits: false;
+  initial-value: 100svw;
+}

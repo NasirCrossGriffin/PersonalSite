@@ -7,14 +7,25 @@ import Projects from './components/Projects';
 import { BrowserRouter, Navigate, Routes, Route, redirect} from "react-router-dom";
 import "./App.css"
 import Systems from './components/Systems';
-import Client from './components/Client';
+import Footer from './components/Footer';
+import AccessibilityStatement from './components/AccessibilityStatement';
+import ContactFooter from './components/ContactFooter';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import TermsOfUse from './components/TermsOfUse';
+import WebsiteDisclaimer from './components/WebsiteDisclaimer';
+
+
+
 
 function App() {
   const [orientation, setOrientation] = useState(null);
+  const [appHeight, setAppHeight] = useState(0);
+  const [appWidth, setAppWidth] = useState(0);
+  const [pageHeight, setPageHeight] = useState(0);
 
   useEffect(() => {
     function determineOrientation() {
-      window.innerWidth > window.innerHeight ? setOrientation('landscape') : setOrientation('portrait')
+      window.innerWidth > window.innerHeight ? setOrientation('landscape') : setOrientation('portrait');
     }
 
     const isBrowserFullscreen = () => {
@@ -30,6 +41,7 @@ function App() {
         console.log(height);
 
         document.documentElement.style.setProperty("--app-height", `${height}px`);
+        setAppHeight(height)
     };
   
     const setWidth = () => {
@@ -38,9 +50,10 @@ function App() {
         console.log(width);
 
         document.documentElement.style.setProperty("--app-width", `${width}px`);
-    };
+        setAppWidth(width)
+      };
 
-    const setPageHeight = () => {
+    const setPageHeightFunc = () => {
         const pageHeight = document.documentElement.scrollHeight;
 
         document.documentElement.style.setProperty(
@@ -48,7 +61,7 @@ function App() {
             `${pageHeight}px`
         );
 
-        console.log(pageHeight);
+        setPageHeight(pageHeight);
     };
 
     const resetPageHeight = () => {
@@ -60,6 +73,8 @@ function App() {
       console.log(document.documentElement.style.getPropertyValue(
           "--page-height"
       ));
+
+      setPageHeight(0)
     };
   
     requestAnimationFrame(() => {
@@ -69,7 +84,7 @@ function App() {
         resetPageHeight();
         requestAnimationFrame(() => {
           requestAnimationFrame(() => {
-            setPageHeight();
+            setPageHeightFunc();
             determineOrientation();
           })
         });
@@ -85,7 +100,7 @@ function App() {
             resetPageHeight();
             requestAnimationFrame(() => {
               requestAnimationFrame(() => {
-                setPageHeight();
+                setPageHeightFunc();
                 determineOrientation();
               })
             });
@@ -118,7 +133,7 @@ function App() {
         resetPageHeight();
         requestAnimationFrame(() => {
           requestAnimationFrame(() => {
-            setPageHeight();
+            setPageHeightFunc();
             determineOrientation();
           })
         });
@@ -128,7 +143,7 @@ function App() {
 
     const isMobile = window.matchMedia("(pointer: coarse)").matches;
 
-    let maxSeenHeight = 0;
+    let maxSeenHeight = window.visualViewport?.height || window.innerHeight;
 
     const setMobileAppHeight = () => {
       const currentHeight = window.visualViewport?.height || window.innerHeight;
@@ -151,7 +166,14 @@ function App() {
       setTimeout(setMobileAppHeight, 800);
       setTimeout(setMobileAppHeight, 1500);
 
-      window.visualViewport?.addEventListener("resize", setMobileAppHeight);
+      function setMobileDimensions() {
+        setMobileAppHeight();
+        requestAnimationFrame(() => {
+          setWidth();
+        })
+      }
+
+      window.visualViewport?.addEventListener("resize", setMobileDimensions);
       window.addEventListener("orientationchange", () => {
         maxSeenHeight = 0;
         setTimeout(setMobileAppHeight, 500);
@@ -183,9 +205,14 @@ function App() {
           <Route path="/about" element={<About />}/>
           <Route path="/contact" element={<Contact />}/> 
           <Route path="/projects" element={<Projects />}/>
-          <Route path="/client" element={<Client orientation={orientation} />}/> 
-          <Route path="/systems" element={<Systems />}/> 
+          <Route path="/systems" element={<Systems />}/>
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-use" element={<TermsOfUse />} />
+          <Route path="/website-disclaimer" element={<WebsiteDisclaimer />} />
+          <Route path="/accessibility" element={<AccessibilityStatement />} />
+          <Route path="/contact-footer" element={<ContactFooter />} /> 
         </Routes>
+        <Footer />
       </BrowserRouter>
       <div className='background'></div>
     </>

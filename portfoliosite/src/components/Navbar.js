@@ -9,8 +9,8 @@ function Navbar() {
     const [links, setLinks] = useState([
         {page : "About", link : "/about", isHovered : false, linkRef : React.createRef()},
         {page : "Software Eng", link : "/projects", isHovered : false, linkRef : React.createRef()},
-        {page : "Client Services", link : "/client", isHovered : false, linkRef : React.createRef()},
         {page : "Systems", link : "/systems", isHovered : false, linkRef : React.createRef()},
+        {page : "Client Services", link : "/client", isHovered : false, linkRef : React.createRef()},
         {page : "Contact", link : "/contact", isHovered : false, linkRef : React.createRef()},
     ])
 
@@ -41,7 +41,7 @@ function Navbar() {
                             timeout={300} 
                             classNames="link-node"
                         >    
-                            <Link onMouseEnter={() => handleMouseEnter(index)} onMouseLeave={() => handleMouseLeave(index)} ref={link.linkRef} variant="primary" dismissible to={link.link} className="Link">{link.page}</Link>
+                            {index !== 3 ? <Link onMouseEnter={() => handleMouseEnter(index)} onMouseLeave={() => handleMouseLeave(index)} ref={link.linkRef} variant="primary" dismissible to={link.link} className="Link">{link.page}</Link> : <a className='ClientLink' href='https://www.griffinmanagedwebsolutions.com/' target='_blank'>{link.page}</a>}
                         </CSSTransition>
                     ))
                 }

@@ -66,8 +66,8 @@ function LandingPage() {
                         </CSSTransition>
                     </div>
                 </div>
-                <div className='PortraitContainer' style={{ "--img": "url(https://www.nasirgriffin.com/static/pngimg.com%20-%20griffin_PNG48.png)"}}>
-                    <img src='/static/pngimg.com - griffin_PNG48.png' alt="Portrait" className="Portrait"/>
+                <div className='PortraitContainer' style={{ "--img": "url(https://www.nasirgriffin.com/static/Nasir_Griffin.png)"}}>
+                    <img src='/static/Nasir_Griffin.png' alt="Portrait" className="Portrait"/>
                 </div>
                 
             </div>

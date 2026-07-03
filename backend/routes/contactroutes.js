@@ -3,17 +3,33 @@ const express = require('express')
 const router = express.Router()
 dotenv = require("dotenv").config();
 
+console.log(process.env.RESEND_KEY)
+
 const resend = new Resend(process.env.RESEND_KEY);
 
 router.post("/", async (req, res) => {
+  console.log("Route entered")
+
   const email = req.body.email;
   const firstName = req.body.firstname;
   const lastName = req.body.lastname;
   const phone = req.body.phone;
   const message = req.body.message;
 
+  console.log(email)
+  console.log(firstName)
+  console.log(lastName)
+  console.log(phone)
+  console.log(message)
+
+  if (!(email.length > 0 && firstName.length > 0 && lastName.length > 0 && phone.length > 0 && message.length > 0)) {
+    console.log("Successfully blocked bad contact")
+    res.status(500).json("Contact was unsuccessful!");
+    return;
+  }
+    
   try {
-    await resend.batch.send([
+    const resendResult = await resend.batch.send([
       {
         from: "Nasir Griffin <no-reply@nasirgriffin.com>",
         to: [process.env.CLIENT_EMAIL],
@@ -164,9 +180,15 @@ router.post("/", async (req, res) => {
       },
     ]);
 
+    if (resendResult.error) {
+      throw new Error(resendResult.error);
+      return;
+    }
+
     res.status(200).json("Contact was successful!");
   } catch (err) {
     console.error(err);
+    console.log(err)
     res.status(500).json("Contact was unsuccessful!");
   }
 });
