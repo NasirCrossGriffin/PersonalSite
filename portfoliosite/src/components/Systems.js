@@ -110,15 +110,6 @@ function Systems() {
                                 evolve.
                             </p>
                         </div>
-
-                        <a
-                            className="ProjectLink"
-                            href="https://nasirgriffin.com/ultron"
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            CHECK OUT ULTRON
-                        </a>
                     </div>
                 </div>
             </div>
